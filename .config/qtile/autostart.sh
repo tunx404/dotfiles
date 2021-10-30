@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 xrandr --output DP-3 --rotate inverted
-picom &
+picom --experimental-backends &
 nitrogen --restore &
 # volumeicon &
 nm-applet &
@@ -10,3 +10,6 @@ kdeconnect-indicator &
 /usr/lib/notification-daemon-1.0/notification-daemon &
 # /usr/bin/ulauncher --hide-window --hide-window --hide-window --hide-window --hide-window --hide-window
 ulauncher &
+numlockx &
+fusuma &
+# plank &

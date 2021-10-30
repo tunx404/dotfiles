@@ -53,9 +53,53 @@ system_monitor = 'gnome-system-monitor'
 system_monitor_cli = terminal + ' -e htop'
 gpu_monitor = terminal + ' -e nvtop'
 sensor_monitor = terminal + ' -e watch sensors'
-# terminal     = guess_terminal()
+cpu_freq = terminal + ' -e watch -n1 "grep \"MHz\" /proc/cpuinfo"'
+system_info = terminal + ' -e neofetch'
+cli_fun = terminal + ' -e asciiquarium'
+gui_launcher = 'ulauncher'
+cli_launcher = 'dmenu_run'
+bluetooth_manager = 'blueman-manager'
 
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
+
+##################################################
+# Functions
+
+def screen_to_prev_group(qtile):
+    i = qtile.groups.index(qtile.current_group)
+    if i != 0:
+        qtile.current_screen.set_group(qtile.groups[i - 1])
+
+def screen_to_next_group(qtile):
+    i = qtile.groups.index(qtile.current_group)
+    if i + 1 != len(qtile.groups):
+        qtile.current_screen.set_group(qtile.groups[i + 1])
+
+def window_to_prev_group(qtile):
+    i = qtile.groups.index(qtile.current_group)
+    if i != 0:
+        if qtile.current_window is not None:
+            qtile.current_window.togroup(qtile.groups[i - 1].name)
+        qtile.current_screen.set_group(qtile.groups[i - 1])
+
+def window_to_next_group(qtile):
+    i = qtile.groups.index(qtile.current_group)
+    if i + 1 != len(qtile.groups):
+        if qtile.current_window is not None:
+            qtile.current_window.togroup(qtile.groups[i + 1].name)
+        qtile.current_screen.set_group(qtile.groups[i + 1])
+
+def window_to_previous_screen(qtile):
+    i = qtile.screens.index(qtile.current_screen)
+    if i != 0:
+        group = qtile.screens[i - 1].group.name
+        qtile.current_window.togroup(group)
+
+def window_to_next_screen(qtile):
+    i = qtile.screens.index(qtile.current_screen)
+    if i + 1 != len(qtile.screens):
+        group = qtile.screens[i + 1].group.name
+        qtile.current_window.togroup(group)
 
 ##################################################
 # Key bindings
@@ -88,24 +132,36 @@ keys = [
     Key([mod], 'e', lazy.spawn(file_manager), desc='File manager'),
     Key([mod], 't', lazy.spawn(text_editor),  desc='Text editor'),
     Key([mod], 'b', lazy.spawn(broswer),      desc='Broswer'),
-
-    Key([], 'F9', lazy.spawn('cpupower-gui'), desc='cpupower-gui'),
+    Key([mod], 'c', lazy.spawn('cpupower-gui'), desc='cpupower-gui'),
+    Key([mod, 'shift'], 'b', lazy.spawn(bluetooth_manager), desc='cpupower-gui'),
 
     # Keyboard layouts
-    Key([mod], 'space', lazy.widget['keyboardlayout'].next_keyboard(), desc='Next keyboard layout'),
+    # Key([mod], 'space', lazy.widget['keyboardlayout'].next_keyboard(), desc='Next keyboard layout'),
 
     # Launcher
-    Key([mod, 'control'], 'Return', lazy.spawn('dmenu_run'), desc='Launcher'),
-    Key(['control'], 'space', lazy.spawn('ulauncher-toggle'), desc='Ulauncher'),
+    Key([mod, 'control'], 'Return', lazy.spawn(cli_launcher), desc='CLI launcher'),
+    Key(['control'], 'space', lazy.spawn(gui_launcher), desc='GUI launcher'),
 
-    # Switch monitor
-    Key([mod], 'Right', lazy.to_screen(1), desc='Move focus to the next monitor'),
-    Key([mod], 'Left',  lazy.to_screen(0), desc='Move focus to the prev monitor'),
-    Key([mod, 'control', 'shift'], 'Left',  lazy.spawn('xrandr --output DP-3 --rotate left'),     desc='Rotate monitor 2 left'),
-    Key([mod, 'control', 'shift'], 'Right', lazy.spawn('xrandr --output DP-3 --rotate right'),    desc='Rotate monitor 2 right'),
-    Key([mod, 'control', 'shift'], 'Up',    lazy.spawn('xrandr --output DP-3 --rotate normal'),   desc='Rotate monitor 2 normal'),
-    Key([mod, 'control', 'shift'], 'Down',  lazy.spawn('xrandr --output DP-3 --rotate inverted'), desc='Rotate monitor 2 inverted'),
+    # Windows
+    Key([mod], 'Up',   lazy.window.toggle_fullscreen(), desc='Fullscreen'),
+    Key([mod], 'Down', lazy.window.toggle_floating(),   desc='Floating'),
+
+    # Groups
+    Key(['control', 'shift', 'mod1'], 'Right', lazy.function(window_to_next_group), desc='Move window to the next group'),
+    Key(['control', 'shift', 'mod1'], 'Left',  lazy.function(window_to_prev_group), desc='Move window to the prev group'),
+    Key(['control', 'mod1'], 'Right', lazy.function(screen_to_next_group), desc='Switch to the next group'),
+    Key(['control', 'mod1'], 'Left',  lazy.function(screen_to_prev_group), desc='Switch to the prev group'),
+
+    # Screens
+    Key([mod], 'Right', lazy.to_screen(1), desc='Move focus to the next screen'),
+    Key([mod], 'Left',  lazy.to_screen(0), desc='Move focus to the prev screen'),
+    Key([mod, 'control', 'shift'], 'Left',    lazy.spawn('xrandr --output DP-3 --rotate left'),     desc='Rotate monitor 2 left'),
+    Key([mod, 'control', 'shift'], 'Right',   lazy.spawn('xrandr --output DP-3 --rotate right'),    desc='Rotate monitor 2 right'),
+    Key([mod, 'control', 'shift'], 'Up',      lazy.spawn('xrandr --output DP-3 --rotate normal'),   desc='Rotate monitor 2 normal'),
+    Key([mod, 'control', 'shift'], 'Down',    lazy.spawn('xrandr --output DP-3 --rotate inverted'), desc='Rotate monitor 2 inverted'),
     Key([mod, 'control', 'shift'], 'Return',  lazy.spawn('nitrogen --restore'), desc='Reset wallpaper'),
+    Key([mod, 'shift'], 'Right', lazy.function(window_to_next_screen),     lazy.to_screen(1), desc='Move window to the next screen'),
+    Key([mod, 'shift'], 'Left',  lazy.function(window_to_previous_screen), lazy.to_screen(0), desc='Move window to the prev screen'),
 
     ####################
 
@@ -152,7 +208,7 @@ keys = [
 ##################################################
 # Groups
 
-groups = [Group(i) for i in '12345678']
+groups = [Group(i) for i in '123456789']
 
 for i in groups:
     keys.extend([
@@ -161,12 +217,12 @@ for i in groups:
             desc='Switch to group {}'.format(i.name)),
 
         # mod1 + shift + letter of group = switch to & move focused window to group
-        # Key([mod, 'shift'], i.name, lazy.window.togroup(i.name, switch_group=True),
-        #     desc='Switch to & move focused window to group {}'.format(i.name)),
+        Key([mod, 'shift'], i.name, lazy.window.togroup(i.name, switch_group=True),
+            desc='Switch to & move focused window to group {}'.format(i.name)),
         # Or, use below if you prefer not to switch to that group.
         # # mod1 + shift + letter of group = move focused window to group
-        Key([mod, 'shift'], i.name, lazy.window.togroup(i.name),
-            desc='move focused window to group {}'.format(i.name)),
+        # Key([mod, 'shift'], i.name, lazy.window.togroup(i.name),
+        #     desc='move focused window to group {}'.format(i.name)),
     ])
 
 
@@ -211,7 +267,7 @@ layouts = [
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
-    layout.Floating(**layout_theme)
+    # layout.Floating(**layout_theme),
 ]
 
 
@@ -229,16 +285,16 @@ widget_color = color_dracula['Transparent']
 def init_widget_list():
     def separator_right(bg_color, fg_color):
         return widget.TextBox(
-                        text='\\',
-                        fontsize=20,
+                        text='|',
+                        fontsize=16,
                         font='Inconsolata for Powerline',
                         background=bg_color,
                         foreground=fg_color)
 
     def separator_left(bg_color, fg_color):
         return widget.TextBox(
-                        text='/',
-                        fontsize=20,
+                        text='|',
+                        fontsize=16,
                         font='Inconsolata for Powerline',
                         background=bg_color,
                         foreground=fg_color)
@@ -246,8 +302,7 @@ def init_widget_list():
     widget_list = [
         widget.Image(
             filename='~/.config/qtile/icons/240px-Faenza-start-here-archlinux-symbolic.svg.png',
-            scale='false',
-            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal)}
+            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cli_fun)}
             ),
         widget.Prompt(
             prompt=prompt,
@@ -256,7 +311,6 @@ def init_widget_list():
             ),
 
         separator_left(widget_background_color, widget_foreground_color),
-
         widget.GroupBox(
             font='Inconsolata SemiBold',
             fontsize=14,
@@ -273,7 +327,6 @@ def init_widget_list():
             ),
 
         separator_left(widget_background_color, widget_foreground_color),
-
         widget.CurrentLayoutIcon(
             custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
             padding=0,
@@ -284,11 +337,12 @@ def init_widget_list():
             ),
 
         separator_left(widget_background_color, widget_foreground_color),
-
         widget.TaskList(
-            border=widget_foreground_color,
+            border=color_dracula['Comment'],
             borderwidth=1,
             max_title_width=200,
+            icon_size=16,
+            margin=1,
         ),
 
         ##########
@@ -303,57 +357,99 @@ def init_widget_list():
         # ),
 
         separator_right(widget_background_color, widget_foreground_color),
-        
         widget.OpenWeather(
             cityid='5206379',
-            format='{main_temp}°{units_temperature} {humidity}% {weather_details}',
+            format='{temp}°{units_temperature} {humidity}% {weather_details}',
         ),
 
         separator_right(widget_background_color, widget_foreground_color),
-        
         widget.Pomodoro(
             color_active=color_dracula['Red'],
             color_break=color_dracula['Green'],
             color_inactive=color_dracula['Foreground'],
         ),
 
-        separator_right(widget_background_color, widget_foreground_color),
+        # separator_right(widget_background_color, widget_foreground_color),
         
-        widget.CPU(
+        # widget.CPU(
+        #     line_width=1,
+        #     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor_cli)},
+        # ),
+
+        # separator_right(widget_background_color, widget_foreground_color),
+        
+        # widget.Memory(
+        #     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor_cli)},
+        #     padding=5
+        #     ),
+
+        # separator_right(widget_background_color, widget_foreground_color),
+        
+        # widget.Net(
+        #     interface='wlo1',
+        #     format='{down} ↓↑ {up}',
+        #     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor)},
+        # ),
+
+        separator_right(widget_background_color, widget_foreground_color),
+        # sudo subl /lib/python3.9/site-packages/libqtile/widget/graph.py
+        widget.CPUGraph(
+            border_color=widget_foreground_color,
+            border_width=1,
+            fill_color=color_dracula['Comment'],
+            graph_color=widget_foreground_color,
+            line_width=1,
+            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cpu_freq)},
+            samples=60,
+        ),
+        
+        separator_right(widget_background_color, widget_foreground_color),
+        widget.MemoryGraph(
+            border_color=widget_foreground_color,
+            border_width=1,
+            fill_color=color_dracula['Current Line'],
+            graph_color=widget_foreground_color,
             line_width=1,
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor_cli)},
+            samples=60,
         ),
-
-        separator_right(widget_background_color, widget_foreground_color),
         
-        widget.Memory(
-            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor_cli)},
-            padding=5
-            ),
-
         separator_right(widget_background_color, widget_foreground_color),
-        
-        widget.Net(
-            interface='wlo1',
-            format='{down} ↓↑ {up}',
+        widget.NetGraph(
+            border_color=widget_foreground_color,
+            border_width=1,
+            fill_color=color_dracula['Current Line'],
+            graph_color=widget_foreground_color,
+            line_width=1,
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor)},
+            samples=60,
+            bandwidth_type='down',
         ),
 
         separator_right(widget_background_color, widget_foreground_color),
+        widget.NetGraph(
+            border_color=widget_foreground_color,
+            border_width=1,
+            fill_color=color_dracula['Current Line'],
+            graph_color=widget_foreground_color,
+            line_width=1,
+            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor)},
+            samples=60,
+            bandwidth_type='up',
+        ),
 
+        separator_right(widget_background_color, widget_foreground_color),
         widget.ThermalSensor(
             tag_sensor='Package id 0',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(sensor_monitor)},
         ),
 
         separator_right(widget_background_color, widget_foreground_color),
-
         widget.NvidiaSensors(
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(gpu_monitor)},
         ),
 
         separator_right(widget_background_color, widget_foreground_color),
-
         widget.Battery(
             format='{percent:2.0%}',
         ),
@@ -365,12 +461,10 @@ def init_widget_list():
         ),
 
         separator_right(widget_background_color, widget_foreground_color),
-
         widget.Systray(
         ),
 
         separator_right(widget_background_color, widget_foreground_color),
-
         widget.Clock(
             format="%a %d/%m %H:%M:%S"
         ),
@@ -385,9 +479,6 @@ def init_widget_list():
         #         widget.Memory()
         #     ]
         # ),
-        # widget.CPUGraph(),
-        # widget.MemoryGraph(),
-        # widget.NetGraph(),
         # widget.HDDBusyGraph(),
         # widget.CheckUpdates(
         #     background=widget_background_color,
@@ -419,7 +510,7 @@ def init_widget_list():
     return widget_list
     
 widget_list1 = init_widget_list()
-widget_list2 = init_widget_list()[:-3]+ init_widget_list()[-2:]
+widget_list2 = init_widget_list()[:-3] + init_widget_list()[-1:]
 
 widget_defaults = dict(
     font='Inconsolata for Powerline',
