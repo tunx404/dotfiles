@@ -39,9 +39,47 @@ import re
 import socket
 import subprocess
 
+##################################################
+# Dracula Color Palette
+
+color_dracula = {
+    'Background':   '#282a36',
+    'Current Line': '#44475a',
+    'Foreground':   '#f8f8f2',
+    'Comment':      '6272a4',
+    'Cyan':         '#8be9fd',
+    'Green':        '#50fa7b',
+    'Orange':       '#ffb86c',
+    'Pink':         '#ff79c6',
+    'Purple':       '#bd93f9',
+    'Red':          '#ff5555',
+    'Yellow':       '#f1fa8c',
+    'Transparent':  '#00000000',
+}
 
 ##################################################
-#Applications
+# Configurations
+
+layout_margin = 2
+
+font = 'Inconsolata for Powerline'
+
+widget_background_color = None
+# widget_background_color = color_dracula['Transparent']
+# widget_background_color = color_dracula['Background']
+widget_foreground_color = color_dracula['Foreground']
+# widget_foreground_color = color_dracula['Red']
+
+bar_size = 28
+bar_margin = [layout_margin, layout_margin, 0, layout_margin]
+bar_margin = [0, 0, layout_margin, 0]
+bar_background = color_dracula['Transparent']
+# bar_background = color_dracula['Background']
+# bar_opacity = 1
+bar_opacity = 0.85
+
+##################################################
+# Applications
 
 mod          = 'mod4'
 terminal     = 'alacritty'
@@ -56,9 +94,21 @@ sensor_monitor = terminal + ' -e watch sensors'
 cpu_freq = terminal + ' -e watch -n1 "grep \"MHz\" /proc/cpuinfo"'
 system_info = terminal + ' -e neofetch'
 cli_fun = terminal + ' -e asciiquarium'
+bluetooth_manager = 'blueman-manager'
+calculator = 'galculator'
+
 gui_launcher = 'ulauncher'
 cli_launcher = 'dmenu_run'
-bluetooth_manager = 'blueman-manager'
+app_launcher = 'rofi -modi drun -show drun -display-drun "RUN"'
+file_launcher = 'rofi -show find -modi find:~/.config/rofi/finder.sh'
+window_switcher = 'rofi -show window'
+
+change_wallpaper_0 = 'nitrogen --set-zoom-fill --random --save /home/tunx404/.wallpapers/Ultra-wide'
+change_wallpaper_1 = 'nitrogen --head=0 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide'
+change_wallpaper_2 = 'nitrogen --head=1 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide'
+
+# screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "xclip -selection clip -t image/png -i $f; mv $f ~/Pictures"'
+screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "mv $f ~/Pictures"'
 
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
@@ -125,22 +175,39 @@ keys = [
             '/org/mpris/MediaPlayer2'
             'org.mpris.MediaPlayer2.Player.PlayPause')),
 
+    Key([], 'XF86Calculator', lazy.spawn(calculator)),
+
     # Qtile
     Key([mod, 'control'], 'r', lazy.restart(), desc='Reload the config'),
 
     # Applications
+    Key([mod], 'm', lazy.spawn(system_monitor), desc='System monitor'),
     Key([mod], 'e', lazy.spawn(file_manager), desc='File manager'),
     Key([mod], 't', lazy.spawn(text_editor),  desc='Text editor'),
     Key([mod], 'b', lazy.spawn(broswer),      desc='Broswer'),
     Key([mod], 'c', lazy.spawn('cpupower-gui'), desc='cpupower-gui'),
-    Key([mod, 'shift'], 'b', lazy.spawn(bluetooth_manager), desc='cpupower-gui'),
+    Key([mod, 'shift'], 'b', lazy.spawn(bluetooth_manager), desc='Bluetooth manager'),
+
+    # Wallpapers
+    Key([mod, 'control', 'shift'], '0', lazy.spawn(change_wallpaper_0), desc='Change wallpaper on both screen'),
+    Key([mod, 'control', 'shift'], '1', lazy.spawn(change_wallpaper_1), desc='Change wallpaper on screen 1'),
+    Key([mod, 'control', 'shift'], '2', lazy.spawn(change_wallpaper_2), desc='Change wallpaper on screen 2'),
+
+    # Screenshots
+    Key([], 'Print', lazy.spawn('scrot' + screenshot_clipboard), desc='Screenshot'),
+    Key(['control'], 'Print', lazy.spawn('scrot -u' + screenshot_clipboard), desc='Screenshot'),
+    Key(['shift'], 'Print', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot'),
+    Key([mod, 'shift'], 's', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot'),
 
     # Keyboard layouts
     # Key([mod], 'space', lazy.widget['keyboardlayout'].next_keyboard(), desc='Next keyboard layout'),
 
     # Launcher
-    Key([mod, 'control'], 'Return', lazy.spawn(cli_launcher), desc='CLI launcher'),
+    Key([mod], 'd', lazy.spawn(cli_launcher), desc='CLI launcher'),
+    Key([mod], 'r', lazy.spawn(app_launcher), desc='Application launcher'),
+    Key([mod], 'f', lazy.spawn(file_launcher), desc='File launcher'),
     Key(['control'], 'space', lazy.spawn(gui_launcher), desc='GUI launcher'),
+    Key(['mod1'], 'Tab', lazy.spawn(window_switcher), desc='Switch window'),
 
     # Windows
     Key([mod], 'Up',   lazy.window.toggle_fullscreen(), desc='Fullscreen'),
@@ -201,7 +268,7 @@ keys = [
 
     # Key([mod, 'control'], 'r', lazy.reload_config(), desc='Reload the config'),
     Key([mod, 'control'], 'q', lazy.shutdown(), desc='Shutdown Qtile'),
-    Key([mod], 'r', lazy.spawncmd(), desc='Spawn a command using a prompt widget'),
+    Key([mod, 'shift'], 'r', lazy.spawncmd(), desc='Spawn a command using a prompt widget'),
 ]
 
 
@@ -225,136 +292,117 @@ for i in groups:
         #     desc='move focused window to group {}'.format(i.name)),
     ])
 
-
-##################################################
-# Dracula Color Palette
-
-color_dracula = {
-    'Background':   '#282a36',
-    'Current Line': '#44475a',
-    'Foreground':   '#f8f8f2',
-    'Comment':      '6272a4',
-    'Cyan':         '#8be9fd',
-    'Green':        '#50fa7b',
-    'Orange':       '#ffb86c',
-    'Pink':         '#ff79c6',
-    'Purple':       '#bd93f9',
-    'Red':          '#ff5555',
-    'Yellow':       '#f1fa8c',
-    'Transparent':  '#00000000',
-}
-
 ##################################################
 # Layouts
 
-layout_theme = {'border_width': 2,
-                'margin': 4,
-                'border_focus': color_dracula['Comment'],
-                'border_normal': color_dracula['Current Line']
+layout_config = {'border_width': 1,
+                'margin': layout_margin,
+                # 'border_focus': color_dracula['Comment'],
+                'border_focus': color_dracula['Foreground'],
+                # 'border_normal': color_dracula['Current Line'],
+                'border_normal': color_dracula['Comment'],
 }
 
 layouts = [
-    layout.Columns(**layout_theme),
-    layout.Max(**layout_theme),
+    layout.Columns(
+        **layout_config,
+        # border_on_single=True,
+    ),
+    layout.Max(**layout_config),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
     # layout.MonadTall(),
     # layout.MonadWide(),
-    layout.RatioTile(**layout_theme),
+    layout.RatioTile(**layout_config),
     # layout.Tile(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
-    # layout.Floating(**layout_theme),
+    # layout.Floating(**layout_config),
 ]
 
 
 ##################################################
 # Screens
 
-# widget_background_color = color_dracula['Background']
-widget_background_color = color_dracula['Transparent']
-# widget_background_color = color_dracula['Red']
-widget_foreground_color = color_dracula['Foreground']
-# widget_foreground_color = color_dracula['Red']
-widget_color = color_dracula['Transparent']
-# widget_color = color_dracula['Current Line']
+# sudo subl /lib/python3.9/site-packages/libqtile/widget/graph.py
+graph_config = dict(
+    border_color=widget_foreground_color,
+    border_width=1,
+    fill_color=widget_foreground_color,
+    graph_color=widget_foreground_color,
+    line_width=1,
+    samples=60,
+)
 
 def init_widget_list():
     def separator_right(bg_color, fg_color):
         return widget.TextBox(
-                        text='|',
-                        fontsize=16,
-                        font='Inconsolata for Powerline',
-                        background=bg_color,
-                        foreground=fg_color)
+            text='|',
+            fontsize=16,
+            # background=bg_color,
+            # foreground=fg_color,
+        )
 
     def separator_left(bg_color, fg_color):
         return widget.TextBox(
-                        text='|',
-                        fontsize=16,
-                        font='Inconsolata for Powerline',
-                        background=bg_color,
-                        foreground=fg_color)
+            text='|',
+            fontsize=16,
+            # background=bg_color,
+            # foreground=fg_color,
+        )
 
     widget_list = [
         widget.Image(
-            filename='~/.config/qtile/icons/240px-Faenza-start-here-archlinux-symbolic.svg.png',
-            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cli_fun)}
-            ),
+            filename='~/.config/qtile/icons/Manjaro_logo_white.png',
+            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cli_fun)},
+            margin=4,
+        ),
         widget.Prompt(
             prompt=prompt,
             font='Inconsolata for Powerline',
-            padding=10,
-            ),
+        ),
 
         separator_left(widget_background_color, widget_foreground_color),
         widget.GroupBox(
             font='Inconsolata SemiBold',
             fontsize=14,
-            active=color_dracula['Foreground'],
-            inactive=color_dracula['Current Line'],
+            # active=color_dracula['Foreground'],
+            # inactive=color_dracula['Current Line'],
             block_highlight_text_color=color_dracula['Foreground'],
-            highlight_color=color_dracula['Current Line'],
+            # highlight_color=color_dracula['Current Line'],
+            # highlight_color=color_dracula['Comment'],
+            highlight_color=color_dracula['Red'],
             highlight_method='line',
             this_current_screen_border=color_dracula['Foreground'],
-            this_screen_border=color_dracula['Comment'],
+            this_screen_border=color_dracula['Current Line'],
             other_current_screen_border=color_dracula['Foreground'],
-            other_screen_border=color_dracula['Comment'],
+            other_screen_border=color_dracula['Current Line'],
             hide_unused=True,
-            ),
+        ),
 
         separator_left(widget_background_color, widget_foreground_color),
         widget.CurrentLayoutIcon(
             custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
             padding=0,
             scale=0.7
-            ),
+        ),
         widget.CurrentLayout(
             padding=5
-            ),
+        ),
 
         separator_left(widget_background_color, widget_foreground_color),
         widget.TaskList(
-            border=color_dracula['Comment'],
+            border=color_dracula['Foreground'],
             borderwidth=1,
             max_title_width=200,
             icon_size=16,
             margin=1,
         ),
 
-        ##########
-
-        # widget.Spacer(),
-
-        ##########
-
-        # widget.Notify(
-        #     background=color_dracula['Red'],
-        #     max_chars=100,
-        # ),
+        ####################
 
         separator_right(widget_background_color, widget_foreground_color),
         widget.OpenWeather(
@@ -392,49 +440,28 @@ def init_widget_list():
         # ),
 
         separator_right(widget_background_color, widget_foreground_color),
-        # sudo subl /lib/python3.9/site-packages/libqtile/widget/graph.py
         widget.CPUGraph(
-            border_color=widget_foreground_color,
-            border_width=1,
-            fill_color=color_dracula['Comment'],
-            graph_color=widget_foreground_color,
-            line_width=1,
+            **graph_config,
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cpu_freq)},
-            samples=60,
         ),
         
         separator_right(widget_background_color, widget_foreground_color),
         widget.MemoryGraph(
-            border_color=widget_foreground_color,
-            border_width=1,
-            fill_color=color_dracula['Current Line'],
-            graph_color=widget_foreground_color,
-            line_width=1,
+            **graph_config,
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor_cli)},
-            samples=60,
         ),
         
         separator_right(widget_background_color, widget_foreground_color),
         widget.NetGraph(
-            border_color=widget_foreground_color,
-            border_width=1,
-            fill_color=color_dracula['Current Line'],
-            graph_color=widget_foreground_color,
-            line_width=1,
+            **graph_config,
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor)},
-            samples=60,
             bandwidth_type='down',
         ),
 
         separator_right(widget_background_color, widget_foreground_color),
         widget.NetGraph(
-            border_color=widget_foreground_color,
-            border_width=1,
-            fill_color=color_dracula['Current Line'],
-            graph_color=widget_foreground_color,
-            line_width=1,
+            **graph_config,
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor)},
-            samples=60,
             bandwidth_type='up',
         ),
 
@@ -449,31 +476,29 @@ def init_widget_list():
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(gpu_monitor)},
         ),
 
-        separator_right(widget_background_color, widget_foreground_color),
-        widget.Battery(
-            format='{percent:2.0%}',
-        ),
+        # separator_right(widget_background_color, widget_foreground_color),
+        # widget.Battery(
+        #     format='{percent:2.0%}',
+        # ),
 
         separator_right(widget_background_color, widget_foreground_color),
-
         widget.Volume(
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(volume_controller)},
         ),
 
         separator_right(widget_background_color, widget_foreground_color),
-        widget.Systray(
-        ),
+        widget.Systray(),
 
         separator_right(widget_background_color, widget_foreground_color),
         widget.Clock(
-            format="%a %d/%m %H:%M:%S"
+            format="%a %d/%m %H:%M:%S",
+            # padding=8,
         ),
 
         # widget.Backlight(),
         # widget.LaunchBar(progs=[('thunderbird', 'thunderbird -safe-mode', 'launch thunderbird in safe mode')]),
         # widget.AGroupBox(),
         # widget.WindowTabs(),
-        # widget.StatusNotifier(),
         # widget.WidgetBox(widgets=[
         #         widget.TextBox(text="This widget is in the box"),
         #         widget.Memory()
@@ -513,21 +538,17 @@ widget_list1 = init_widget_list()
 widget_list2 = init_widget_list()[:-3] + init_widget_list()[-1:]
 
 widget_defaults = dict(
-    font='Inconsolata for Powerline',
+    font=font,
     fontsize=14,
     padding=3,
     background=widget_background_color,
+    foreground=widget_foreground_color,
 )
-# widget_defaults = dict(
-#     font='sans',
-#     fontsize=12,
-#     padding=3,
-# )
 extension_defaults = widget_defaults.copy()
 
 screens = [
-    Screen(top=bar.Bar(widgets=widget_list1, size=24, background=widget_color)),
-    Screen(top=bar.Bar(widgets=widget_list2, size=24, background=widget_color)),
+    Screen(top=bar.Bar(widgets=widget_list1, size=bar_size, background=bar_background, margin=bar_margin, opacity=bar_opacity)),
+    Screen(top=bar.Bar(widgets=widget_list2, size=bar_size, background=bar_background, margin=bar_margin, opacity=bar_opacity)),
 ]
 
 

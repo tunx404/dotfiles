@@ -13,3 +13,6 @@ ulauncher &
 numlockx &
 fusuma &
 # plank &
+powerkit &
+xss-lock -- /usr/bin/slock &
+# xss-lock -- /usr/bin/xscreensaver-command -lock &
