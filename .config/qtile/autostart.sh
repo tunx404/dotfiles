@@ -16,3 +16,5 @@ fusuma &
 powerkit &
 xss-lock -- /usr/bin/slock &
 # xss-lock -- /usr/bin/xscreensaver-command -lock &
+optimus-manager-qt &
+insync start
