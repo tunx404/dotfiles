@@ -1,3 +1,13 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+PS1='[\u@\h \W]\$ '
+
 # IBus
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
@@ -39,15 +49,11 @@ export ANDROID_KERNEL=~/kernel/arch/arm/boot/zImage
 eval "$(starship init bash)"
 
 # Dotfiles
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # neofetch
 # pfetch
 paleofetch
-
-# odrive
-export PATH=~/.odrive-agent/bin:$PATH
-# nohup odriveagent > /dev/null 2>&1 &
 
 # Miscellaneous
 export MYHOME=~/SSD1/Miscellaneous

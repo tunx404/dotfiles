@@ -470,17 +470,17 @@ layouts = [
         border_on_single=True,
     ),
     layout.Max(**layout_config),
-    layout.Stack(**layout_config, num_stacks=2),
-    layout.Bsp(**layout_config),
-    layout.Matrix(**layout_config),
-    layout.MonadTall(**layout_config),
-    layout.MonadWide(**layout_config),
+    # layout.Stack(**layout_config, num_stacks=2),
+    # layout.Bsp(**layout_config),
+    # layout.Matrix(**layout_config),
+    # layout.MonadTall(**layout_config),
+    # layout.MonadWide(**layout_config),
     layout.RatioTile(**layout_config),
-    layout.Tile(**layout_config),
-    layout.TreeTab(**layout_config),
-    layout.VerticalTile(**layout_config),
-    layout.Zoomy(**layout_config),
-    layout.Floating(**layout_config),
+    # layout.Tile(**layout_config),
+    # layout.TreeTab(**layout_config),
+    # layout.VerticalTile(**layout_config),
+    # layout.Zoomy(**layout_config),
+    # layout.Floating(**layout_config),
 ]
 
 
@@ -516,7 +516,7 @@ def init_widget_list():
 
     widget_list = [
         widget.Image(
-            filename='~/.config/qtile/icons/Manjaro_logo_white.png',
+            filename='~/.config/qtile/icons/arch.png',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cli_fun)},
             margin=4,
         ),
@@ -605,7 +605,7 @@ def init_widget_list():
 
         separator_right(widget_background_color, widget_foreground_color),
         widget.Net(
-            interface='wlo1',
+            interface='wlan0',
             format='{down} ↓↑ {up}',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor)},
         ),

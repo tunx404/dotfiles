@@ -2,35 +2,35 @@
     "com.github.ikorjefocur.ulauncher-commandrunner": {
         "id": "com.github.ikorjefocur.ulauncher-commandrunner",
         "url": "https://github.com/IkorJefocur/ulauncher-commandrunner",
-        "updated_at": "2021-10-06T20:23:24.809369",
-        "last_commit": "25c09c3e803296e66873d727a0c870290deb7ac7",
-        "last_commit_time": "2021-09-24T14:05:09"
+        "updated_at": "2021-11-06T00:44:47.854973",
+        "last_commit": "dfd7bc08ac4764612ce50d2d26a665db7d975be6",
+        "last_commit_time": "2021-10-31T14:33:55"
     },
     "com.github.pbkhrv.ulauncher-keepassxc": {
         "id": "com.github.pbkhrv.ulauncher-keepassxc",
         "url": "https://github.com/pbkhrv/ulauncher-keepassxc",
-        "updated_at": "2021-10-06T20:25:24.294676",
+        "updated_at": "2021-11-06T00:44:49.745439",
         "last_commit": "11309e2d7107fd1921dbce0295ba584203475307",
         "last_commit_time": "2021-06-16T17:57:16"
     },
     "com.github.ulauncher.ulauncher-emoji": {
         "id": "com.github.ulauncher.ulauncher-emoji",
         "url": "https://github.com/Ulauncher/ulauncher-emoji",
-        "updated_at": "2021-10-06T20:33:02.468787",
+        "updated_at": "2021-11-06T00:44:59.342132",
         "last_commit": "4c6af50d1c9a24d5aad2c597634ff0c634972a5c",
         "last_commit_time": "2021-08-08T19:19:59"
     },
     "com.github.briceio.ulauncher-baloo": {
         "id": "com.github.briceio.ulauncher-baloo",
         "url": "https://github.com/briceio/ulauncher-baloo",
-        "updated_at": "2021-10-06T20:34:13.939598",
+        "updated_at": "2021-11-06T00:45:01.638377",
         "last_commit": "b4543797666f6a60ff52ab35ad37bec0882dcf80",
         "last_commit_time": "2020-10-23T11:36:24"
     },
     "com.github.manahter.ulauncher-translate": {
         "id": "com.github.manahter.ulauncher-translate",
         "url": "https://github.com/manahter/ulauncher-translate",
-        "updated_at": "2021-10-06T21:57:13.927279",
+        "updated_at": "2021-11-06T00:45:04.638015",
         "last_commit": "f81d32c583c7e3542bdba655e991a56e6d9a2c28",
         "last_commit_time": "2021-04-09T18:12:40"
     }
