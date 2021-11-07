@@ -66,7 +66,7 @@ color_dracula = {
 
 layout_margin = 2
 
-font = 'Inconsolata for Powerline'
+font = 'Ubuntu Condensed Regular'
 
 widget_background_color = None
 # widget_background_color = color_dracula['Transparent']
@@ -369,9 +369,9 @@ keys = [
     Key([], 'XF86MonBrightnessUp',   lazy.spawn('brightnessctl set +10%')),
     Key([], 'XF86MonBrightnessDown', lazy.spawn('brightnessctl set 10%-')),
 
-    Key([], 'XF86AudioLowerVolume', lazy.spawn('amixer sset Master,0 5%-')),
-    Key([], 'XF86AudioRaiseVolume', lazy.spawn('amixer sset Master,0 5%+')),
-    Key([], 'XF86AudioMute',        lazy.spawn('amixer sset Master,0 toggle')),
+    Key([], 'XF86AudioLowerVolume', lazy.spawn('pulseaudio-ctl down 5')),
+    Key([], 'XF86AudioRaiseVolume', lazy.spawn('pulseaudio-ctl up 5')),
+    Key([], 'XF86AudioMute',        lazy.spawn('pulseaudio-ctl mute')),
     Key([], 'XF86AudioPlay',        lazy.spawn(
         'dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify'
         '/org/mpris/MediaPlayer2'
@@ -528,6 +528,7 @@ def init_widget_list():
         separator_left(widget_background_color, widget_foreground_color),
         widget.GroupBox(
             # font='Inconsolata SemiBold',
+            font=font,
             fontsize=28,
             # active=color_dracula['Foreground'],
             # inactive=color_dracula['Current Line'],
@@ -622,7 +623,8 @@ def init_widget_list():
         ),
 
         separator_right(widget_background_color, widget_foreground_color),
-        widget.Volume(
+        widget.PulseVolume(
+            limit_max_volume=True,
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(volume_controller)},
         ),
 
