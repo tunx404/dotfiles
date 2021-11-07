@@ -110,7 +110,8 @@ timer = 'pomotroid'
 # DIR
 file_manager = 'nemo'
 # WEB
-broswer = 'google-chrome-stable'
+browser = 'google-chrome-stable'
+email_client = 'thunderbird'
 music_playlist = 'google-chrome-stable https://www.youtube.com/playlist?list=PL14zqHuhShBB2_PRQOaD3imODj0Ejzjcv'
 # DEV
 text_editor  = 'subl'
@@ -145,8 +146,8 @@ change_wallpaper_2   = 'nitrogen --head=1 --set-zoom-fill --random --save /home/
 change_wallpaper_dracula_1 = 'nitrogen --head=0 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide/Dracula'
 change_wallpaper_dracula_2 = 'nitrogen --head=1 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide/Dracula'
 
-# screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "xclip -selection clip -t image/png -i $f; mv $f ~/Pictures"'
-screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "mv $f ~/Pictures"'
+# screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "xclip -selection clip -t image/png -i $f; mv $f ~/SSD1/Miscellaneous"'
+screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "mv $f ~/SSD1/Miscellaneous"'
 
 change_dual_monitor_state = 'sh /home/tunx404/.config/qtile/change_dual_monitor_state.sh'
 
@@ -209,7 +210,7 @@ keys = [
     # DIR
     Key([mod], 'e',  lazy.function(app_to_group(group_names[0], file_manager)), desc='File manager'),
     # WEB
-    Key([mod], 'c',  lazy.function(app_to_group(group_names[1], broswer)),      desc='Broswer'),
+    Key([mod], 'c',  lazy.function(app_to_group(group_names[1], browser)),      desc='browser'),
     Key([mod], 'u',  lazy.function(app_to_group(group_names[1], music_playlist)), desc='Music playlist'),
     # DEV
     Key([mod], 't',  lazy.function(app_to_group(group_names[2], text_editor)),  desc='Text editor'),
@@ -228,7 +229,8 @@ keys = [
         # DIR
         lazy.spawn(file_manager),
         # WEB
-        lazy.spawn(broswer),
+        lazy.spawn(email_client),
+        lazy.spawn(browser),
         # DEV
         lazy.spawn(text_editor),
         # DOC
@@ -400,11 +402,11 @@ num_groups = 10
 
 group_matches = [
     [Match(wm_class=['Nemo', 'Insync'])],
-    [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'Whatsapp-for-linux', 'Cisco AnyConnect Secure Mobility Client', 'Ao'])],
+    [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'Whatsapp-for-linux', 'Cisco AnyConnect Secure Mobility Client', 'Thunderbird'])],
     [Match(wm_class=['Subl', 'pomotroid', 'jetbrains-studio'])],
     [Match(wm_class=['qpdfview', 'pdf'])],
     [Match(wm_class=[])],
-    [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph'])],
+    [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'Ao'])],
     [Match(wm_class=['Darktable', 'vlc', 'Gimp-2.10', 'Spotify', 'Steam'])],
     [Match(wm_class=['Gnome-system-monitor', 'Cpupower-gui'])],
     [Match(wm_class=['Blueman-manager', 'Pavucontrol', 'Pamac-manager'])],
@@ -528,7 +530,7 @@ def init_widget_list():
         separator_left(widget_background_color, widget_foreground_color),
         widget.GroupBox(
             # font='Inconsolata SemiBold',
-            font=font,
+            # font=font,
             fontsize=28,
             # active=color_dracula['Foreground'],
             # inactive=color_dracula['Current Line'],
@@ -541,7 +543,7 @@ def init_widget_list():
             this_screen_border=color_dracula['Current Line'],
             other_current_screen_border=color_dracula['Foreground'],
             other_screen_border=color_dracula['Current Line'],
-            # hide_unused=True,
+            hide_unused=True,
         ),
 
         separator_left(widget_background_color, widget_foreground_color),
@@ -549,7 +551,7 @@ def init_widget_list():
             custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
             scale=0.7,
         ),
-        widget.CurrentLayout(),
+        # widget.CurrentLayout(),
 
         separator_left(widget_background_color, widget_foreground_color),
         widget.TaskList(
@@ -557,7 +559,7 @@ def init_widget_list():
             borderwidth=1,
             max_title_width=200,
             icon_size=16,
-            margin=1,
+            margin=0,
         ),
 
         ####################
