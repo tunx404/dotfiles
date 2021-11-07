@@ -1,4 +1,4 @@
-# name: 8
+# name: 08
 
 # CPU	Min	Max	Governor	Online
 0	800	800	powersave	True
