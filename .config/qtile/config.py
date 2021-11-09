@@ -64,7 +64,7 @@ color_dracula = {
 ##################################################
 # Configurations
 
-layout_margin = 2
+layout_margin = 4
 
 font = 'Ubuntu Condensed Regular'
 
@@ -105,7 +105,7 @@ terminal = 'alacritty' # 'kitty'
 system_info = terminal + ' -e neofetch'
 cli_fun = terminal + ' -e asciiquarium'
 calculator = 'galculator'
-timer = 'pomotroid'
+pomodoro_timer = 'pomotroid'
 
 # DIR
 file_manager = 'nemo'
@@ -132,7 +132,7 @@ gpu_monitor = terminal + ' -e nvtop'
 bluetooth_manager = 'blueman-manager'
 volume_controller = 'pavucontrol'
 # VM_
-virtual_machine = 'virtualbox'
+virtual_machine = 'vmware' # 'virtualbox'
 
 gui_launcher = 'ulauncher'
 cli_launcher = 'dmenu_run'
@@ -216,6 +216,7 @@ keys = [
     Key([mod], 't',  lazy.function(app_to_group(group_names[2], text_editor)),  desc='Text editor'),
     # DOC
     Key([mod], 'f',  lazy.function(app_to_group(group_names[3], pdf_reader)),  desc='PDF reader'),
+    Key([mod], 'o',  lazy.function(app_to_group(group_names[3], pomodoro_timer)),  desc='Pomodoro timer'),
     # MM_
     Key([mod], 'i',  lazy.function(app_to_group(group_names[6], photo_library)),  desc='Photo library'),
     # MON
@@ -271,7 +272,8 @@ keys = [
     Key([mod, 'control'], 's', lazy.layout.down(),  desc='Move focus down'),
     Key([mod, 'control'], 'w', lazy.layout.up(),    desc='Move focus up'),
 
-    Key([mod], 'q',     lazy.layout.next(), desc='Move window focus to other window'),
+    # Key([mod], 'q', lazy.layout.next(), desc='Move window focus to other window'),
+    Key(['mod1'], 'Tab', lazy.layout.next(), desc='Move window focus to other window'),
 
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
@@ -357,9 +359,10 @@ keys = [
     ####################
 
     # System
-    Key([mod, 'control', 'shift'], 'Delete', lazy.shutdown(), desc='Shutdown Qtile'),
+    Key([mod], 'l', lazy.spawn('loginctl lock-session'), desc='Lock screen'),
+    Key([mod, 'control', 'shift'], 'End', lazy.shutdown(), desc='Shutdown Qtile'),
     Key([mod, 'control', 'shift'], 'Escape', lazy.spawn('shutdown -h now'), desc='Shutdown'),
-    Key([mod, 'control', 'shift'], 'End', lazy.spawn('reboot'), desc='Reboot'),
+    Key([mod, 'control', 'shift'], 'Delete', lazy.spawn('reboot'), desc='Reboot'),
     Key([mod, 'control', 'shift'], 'l', lazy.spawn('systemctl suspend'), desc='Suspend'),
     Key([mod, 'control', 'shift'], 'h', lazy.spawn('systemctl hibernate'), desc='Hibernate'),
 
@@ -403,14 +406,14 @@ num_groups = 10
 group_matches = [
     [Match(wm_class=['Nemo', 'Insync'])],
     [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'Whatsapp-for-linux', 'Cisco AnyConnect Secure Mobility Client', 'Thunderbird'])],
-    [Match(wm_class=['Subl', 'pomotroid', 'jetbrains-studio'])],
-    [Match(wm_class=['qpdfview', 'pdf'])],
+    [Match(wm_class=['Subl', 'jetbrains-studio'])],
+    [Match(wm_class=['qpdfview', 'pdf', 'Pomotroid'])],
     [Match(wm_class=[])],
     [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'Ao'])],
     [Match(wm_class=['Darktable', 'vlc', 'Gimp-2.10', 'Spotify', 'Steam'])],
     [Match(wm_class=['Gnome-system-monitor', 'Cpupower-gui'])],
     [Match(wm_class=['Blueman-manager', 'Pavucontrol', 'Pamac-manager'])],
-    [Match(wm_class=['VirtualBox Manager'])],
+    [Match(wm_class=['VirtualBox Manager' 'Vmware'])],
 ]
 
 group_layouts = [
@@ -503,7 +506,8 @@ def init_widget_list():
     def separator_right(bg_color, fg_color):
         return widget.TextBox(
             text='|',
-            fontsize=16,
+            # text='',
+            fontsize=12,
             # background=bg_color,
             # foreground=fg_color,
         )
@@ -511,7 +515,8 @@ def init_widget_list():
     def separator_left(bg_color, fg_color):
         return widget.TextBox(
             text='|',
-            fontsize=16,
+            # text='',
+            fontsize=12,
             # background=bg_color,
             # foreground=fg_color,
         )
@@ -631,7 +636,9 @@ def init_widget_list():
         ),
 
         separator_right(widget_background_color, widget_foreground_color),
-        widget.Systray(),
+        widget.Systray(
+            icon_size=16,
+        ),
 
         separator_right(widget_background_color, widget_foreground_color),
         widget.Clock(
@@ -682,7 +689,7 @@ widget_list2 = init_widget_list()[:-3] + init_widget_list()[-1:]
 
 widget_defaults = dict(
     font=font,
-    fontsize=14,
+    fontsize=12,
     padding=3,
     background=widget_background_color,
     foreground=widget_foreground_color,
