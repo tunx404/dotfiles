@@ -339,7 +339,10 @@ keys = [
     Key([mod, 'control'], 'Left',    lazy.spawn('xrandr --output DP-3  --mode 1920x1080 --pos 1920x0 --rotate left'),     desc='Rotate monitor 2 left'),
     Key([mod, 'control'], 'Right',   lazy.spawn('xrandr --output DP-3  --mode 1920x1080 --pos 1920x0 --rotate right'),    desc='Rotate monitor 2 right'),
     Key([mod, 'control'], 'Up',      lazy.spawn('xrandr --output DP-3  --mode 1920x1080 --pos 1920x0 --rotate normal'),   desc='Rotate monitor 2 normal'),
-    Key([mod, 'control'], 'Down',    lazy.spawn('xrandr --output DP-3  --mode 1920x1080 --pos 1920x0 --rotate inverted'), desc='Rotate monitor 2 inverted'),
+    Key([mod, 'control'], 'Down',
+        lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate inverted'),
+        lazy.spawn('xrandr --output DP-1-3  --mode 1920x1080 --pos 1920x0 --rotate inverted'),
+    desc='Rotate monitor 2 inverted'),
 
     Key([mod, 'control'], 'Return',  lazy.spawn('nitrogen --restore'), desc='Reset wallpaper'),
 

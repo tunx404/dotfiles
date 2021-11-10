@@ -1,36 +1,43 @@
 swipe:
-  3:
-    begin:
-      command: xdotool keydown Alt
-    right:
-      update:
-        command: xdotool key Tab
-        interval: 5
-    left:
-      update:
-        command: xdotool key Shift+Tab
-        interval: 5
-    end:
-      command: xdotool keyup Alt
-  4: 
+  4:
     left: 
-      command: xdotool key ctrl+alt+Right
+      command: 'xdotool key alt+Tab'
     right: 
-      command: xdotool key ctrl+alt+Left
-    up: 
-      command: xdotool key ctrl+alt+Up
-    down: 
-      command: xdotool key ctrl+alt+Down
+      command: 'xdotool key alt+Tab'
+  3: 
+    left: 
+      command: 'xdotool key ctrl+alt+Right'
+    right: 
+      command: 'xdotool key ctrl+alt+Left'
+    up:
+      command: 'xdotool key super+Up'
+    down:
+      command: 'xdotool key super+Down'
 pinch:
   in:
-    command: xdotool key ctrl+plus
+    # command: 'xdotool key ctrl+plus'
+    command: 'xdotool keydown ctrl click 4 keyup ctrl'
+    # threshold: 0.25
   out:
-    command: xdotool key ctrl+minus
+    # command: 'xdotool key ctrl+minus'
+    command: 'xdotool keydown ctrl click 5 keyup ctrl'
+    # threshold: 0.25
+# rotate:
+#   2:
+#     clockwise:
+#       command: 'xdotool key XF86AudioRaiseVolume' # Volume up
+#     counterclockwise:
+#       command: 'xdotool key XF86AudioLowerVolume' # Volume down
+#   3:
+#     clockwise:
+#       command: 'xdotool key XF86MonBrightnessUp' # Brightness up
+#     counterclockwise:
+#       command: 'xdotool key XF86MonBrightnessDown' # Brightness down
 
-threshold:
+threshold: # default: 1
   swipe: 0.5
-  pinch: 1
+  pinch: 0.5
 
-interval:
+interval: # default: 1
   swipe: 0.5
   pinch: 0.5

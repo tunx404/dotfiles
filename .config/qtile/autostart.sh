@@ -19,3 +19,4 @@ xss-lock -- /usr/bin/slock &
 optimus-manager-qt &
 insync start
 balooctl enable
+i8kmon &
