@@ -104,7 +104,7 @@ mod = 'mod4'
 terminal = 'alacritty' # 'kitty'
 system_info = terminal + ' -e neofetch'
 cli_fun = terminal + ' -e asciiquarium'
-calculator = 'galculator'
+calculator = 'qalculate-gtk'
 pomodoro_timer = 'pomotroid'
 
 # DIR
@@ -230,7 +230,7 @@ keys = [
         # DIR
         lazy.spawn(file_manager),
         # WEB
-        lazy.spawn(email_client),
+        # lazy.spawn(email_client),
         lazy.spawn(browser),
         # DEV
         lazy.spawn(text_editor),
@@ -407,7 +407,7 @@ keys = [
 num_groups = 10
 
 group_matches = [
-    [Match(wm_class=['Nemo', 'Insync'])],
+    [Match(wm_class=['Nemo', 'Insync', 'Gprename'])],
     [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'Whatsapp-for-linux', 'Cisco AnyConnect Secure Mobility Client', 'Thunderbird'])],
     [Match(wm_class=['Subl', 'jetbrains-studio'])],
     [Match(wm_class=['qpdfview', 'pdf', 'Pomotroid'])],
@@ -437,7 +437,8 @@ groups = [Group(group_names[i], matches=group_matches[i], layout=group_layouts[i
 for k, group in zip(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], groups):
     keys.extend([
         Key([mod], k, lazy.group[group.name].toscreen(), desc='Switch to group {}'.format(group.name)),
-        Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=True), desc='Switch to & move focused window to group {}'.format(group.name))
+        # Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=True), desc='Switch to & move focused window to group {}'.format(group.name))
+        Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=False), desc='Switch to & move focused window to group {}'.format(group.name))
     ])
 
 # groups = [Group(i) for i in '123456789']

@@ -77,7 +77,11 @@ paleofetch
 ##################################################
 # Miscellaneous
 
-alias tunx='cd ~/SSD1/Miscellaneous'
-export TUNX=~/SSD1/Miscellaneous
+alias tunx='cd $HOME/Miscellaneous'
+export TUNX=$HOME/Miscellaneous
 alias cmuvpn='sudo openconnect -u alehoang vpn.cmu.edu'
-alias tunxj='cd ~/SSD1/Miscellaneous && conda deactivate && jupyter-lab'
+alias tunxj='cd $HOME/Miscellaneous && conda deactivate && jupyter-lab'
+
+alias dng='WINEPREFIX=$HOME/.wine-dng wine "$HOME/.wine-dng/drive_c/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"'
+alias dng-wine='WINEPREFIX=$HOME/.wine-dng wine'
+alias dng-cfg='WINEPREFIX=$HOME/.wine-dng winecfg'
