@@ -427,7 +427,7 @@ group_layouts = [
     'ratiotile',
     'columns',
     'max',
-    'ratiotile',
+    'columns',
     'columns',
     'max',
 ]

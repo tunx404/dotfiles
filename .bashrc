@@ -85,3 +85,5 @@ alias tunxj='cd $HOME/Miscellaneous && conda deactivate && jupyter-lab'
 alias dng='WINEPREFIX=$HOME/.wine-dng wine "$HOME/.wine-dng/drive_c/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"'
 alias dng-wine='WINEPREFIX=$HOME/.wine-dng wine'
 alias dng-cfg='WINEPREFIX=$HOME/.wine-dng winecfg'
+
+alias resetcuda='sudo rmmod nvidia_uvm && sudo modprobe nvidia_uvm'
