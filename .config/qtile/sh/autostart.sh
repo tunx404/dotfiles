@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
+
 xrandr --output DP-3 --rotate inverted
 picom --experimental-backends &
 nitrogen --restore &
-# volumeicon &
 nm-applet &
 blueman-applet &
 ibus-daemon -drxR
@@ -12,11 +12,15 @@ kdeconnect-indicator &
 ulauncher &
 numlockx &
 fusuma &
-# plank &
 powerkit &
 xss-lock -- /usr/bin/slock &
 # xss-lock -- /usr/bin/xscreensaver-command -lock &
 optimus-manager-qt &
-insync start
-balooctl enable
 i8kmon &
+
+sh /home/tunx404/.config/qtile/sh/power_saving.sh off
+# cpupower-gui profile 45
+# brightnessctl set 70%
+# balooctl enable
+# balooctl resume
+# insync start

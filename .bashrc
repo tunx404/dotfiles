@@ -46,14 +46,14 @@ export PATH=~/.local/bin:$PATH
 # 18648
 
 export HARCH=`echo $(uname -m) | sed "s/i./x/g"`
-export PATH=/opt/gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabi/bin:$PATH
-export PATH=$HOME/bootimg-tools:$PATH
+export PATH=$HOME/18648/gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabi/bin:$PATH
+export PATH=$HOME/18648/bootimg-tools:$PATH
 export CROSS_COMPILE=arm-linux-gnueabi- ARCH=arm
-export HARCH=`echo $(uname -m) | sed "s/i./x/g"`
-export PATH=$HOME/android-ndk-r9:$HOME/android-ndk-r9/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-$HARCH/bin:$PATH
 
-export ANDROID_RAMDISK=~/nakasi-jdq39/boot-img/boot.img-ramdisk-root.gz
-export ANDROID_KERNEL=~/kernel/arch/arm/boot/zImage
+export PATH=$HOME/18648/android-ndk-r9:$HOME/18648/android-ndk-r9/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-$HARCH/bin:$PATH
+
+export ANDROID_RAMDISK=$HOME/18648/nakasi-jdq39/boot-img/boot.img-ramdisk-root.gz
+export ANDROID_KERNEL=$HOME/18648/kernel/arch/arm/boot/zImage
 
 
 ##################################################
@@ -77,13 +77,19 @@ paleofetch
 ##################################################
 # Miscellaneous
 
-alias tunx='cd $HOME/Miscellaneous'
 export TUNX=$HOME/Miscellaneous
-alias cmuvpn='sudo openconnect -u alehoang vpn.cmu.edu'
+export PEM_18786=/home/tunx404/.ssh/18786.pem
+
+alias tunx='cd $HOME/Miscellaneous'
 alias tunxj='cd $HOME/Miscellaneous && conda deactivate && jupyter-lab'
+alias cdker='cd $HOME/18648/kernel'
+
+alias cmuvpn='sudo openconnect -u alehoang vpn.cmu.edu'
 
 alias dng='WINEPREFIX=$HOME/.wine-dng wine "$HOME/.wine-dng/drive_c/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"'
 alias dng-wine='WINEPREFIX=$HOME/.wine-dng wine'
 alias dng-cfg='WINEPREFIX=$HOME/.wine-dng winecfg'
 
 alias resetcuda='sudo rmmod nvidia_uvm && sudo modprobe nvidia_uvm'
+alias resetlogid='sudo systemctl restart logid'
+alias checkpower='cat /proc/acpi/bbswitch'

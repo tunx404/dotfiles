@@ -125,9 +125,10 @@ photo_library = 'darktable'
 system_monitor = 'gnome-system-monitor'
 performance_controller = 'cpupower-gui'
 system_monitor_cli = terminal + ' -e htop'
-cpu_freq = terminal + ' -e watch -n1 "grep \"MHz\" /proc/cpuinfo"'
+cpu_freq_monitor = terminal + ' -e watch -n1 "grep \"MHz\" /proc/cpuinfo"'
 sensor_monitor = terminal + ' -e watch i8kctl' # ' -e watch sensors'
 gpu_monitor = terminal + ' -e nvtop'
+battery_monitor = terminal + ' -e battop'
 # SYS
 bluetooth_manager = 'blueman-manager'
 volume_controller = 'pavucontrol'
@@ -149,7 +150,9 @@ change_wallpaper_dracula_2 = 'nitrogen --head=1 --set-zoom-fill --random --save 
 # screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "xclip -selection clip -t image/png -i $f; mv $f ~/SSD1/Miscellaneous"'
 screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "mv $f ~/SSD1/Miscellaneous"'
 
-change_dual_monitor_state = 'sh /home/tunx404/.config/qtile/change_dual_monitor_state.sh'
+change_dual_monitor_state = 'sh /home/tunx404/.config/qtile/sh/change_dual_monitor_state.sh'
+power_saving_on  = 'sh /home/tunx404/.config/qtile/sh/power_saving.sh on'
+power_saving_off = 'sh /home/tunx404/.config/qtile/sh/power_saving.sh off'
 
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
@@ -238,7 +241,7 @@ keys = [
         lazy.spawn(pdf_reader),
         # MON
         lazy.spawn(system_monitor),
-        lazy.spawn(performance_controller),
+        # lazy.spawn(performance_controller),
         # SYS
         lazy.spawn(bluetooth_manager),
         lazy.spawn(volume_controller),
@@ -369,6 +372,9 @@ keys = [
     Key([mod, 'control', 'shift'], 'l', lazy.spawn('systemctl suspend'), desc='Suspend'),
     Key([mod, 'control', 'shift'], 'h', lazy.spawn('systemctl hibernate'), desc='Hibernate'),
 
+    Key([mod, 'control', 'shift'], '1', lazy.spawn(power_saving_on),  desc='Power saving on'),
+    Key([mod, 'control', 'shift'], '2', lazy.spawn(power_saving_off), desc='Power saving off'),
+
     # Qtile
     # Key([mod, 'control'], 'r', lazy.reload_config(), desc='Reload the config'),
     Key([mod, 'control'], 'r', lazy.restart(), desc='Reload the config'),
@@ -414,9 +420,9 @@ group_matches = [
     [Match(wm_class=[])],
     [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'Ao'])],
     [Match(wm_class=['Darktable', 'vlc', 'Gimp-2.10', 'Spotify', 'Steam'])],
-    [Match(wm_class=['Gnome-system-monitor', 'Cpupower-gui'])],
+    [Match(wm_class=['Gnome-system-monitor', 'Cpupower-gui', 'Gnome-power-statistics'])],
     [Match(wm_class=['Blueman-manager', 'Pavucontrol', 'Pamac-manager'])],
-    [Match(wm_class=['VirtualBox Manager' 'Vmware'])],
+    [Match(wm_class=['VirtualBox Manager', 'Vmware'])],
 ]
 
 group_layouts = [
@@ -424,7 +430,7 @@ group_layouts = [
     'max',
     'columns',
     'columns',
-    'ratiotile',
+    'columns',
     'columns',
     'max',
     'columns',
@@ -582,7 +588,7 @@ def init_widget_list():
         # separator_right(widget_background_color, widget_foreground_color),
         # widget.CPUGraph(
         #     **graph_config,
-        #     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cpu_freq)},
+        #     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cpu_freq_monitor)},
         # ),
         
         # separator_right(widget_background_color, widget_foreground_color),
@@ -607,7 +613,7 @@ def init_widget_list():
 
         separator_right(widget_background_color, widget_foreground_color),
         widget.CPU(
-            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor_cli)},
+            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cpu_freq_monitor)},
         ),
 
         separator_right(widget_background_color, widget_foreground_color),
@@ -637,6 +643,12 @@ def init_widget_list():
         widget.PulseVolume(
             limit_max_volume=True,
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(volume_controller)},
+        ),
+
+        separator_right(widget_background_color, widget_foreground_color),
+        widget.Battery(
+            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(battery_monitor)},
+            update_interval=5,
         ),
 
         separator_right(widget_background_color, widget_foreground_color),
@@ -712,7 +724,7 @@ screens = [
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser('~')
-    subprocess.call([home + '/.config/qtile/autostart.sh'])
+    subprocess.call([home + '/.config/qtile/sh/autostart.sh'])
 
 
 ##################################################
