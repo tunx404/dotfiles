@@ -112,6 +112,7 @@ file_manager = 'nemo'
 # WEB
 browser = 'google-chrome-stable'
 email_client = 'thunderbird'
+password_manager = 'keepassxc'
 music_playlist = 'google-chrome-stable https://www.youtube.com/playlist?list=PL14zqHuhShBB2_PRQOaD3imODj0Ejzjcv'
 # DEV
 text_editor  = 'subl'
@@ -151,8 +152,8 @@ change_wallpaper_dracula_2 = 'nitrogen --head=1 --set-zoom-fill --random --save 
 screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "mv $f ~/SSD1/Miscellaneous"'
 
 change_dual_monitor_state = 'sh /home/tunx404/.config/qtile/sh/change_dual_monitor_state.sh'
-power_saving_on  = 'sh /home/tunx404/.config/qtile/sh/power_saving.sh on'
-power_saving_off = 'sh /home/tunx404/.config/qtile/sh/power_saving.sh off'
+power_saving = 'sh /home/tunx404/.config/qtile/sh/power_saving.sh '
+performance_profile = 'cpupower-gui profile '
 
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
@@ -214,6 +215,8 @@ keys = [
     Key([mod], 'e',  lazy.function(app_to_group(group_names[0], file_manager)), desc='File manager'),
     # WEB
     Key([mod], 'c',  lazy.function(app_to_group(group_names[1], browser)),      desc='browser'),
+    Key([mod], 'g',  lazy.function(app_to_group(group_names[1], email_client)), desc='Email client'),
+    Key([mod], 'k',  lazy.function(app_to_group(group_names[1], password_manager)), desc='Password manager'),
     Key([mod], 'u',  lazy.function(app_to_group(group_names[1], music_playlist)), desc='Music playlist'),
     # DEV
     Key([mod], 't',  lazy.function(app_to_group(group_names[2], text_editor)),  desc='Text editor'),
@@ -372,8 +375,15 @@ keys = [
     Key([mod, 'control', 'shift'], 'l', lazy.spawn('systemctl suspend'), desc='Suspend'),
     Key([mod, 'control', 'shift'], 'h', lazy.spawn('systemctl hibernate'), desc='Hibernate'),
 
-    Key([mod, 'control', 'shift'], '1', lazy.spawn(power_saving_on),  desc='Power saving on'),
-    Key([mod, 'control', 'shift'], '2', lazy.spawn(power_saving_off), desc='Power saving off'),
+    Key([mod, 'control', 'shift'], 'minus', lazy.spawn(power_saving + 'on'),  desc='Power saving on'),
+    Key([mod, 'control', 'shift'], 'equal', lazy.spawn(power_saving + 'off'), desc='Power saving off'),
+
+    Key([mod, 'control', 'shift'], '0', lazy.spawn(performance_profile + '08'), desc='Performance level 0'),
+    Key([mod, 'control', 'shift'], '1', lazy.spawn(performance_profile + '16'), desc='Performance level 1'),
+    Key([mod, 'control', 'shift'], '2', lazy.spawn(performance_profile + '26'), desc='Performance level 2'),
+    Key([mod, 'control', 'shift'], '3', lazy.spawn(performance_profile + '36'), desc='Performance level 3'),
+    Key([mod, 'control', 'shift'], '4', lazy.spawn(performance_profile + '45'), desc='Performance level 4'),
+    Key([mod, 'control', 'shift'], '5', lazy.spawn(performance_profile + '45P'), desc='Performance level 5'),
 
     # Qtile
     # Key([mod, 'control'], 'r', lazy.reload_config(), desc='Reload the config'),
@@ -419,7 +429,7 @@ group_matches = [
     [Match(wm_class=['qpdfview', 'pdf', 'Pomotroid'])],
     [Match(wm_class=[])],
     [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'Ao'])],
-    [Match(wm_class=['Darktable', 'vlc', 'Gimp-2.10', 'Spotify', 'Steam'])],
+    [Match(wm_class=['Darktable', 'Gimp-2.10', 'Spotify', 'Steam'])],
     [Match(wm_class=['Gnome-system-monitor', 'Cpupower-gui', 'Gnome-power-statistics'])],
     [Match(wm_class=['Blueman-manager', 'Pavucontrol', 'Pamac-manager'])],
     [Match(wm_class=['VirtualBox Manager', 'Vmware'])],
@@ -490,7 +500,7 @@ layouts = [
     # layout.Matrix(**layout_config),
     # layout.MonadTall(**layout_config),
     # layout.MonadWide(**layout_config),
-    layout.RatioTile(**layout_config),
+    # layout.RatioTile(**layout_config),
     # layout.Tile(**layout_config),
     # layout.TreeTab(**layout_config),
     # layout.VerticalTile(**layout_config),

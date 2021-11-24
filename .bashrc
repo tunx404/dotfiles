@@ -78,11 +78,6 @@ paleofetch
 # Miscellaneous
 
 export TUNX=$HOME/Miscellaneous
-export PEM_18786=/home/tunx404/.ssh/18786.pem
-
-alias tunx='cd $HOME/Miscellaneous'
-alias tunxj='cd $HOME/Miscellaneous && conda deactivate && jupyter-lab'
-alias cdker='cd $HOME/18648/kernel'
 
 alias cmuvpn='sudo openconnect -u alehoang vpn.cmu.edu'
 
@@ -93,3 +88,20 @@ alias dng-cfg='WINEPREFIX=$HOME/.wine-dng winecfg'
 alias resetcuda='sudo rmmod nvidia_uvm && sudo modprobe nvidia_uvm'
 alias resetlogid='sudo systemctl restart logid'
 alias checkpower='cat /proc/acpi/bbswitch'
+
+alias updategrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias removeorphans='pacman -Qtdq | sudo pacman -Rns -'
+alias cleanpkg='sudo pacman -Scc && yay -Scc && rm -rf ~/.cache/yay && removeorphans'
+alias updatepkg='sudo pacman -Syu && yay -Syu'
+
+# 18786
+export PEM_18786=/home/tunx404/.ssh/18786.pem
+alias tunx='cd $HOME/Miscellaneous'
+alias tunxj='cd $HOME/Miscellaneous && conda deactivate && jupyter-lab'
+alias cdker='cd $HOME/18648/kernel'
+
+# 18648
+alias buildjni='cd $HOME/18648/taskmon/energymon/TaskMon/app/src/main && ndk-build'
+alias buildkernel='cd $HOME/18648/kernel && make oldconfig && make -j12 && file arch/arm/boot/compressed/vmlinux'
+alias cdkernel='cd $HOME/18648/kernel' # && git status'
+alias cdmon='cd $HOME/18648/taskmon' # && git status'

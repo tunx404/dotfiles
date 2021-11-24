@@ -9,7 +9,7 @@ then
 	insync quit
 elif [ $1 == "off" ]
 then
-	cpupower-gui profile 45
+	cpupower-gui profile 26
 	brightnessctl set 70%
 	balooctl resume
 	balooctl enable
