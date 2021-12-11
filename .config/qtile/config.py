@@ -206,9 +206,16 @@ def window_to_next_screen(qtile):
 # Key bindings
 
 keys = [
-    # Use xev to find key names
+    # xev | grep 'keycode'
 
     ####################
+
+    # XF86LaunchA
+    # XF86LaunchB
+    # XF86KbdBrightnessDown
+    # XF86KbdBrightnessUp
+    # XF86AudioPrev
+    # XF86AudioNext
 
     # Applications
     # DIR
@@ -232,7 +239,7 @@ keys = [
     Key([mod], 'b',  lazy.function(app_to_group(group_names[8], bluetooth_manager)), desc='Bluetooth manager'),
     Key([mod], 'v',  lazy.function(app_to_group(group_names[8], volume_controller)), desc='Volume controller'),
 
-    Key([mod, 'control', 'shift'], 'a',
+    Key(['control', 'mod1'], 'a',
         # DIR
         lazy.spawn(file_manager),
         # WEB
@@ -244,7 +251,6 @@ keys = [
         lazy.spawn(pdf_reader),
         # MON
         lazy.spawn(system_monitor),
-        # lazy.spawn(performance_controller),
         # SYS
         lazy.spawn(bluetooth_manager),
         lazy.spawn(volume_controller),
@@ -261,7 +267,7 @@ keys = [
     Key([mod, 'shift'], 'r', lazy.spawn(cli_launcher), desc='CLI launcher'),
     Key(['control'], 'space', lazy.spawn(gui_launcher), desc='GUI launcher'),
 
-    Key(['mod1'], 'Tab', lazy.spawn(window_switcher), desc='Switch window'),
+    # Key(['mod1'], 'Tab', lazy.spawn(window_switcher), desc='Switch window'),
 
     ####################
 
@@ -273,12 +279,7 @@ keys = [
 
     # Key([mod], 'space', lazy.layout.next(), desc='Move window focus to other window'),
 
-    Key([mod, 'control'], 'a', lazy.layout.left(),  desc='Move focus to left'),
-    Key([mod, 'control'], 'd', lazy.layout.right(), desc='Move focus to right'),
-    Key([mod, 'control'], 's', lazy.layout.down(),  desc='Move focus down'),
-    Key([mod, 'control'], 'w', lazy.layout.up(),    desc='Move focus up'),
-
-    # Key([mod], 'q', lazy.layout.next(), desc='Move window focus to other window'),
+    Key([mod], 'q', lazy.layout.next(), desc='Move window focus to other window'),
     Key(['mod1'], 'Tab', lazy.layout.next(), desc='Move window focus to other window'),
 
     # Move windows between left/right columns or move up/down in current stack.
@@ -332,15 +333,27 @@ keys = [
     Key(['control', 'mod1'], 'Right', lazy.function(screen_to_next_group), desc='Switch to the next group'),
     Key(['control', 'mod1'], 'Left',  lazy.function(screen_to_prev_group), desc='Switch to the prev group'),
 
+    Key([mod, 'control'], 'w', lazy.function(screen_to_next_group), desc='Switch to the next group'),
+    Key([mod, 'control'], 's', lazy.function(screen_to_prev_group), desc='Switch to the prev group'),
+
     Key(['control', 'shift', 'mod1'], 'Right', lazy.function(window_to_next_group), desc='Move window to the next group'),
     Key(['control', 'shift', 'mod1'], 'Left',  lazy.function(window_to_prev_group), desc='Move window to the prev group'),
+
+    Key([mod, 'control', 'shift'], 'w', lazy.function(window_to_next_group), desc='Move window to the next group'),
+    Key([mod, 'control', 'shift'], 's', lazy.function(window_to_prev_group), desc='Move window to the prev group'),
 
     # Screens
     Key([mod], 'Right', lazy.to_screen(1), desc='Move focus to the next screen'),
     Key([mod], 'Left',  lazy.to_screen(0), desc='Move focus to the prev screen'),
+
+    Key([mod, 'control'], 'd', lazy.to_screen(1), desc='Move focus to the next screen'),
+    Key([mod, 'control'], 'a', lazy.to_screen(0), desc='Move focus to the prev screen'),
     
     Key([mod, 'shift'], 'Right', lazy.function(window_to_next_screen),     lazy.to_screen(1), desc='Move window to the next screen'),
     Key([mod, 'shift'], 'Left',  lazy.function(window_to_previous_screen), lazy.to_screen(0), desc='Move window to the prev screen'),
+
+    Key([mod, 'control', 'shift'], 'd', lazy.function(window_to_next_screen),     lazy.to_screen(1), desc='Move window to the next screen'),
+    Key([mod, 'control', 'shift'], 'a', lazy.function(window_to_previous_screen), lazy.to_screen(0), desc='Move window to the prev screen'),
 
     Key([mod, 'control'], 'Left',    lazy.spawn('xrandr --output DP-3  --mode 1920x1080 --pos 1920x0 --rotate left'),     desc='Rotate monitor 2 left'),
     Key([mod, 'control'], 'Right',   lazy.spawn('xrandr --output DP-3  --mode 1920x1080 --pos 1920x0 --rotate right'),    desc='Rotate monitor 2 right'),
@@ -442,7 +455,7 @@ group_layouts = [
     'columns',
     'columns',
     'columns',
-    'max',
+    'columns',
     'columns',
     'columns',
     'max',

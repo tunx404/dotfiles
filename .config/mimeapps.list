@@ -163,6 +163,8 @@ application/wps-office.wpso=wps-office-wps.desktop
 application/wps-office.wpt=wps-office-wps.desktop
 application/vnd.ms-publisher=sublime_text.desktop
 application/x-mswinurl=sublime_text.desktop
+video/ogg=vlc.desktop
+video/quicktime=vlc.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=userapp-Thunderbird-QW16B1.desktop;
@@ -189,3 +191,5 @@ application/wps-office.wpss=wps-office-wps.desktop;
 application/wps-office.wpso=wps-office-wps.desktop;
 application/vnd.ms-publisher=sublime_text.desktop;
 application/x-mswinurl=sublime_text.desktop;
+video/ogg=vlc.desktop;
+video/quicktime=vlc.desktop;
