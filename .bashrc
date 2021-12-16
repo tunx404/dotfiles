@@ -100,8 +100,11 @@ alias tunx='cd $HOME/Miscellaneous'
 alias tunxj='cd $HOME/Miscellaneous && conda deactivate && jupyter-lab'
 alias cdker='cd $HOME/18648/kernel'
 
-# 18648
-alias buildjni='cd $HOME/18648/taskmon/energymon/TaskMon/app/src/main && ndk-build'
-alias buildkernel='cd $HOME/18648/kernel && make oldconfig && make -j12 && file arch/arm/boot/compressed/vmlinux'
-alias cdkernel='cd $HOME/18648/kernel' # && git status'
-alias cdmon='cd $HOME/18648/taskmon' # && git status'
+# # 18648
+# alias buildjni='cd $HOME/18648/taskmon/energymon/TaskMon/app/src/main && ndk-build'
+# alias buildkernel='cd $HOME/18648/kernel && make oldconfig && make -j12 && file arch/arm/boot/compressed/vmlinux'
+# alias cdkernel='cd $HOME/18648/kernel' # && git status'
+# alias cdmon='cd $HOME/18648/taskmon' # && git status'
+
+
+alias mtpmount='aft-mtp-mount ~/Quest2'
