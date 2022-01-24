@@ -671,7 +671,7 @@ def init_widget_list():
         separator_right(widget_background_color, widget_foreground_color),
         widget.Battery(
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(battery_monitor)},
-            update_interval=5,
+            update_interval=10,
         ),
 
         separator_right(widget_background_color, widget_foreground_color),

@@ -101,3 +101,8 @@ export PEM_18786=/home/tunx404/.ssh/18786.pem
 alias tunx='cd $HOME/Miscellaneous'
 alias tunxj='cd $HOME/Miscellaneous && conda deactivate && jupyter-lab'
 alias cdker='cd $HOME/18648/kernel'
+
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION
