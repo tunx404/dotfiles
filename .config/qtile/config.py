@@ -605,6 +605,7 @@ def init_widget_list():
         separator_right(widget_background_color, widget_foreground_color),
         widget.OpenWeather(
             cityid='5206379',
+            # https://openweathermap.org/city/5206379
             format='{temp}°{units_temperature} {humidity}% {weather_details}',
         ),
 
