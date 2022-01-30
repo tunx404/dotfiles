@@ -31,7 +31,7 @@
 ##################################################
 # Imports
 
-from typing import List  # noqa: F401
+from typing import List
 
 from libqtile import bar, layout, widget, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
@@ -82,6 +82,7 @@ bar_background = color_dracula['Transparent']
 bar_opacity = 1
 # bar_opacity = 0.85
 
+# 
 group_names = [
     '', # DIR
     '', # WEB
@@ -94,7 +95,6 @@ group_names = [
     '', # SYS
     '', # VM_
 ]
-# 
 
 ##################################################
 # Applications
@@ -217,11 +217,32 @@ keys = [
     # XF86AudioPrev
     # XF86AudioNext
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     # Applications
     # DIR
     Key([mod], 'e',  lazy.function(app_to_group(group_names[0], file_manager)), desc='File manager'),
     # WEB
-    Key([mod], 'c',  lazy.function(app_to_group(group_names[1], browser)),      desc='browser'),
+    Key([mod], 'c',  lazy.function(app_to_group(group_names[1], browser)),      desc='Browser'),
     Key([mod], 'g',  lazy.function(app_to_group(group_names[1], email_client)), desc='Email client'),
     Key([mod], 'k',  lazy.function(app_to_group(group_names[1], password_manager)), desc='Password manager'),
     Key([mod], 'u',  lazy.function(app_to_group(group_names[1], music_playlist)), desc='Music playlist'),
@@ -255,6 +276,25 @@ keys = [
         lazy.spawn(bluetooth_manager),
         lazy.spawn(volume_controller),
     desc='Open all'),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     # Launchers
     Key(['control', 'mod1'], 't', lazy.spawn(terminal), desc='Launch terminal'),
@@ -435,10 +475,23 @@ keys = [
 
 num_groups = 10
 
+
+
+
+
+
+
+
+
+
+
+
+
+# xprop
 group_matches = [
     [Match(wm_class=['Nemo', 'Insync', 'Gprename'])],
-    [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'Whatsapp-for-linux', 'Cisco AnyConnect Secure Mobility Client', 'Thunderbird'])],
-    [Match(wm_class=['Subl', 'jetbrains-studio'])],
+    [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'whatsapp-nativefier-d40211', 'Cisco AnyConnect Secure Mobility Client', 'Thunderbird'])],
+    [Match(wm_class=['Subl', 'jetbrains-studio', 'code-oss'])],
     [Match(wm_class=['qpdfview', 'pdf', 'Pomotroid'])],
     [Match(wm_class=[])],
     [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'Ao'])],
@@ -447,6 +500,17 @@ group_matches = [
     [Match(wm_class=['Blueman-manager', 'Pavucontrol', 'Pamac-manager'])],
     [Match(wm_class=['VirtualBox Manager', 'Vmware'])],
 ]
+
+
+
+
+
+
+
+
+
+
+
 
 group_layouts = [
     'columns',

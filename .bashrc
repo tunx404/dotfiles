@@ -94,7 +94,12 @@ alias removeorphans='pacman -Qtdq | sudo pacman -Rns -'
 alias cleanpkg='sudo pacman -Scc && yay -Scc && rm -rf ~/.cache/yay && removeorphans'
 alias updatepkg='sudo pacman -Syu && yay -Syu'
 
-alias mtpmount='aft-mtp-mount ~/Quest2'
+alias cleandt='~/.config/darktable/purge_non_existing_images.sh --purge && darktable-generate-cache'
+
+alias mountmtp='aft-mtp-mount ~/Quest2'
+
+alias adddot='~/.scripts/add_dotfiles.sh'
+alias pushdot='~/.scritps/push_dotfiles.sh'
 
 # 18786
 export PEM_18786=/home/tunx404/.ssh/18786.pem
