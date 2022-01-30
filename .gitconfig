@@ -1,6 +1,6 @@
 [user]
 	email = alehoang@andrew.cmu.edu
-	name = Anh Le Hoang
+	name = Hoang Anh Le
 [credential "https://github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential

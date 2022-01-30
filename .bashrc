@@ -99,7 +99,7 @@ alias cleandt='~/.config/darktable/purge_non_existing_images.sh --purge && darkt
 alias mountmtp='aft-mtp-mount ~/Quest2'
 
 alias adddot='~/.scripts/add_dotfiles.sh'
-alias pushdot='~/.scritps/push_dotfiles.sh'
+alias pushdot='~/.scripts/push_dotfiles.sh'
 
 # 18786
 export PEM_18786=/home/tunx404/.ssh/18786.pem

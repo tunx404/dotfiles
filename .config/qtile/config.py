@@ -151,8 +151,8 @@ change_wallpaper_dracula_2 = 'nitrogen --head=1 --set-zoom-fill --random --save 
 # screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "xclip -selection clip -t image/png -i $f; mv $f ~/SSD1/Miscellaneous"'
 screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "mv $f ~/SSD1/Miscellaneous"'
 
-change_dual_monitor_state = 'sh /home/tunx404/.config/qtile/sh/change_dual_monitor_state.sh'
-power_saving = 'sh /home/tunx404/.config/qtile/sh/power_saving.sh '
+change_dual_monitor_state = 'sh /home/tunx404/.scripts/change_dual_monitor_state.sh'
+power_saving = 'sh /home/tunx404/.scripts/power_saving.sh '
 performance_profile = 'cpupower-gui profile '
 
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
@@ -812,7 +812,7 @@ screens = [
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser('~')
-    subprocess.call([home + '/.config/qtile/sh/autostart.sh'])
+    subprocess.call([home + '/.scripts/autostart.sh'])
 
 
 ##################################################

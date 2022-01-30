@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 echo "Power saving $1!"
 if [ $1 == "on" ]
 then

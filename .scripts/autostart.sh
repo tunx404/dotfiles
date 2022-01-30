@@ -18,7 +18,7 @@ xss-lock -- /usr/bin/slock &
 optimus-manager-qt &
 i8kmon &
 
-sh /home/tunx404/.config/qtile/sh/power_saving.sh off
+sh /home/tunx404/.scripts/power_saving.sh off
 # cpupower-gui profile 45
 # brightnessctl set 70%
 # balooctl enable
