@@ -1,7 +1,3 @@
-#
-# ~/.bashrc
-#
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -43,24 +39,9 @@ unset __conda_setup
 export PATH=~/.local/bin:$PATH
 
 ##################################################
-# 18648
-
-# export HARCH=`echo $(uname -m) | sed "s/i./x/g"`
-# export PATH=$HOME/18648/gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabi/bin:$PATH
-# export PATH=$HOME/18648/bootimg-tools:$PATH
-# export CROSS_COMPILE=arm-linux-gnueabi- ARCH=arm
-
-# export PATH=$HOME/18648/android-ndk-r9:$HOME/18648/android-ndk-r9/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-$HARCH/bin:$PATH
-
-# export ANDROID_RAMDISK=$HOME/18648/nakasi-jdq39/boot-img/boot.img-ramdisk-root.gz
-# export ANDROID_KERNEL=$HOME/18648/kernel/arch/arm/boot/zImage
-
-
-##################################################
 # Prompt
 
 eval "$(starship init bash)"
-
 
 ##################################################
 # Dotfiles
@@ -72,7 +53,6 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # neofetch
 paleofetch
-
 
 ##################################################
 # Miscellaneous
@@ -87,9 +67,11 @@ alias dng-cfg='WINEPREFIX=$HOME/.wine-dng winecfg'
 
 alias resetcuda='sudo rmmod nvidia_uvm && sudo modprobe nvidia_uvm'
 alias resetlogid='sudo systemctl restart logid'
+
 alias checkpower='cat /proc/acpi/bbswitch'
 
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+
 alias removeorphans='pacman -Qtdq | sudo pacman -Rns -'
 alias cleanpkg='sudo pacman -Scc && yay -Scc && rm -rf ~/.cache/yay && removeorphans'
 alias updatepkg='sudo pacman -Syu && yay -Syu'
@@ -106,8 +88,3 @@ export PEM_18786=/home/tunx404/.ssh/18786.pem
 alias tunx='cd $HOME/Miscellaneous'
 alias tunxj='cd $HOME/Miscellaneous && conda deactivate && jupyter-lab'
 alias cdker='cd $HOME/18648/kernel'
-
-
-# BEGIN_KITTY_SHELL_INTEGRATION
-if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
-# END_KITTY_SHELL_INTEGRATION

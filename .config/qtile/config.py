@@ -701,6 +701,7 @@ def init_widget_list():
 
         separator_right(widget_background_color, widget_foreground_color),
         widget.CPU(
+            format='{load_percent}%',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cpu_freq_monitor)},
         ),
 
