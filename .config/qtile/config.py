@@ -462,17 +462,6 @@ keys = [
 ##################################################
 # Groups
 
-# DIR
-# WEB
-# DEV
-# DOC
-# CLI
-# OFF
-# MM_
-# MON
-# SYS
-# VM_
-
 num_groups = 10
 
 
@@ -491,7 +480,7 @@ num_groups = 10
 group_matches = [
     [Match(wm_class=['Nemo', 'Insync', 'Gprename'])],
     [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'whatsapp-nativefier-d40211', 'Cisco AnyConnect Secure Mobility Client', 'Thunderbird'])],
-    [Match(wm_class=['Subl', 'jetbrains-studio', 'code-oss'])],
+    [Match(wm_class=['Subl', 'jetbrains-studio', 'code-oss', 'zoom'])],
     [Match(wm_class=['qpdfview', 'pdf', 'Pomotroid'])],
     [Match(wm_class=[])],
     [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'Ao'])],
@@ -500,6 +489,12 @@ group_matches = [
     [Match(wm_class=['Blueman-manager', 'Pavucontrol', 'Pamac-manager'])],
     [Match(wm_class=['VirtualBox Manager', 'Vmware'])],
 ]
+
+
+
+
+
+
 
 
 
@@ -736,7 +731,7 @@ def init_widget_list():
 
         separator_right(widget_background_color, widget_foreground_color),
         widget.Battery(
-            format='{char} {percent:2.0%}',
+            format='{char} {percent:2.0%} {watt:.2f} W', # '{char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W'
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(battery_monitor)},
             update_interval=10,
         ),
@@ -791,7 +786,8 @@ def init_widget_list():
     return widget_list
     
 widget_list1 = init_widget_list()
-widget_list2 = init_widget_list()[:-3] + init_widget_list()[-1:]
+# widget_list2 = init_widget_list()[:-3] + init_widget_list()[-1:]
+widget_list2 = init_widget_list()[:5]
 
 widget_defaults = dict(
     font=font,

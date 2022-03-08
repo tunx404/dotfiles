@@ -30,8 +30,9 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # export PATH=~/miniconda3/bin:$PATH
-# source activate torch
 # alias conda=~/miniconda3/bin/conda
+
+conda activate torch
 
 ##################################################
 # Kaggle
@@ -57,8 +58,6 @@ paleofetch
 ##################################################
 # Miscellaneous
 
-export TUNX=$HOME/Miscellaneous
-
 alias cmuvpn='sudo openconnect -u alehoang vpn.cmu.edu'
 
 alias dng='WINEPREFIX=$HOME/.wine-dng wine "$HOME/.wine-dng/drive_c/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"'
@@ -83,8 +82,12 @@ alias mountmtp='aft-mtp-mount ~/Quest2'
 alias adddot='~/.scripts/add_dotfiles.sh'
 alias pushdot='~/.scripts/push_dotfiles.sh'
 
-# 18786
-export PEM_18786=/home/tunx404/.ssh/18786.pem
-alias tunx='cd $HOME/Miscellaneous'
-alias tunxj='cd $HOME/Miscellaneous && conda deactivate && jupyter-lab'
-alias cdker='cd $HOME/18648/kernel'
+alias ohmonitor='xrandr --output DP-3 --mode 1680x1050 --pos 1920x0 --rotate normal'
+
+alias ssh='TERM=xterm-256color ssh'
+
+# 18744
+alias cdav='cd $HOME/Miscellaneous/18744'
+
+# 18646
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/cppunit/lib
