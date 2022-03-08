@@ -786,8 +786,7 @@ def init_widget_list():
     return widget_list
     
 widget_list1 = init_widget_list()
-# widget_list2 = init_widget_list()[:-3] + init_widget_list()[-1:]
-widget_list2 = init_widget_list()[:5]
+widget_list2 = init_widget_list()[:-3] + init_widget_list()[-1:]
 
 widget_defaults = dict(
     font=font,
