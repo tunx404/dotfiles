@@ -100,12 +100,9 @@ group_names = [
 # Applications
 
 mod = 'mod4'
+terminal = 'alacritty'
 
-terminal = 'alacritty' # 'kitty'
-system_info = terminal + ' -e neofetch'
-cli_fun = terminal + ' -e asciiquarium'
-calculator = 'qalculate-gtk'
-pomodoro_timer = 'pomotroid'
+####################
 
 # DIR
 file_manager = 'nemo'
@@ -118,6 +115,7 @@ music_playlist = 'google-chrome-stable https://www.youtube.com/playlist?list=PL1
 text_editor  = 'subl'
 # DOC
 pdf_reader = 'qpdfview'
+pomodoro_timer = 'pomotroid'
 # CLI
 # OFF
 # MM_
@@ -135,6 +133,11 @@ bluetooth_manager = 'blueman-manager'
 volume_controller = 'pavucontrol'
 # VM_
 virtual_machine = 'vmware' # 'virtualbox'
+# OTHERS
+calculator = 'qalculate-gtk'
+cli_fun = terminal + ' -e asciiquarium'
+
+####################
 
 gui_launcher = 'ulauncher'
 cli_launcher = 'dmenu_run'
@@ -150,12 +153,13 @@ change_wallpaper_dracula_2 = 'nitrogen --head=1 --set-zoom-fill --random --save 
 
 # screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "xclip -selection clip -t image/png -i $f; mv $f ~/SSD1/Miscellaneous"'
 screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "mv $f ~/SSD1/Miscellaneous"'
+screen_recorder = 'sa.sy.bluerecorder'
 
 change_dual_monitor_state = 'sh /home/tunx404/.scripts/change_dual_monitor_state.sh'
 power_saving = 'sh /home/tunx404/.scripts/power_saving.sh '
 performance_profile = 'cpupower-gui profile '
 
-prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
+prompt = "{0}@{1}: ".format(os.environ['USER'], socket.gethostname())
 
 ##################################################
 # Functions
@@ -209,41 +213,13 @@ keys = [
     # xev | grep 'keycode'
 
     ####################
-
-    # XF86LaunchA
-    # XF86LaunchB
-    # XF86KbdBrightnessDown
-    # XF86KbdBrightnessUp
-    # XF86AudioPrev
-    # XF86AudioNext
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     # Applications
+
     # DIR
     Key([mod], 'e',  lazy.function(app_to_group(group_names[0], file_manager)), desc='File manager'),
     # WEB
     Key([mod], 'c',  lazy.function(app_to_group(group_names[1], browser)),      desc='Browser'),
-    Key([mod], 'g',  lazy.function(app_to_group(group_names[1], email_client)), desc='Email client'),
+    # Key([mod], 'g',  lazy.function(app_to_group(group_names[1], email_client)), desc='Email client'),
     Key([mod], 'k',  lazy.function(app_to_group(group_names[1], password_manager)), desc='Password manager'),
     Key([mod], 'u',  lazy.function(app_to_group(group_names[1], music_playlist)), desc='Music playlist'),
     # DEV
@@ -257,8 +233,8 @@ keys = [
     Key([mod], 'm',  lazy.function(app_to_group(group_names[7], system_monitor)), desc='System monitor'),
     Key([mod], 'F9', lazy.function(app_to_group(group_names[7], performance_controller)), desc='Performance controller'),
     # SYS
-    Key([mod], 'b',  lazy.function(app_to_group(group_names[8], bluetooth_manager)), desc='Bluetooth manager'),
-    Key([mod], 'v',  lazy.function(app_to_group(group_names[8], volume_controller)), desc='Volume controller'),
+    Key([mod], 'v',  lazy.function(app_to_group(group_names[8], volume_controller)),
+                     lazy.function(app_to_group(group_names[8], bluetooth_manager)), desc='Volume controller & Bluetooth manager'),
 
     Key(['control', 'mod1'], 'a',
         # DIR
@@ -277,28 +253,10 @@ keys = [
         lazy.spawn(volume_controller),
     desc='Open all'),
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     # Launchers
     Key(['control', 'mod1'], 't', lazy.spawn(terminal), desc='Launch terminal'),
     Key([mod], 'Return', lazy.spawn(terminal), desc='Launch terminal'),
+    Key([mod], 'KP_Enter', lazy.spawn(terminal), desc='Launch terminal'),
     Key([mod, 'shift'], 'Return', lazy.spawncmd(), desc='Spawn a command using a prompt widget'),
 
     # Key([mod], 'f', lazy.spawn(file_launcher), desc='File launcher'),
@@ -310,38 +268,15 @@ keys = [
     # Key(['mod1'], 'Tab', lazy.spawn(window_switcher), desc='Switch window'),
 
     ####################
-
-    # Switch between windows
-    # Key([mod], 'h', lazy.layout.left(),  desc='Move focus to left'),
-    # Key([mod], 'l', lazy.layout.right(), desc='Move focus to right'),
-    # Key([mod], 'j', lazy.layout.down(),  desc='Move focus down'),
-    # Key([mod], 'k', lazy.layout.up(),    desc='Move focus up'),
-
-    # Key([mod], 'space', lazy.layout.next(), desc='Move window focus to other window'),
+    # Windows
 
     Key([mod], 'q', lazy.layout.next(), desc='Move window focus to other window'),
     Key(['mod1'], 'Tab', lazy.layout.next(), desc='Move window focus to other window'),
-
-    # Move windows between left/right columns or move up/down in current stack.
-    # Moving out of range in Columns layout will create new column.
-    # Key([mod, 'shift'], 'h', lazy.layout.shuffle_left(),  desc='Move window to the left'),
-    # Key([mod, 'shift'], 'l', lazy.layout.shuffle_right(), desc='Move window to the right'),
-    # Key([mod, 'shift'], 'j', lazy.layout.shuffle_down(),  desc='Move window down'),
-    # Key([mod, 'shift'], 'k', lazy.layout.shuffle_up(),    desc='Move window up'),
 
     Key([mod, 'shift'], 'a', lazy.layout.shuffle_left(),  desc='Move window to the left'),
     Key([mod, 'shift'], 'd', lazy.layout.shuffle_right(), desc='Move window to the right'),
     Key([mod, 'shift'], 's', lazy.layout.shuffle_down(),  desc='Move window down'),
     Key([mod, 'shift'], 'w', lazy.layout.shuffle_up(),    desc='Move window up'),
-
-    # Grow windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
-    # Key([mod, 'control'], 'h', lazy.layout.grow_left(),  desc='Grow window to the left'),
-    # Key([mod, 'control'], 'l', lazy.layout.grow_right(), desc='Grow window to the right'),
-    # Key([mod, 'control'], 'j', lazy.layout.grow_down(),  desc='Grow window down'),
-    # Key([mod, 'control'], 'k', lazy.layout.grow_up(),    desc='Grow window up'),
-
-    # Key([mod], 'n', lazy.layout.normalize(), desc='Reset all window sizes'),
 
     Key([mod], 'a', lazy.layout.grow_left(),  desc='Grow window to the left'),
     Key([mod], 'd', lazy.layout.grow_right(), desc='Grow window to the right'),
@@ -350,9 +285,6 @@ keys = [
 
     Key([mod], 'z', lazy.layout.normalize(), desc='Reset all window sizes'),
 
-    ####################
-
-    # Windows
     Key([mod], 'Up',   lazy.window.toggle_fullscreen(), desc='Fullscreen'),
     Key([mod], 'Down', lazy.window.toggle_floating(),   desc='Floating'),
 
@@ -361,13 +293,9 @@ keys = [
 
     Key([mod, 'shift'], 'c', lazy.window.kill(), desc='Kill focused window'),
 
-    # Toggle between different layouts as defined below
     Key([mod], 'Tab', lazy.next_layout(), desc='Toggle between layouts'),
 
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with multiple stack panes
-    # Key([mod, 'shift'], 'Return', lazy.layout.toggle_split(), desc='Toggle between split and unsplit sides of stack'),
+    ####################
 
     # Groups
     Key(['control', 'mod1'], 'Right', lazy.function(screen_to_next_group), desc='Switch to the next group'),
@@ -395,17 +323,17 @@ keys = [
     Key([mod, 'control', 'shift'], 'd', lazy.function(window_to_next_screen),     lazy.to_screen(1), desc='Move window to the next screen'),
     Key([mod, 'control', 'shift'], 'a', lazy.function(window_to_previous_screen), lazy.to_screen(0), desc='Move window to the prev screen'),
 
-    Key([mod, 'control'], 'Left',    lazy.spawn('xrandr --output DP-3  --mode 1920x1080 --pos 1920x0 --rotate left'),     desc='Rotate monitor 2 left'),
-    Key([mod, 'control'], 'Right',   lazy.spawn('xrandr --output DP-3  --mode 1920x1080 --pos 1920x0 --rotate right'),    desc='Rotate monitor 2 right'),
-    Key([mod, 'control'], 'Up',      lazy.spawn('xrandr --output DP-3  --mode 1920x1080 --pos 1920x0 --rotate normal'),   desc='Rotate monitor 2 normal'),
-    Key([mod, 'control'], 'Down',
-        lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate inverted'),
-        lazy.spawn('xrandr --output DP-1-3  --mode 1920x1080 --pos 1920x0 --rotate inverted'),
-    desc='Rotate monitor 2 inverted'),
+    Key([mod, 'control'], 'Left',  lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate left'),     desc='Rotate monitor 2 left'),
+    Key([mod, 'control'], 'Right', lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate right'),    desc='Rotate monitor 2 right'),
+    Key([mod, 'control'], 'Up',    lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate normal'),   desc='Rotate monitor 2 normal'),
+    Key([mod, 'control'], 'Down',  lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate inverted'),
+                                   lazy.spawn('xrandr --output DP-1-3  --mode 1920x1080 --pos 1920x0 --rotate inverted'), desc='Rotate monitor 2 inverted'),
 
     Key([mod, 'control'], 'Return',  lazy.spawn('nitrogen --restore'), desc='Reset wallpaper'),
 
     Key([mod], 'p', lazy.spawn(change_dual_monitor_state), desc='Change dual monitor state'),
+
+    ####################
 
     # Wallpapers
     Key([mod, 'control'], 'grave', lazy.spawn(change_wallpaper_all), desc='Change wallpaper on both screen'),
@@ -414,9 +342,10 @@ keys = [
     Key([mod, 'control'], '3',     lazy.spawn(change_wallpaper_dracula_1), lazy.spawn(change_wallpaper_dracula_2), desc='Change wallpaper to dracula'),
 
     # Screenshots
-    Key([], 'Print', lazy.spawn('scrot' + screenshot_clipboard), desc='Screenshot (all)'),
-    Key(['control'], 'Print', lazy.spawn('scrot -u' + screenshot_clipboard), desc='Screenshot (window)'),
-    Key(['shift'], 'Print', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
+    Key([],          'Print', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
+    Key(['control'], 'Print', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
+    Key(['shift'],   'Print', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
+    Key(['control', 'shift'], 'Print', lazy.spawn(screen_recorder), desc='Screen recorder'),
 
     ####################
 
@@ -454,6 +383,8 @@ keys = [
         '/org/mpris/MediaPlayer2'
         'org.mpris.MediaPlayer2.Player.PlayPause')
     ),
+    Key([], 'XF86AudioPrev', lazy.spawn('')),
+    Key([], 'XF86AudioNext', lazy.spawn('')),
 
     Key([], 'XF86Calculator', lazy.spawn(calculator)),
 ]
@@ -463,18 +394,6 @@ keys = [
 # Groups
 
 num_groups = 10
-
-
-
-
-
-
-
-
-
-
-
-
 
 # xprop
 group_matches = [
@@ -489,23 +408,6 @@ group_matches = [
     [Match(wm_class=['Blueman-manager', 'Pavucontrol', 'Pamac-manager'])],
     [Match(wm_class=['VirtualBox Manager', 'Vmware'])],
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 group_layouts = [
     'columns',
@@ -528,27 +430,6 @@ for k, group in zip(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], groups):
         # Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=True), desc='Switch to & move focused window to group {}'.format(group.name))
         Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=False), desc='Switch to & move focused window to group {}'.format(group.name))
     ])
-
-# groups = [Group(i) for i in '123456789']
-
-# https://docs.qtile.org/en/stable/manual/config/groups.html
-# from libqtile.dgroups import simple_key_binder
-# dgroups_key_binder = simple_key_binder('mod4')
-
-# for i in groups:
-#     keys.extend([
-#         # mod1 + letter of group = switch to group
-#         Key([mod], i.name, lazy.group[i.name].toscreen(),
-#             desc='Switch to group {}'.format(i.name)),
-
-#         # mod1 + shift + letter of group = switch to & move focused window to group
-#         Key([mod, 'shift'], i.name, lazy.window.togroup(i.name, switch_group=True),
-#             desc='Switch to & move focused window to group {}'.format(i.name)),
-#         # Or, use below if you prefer not to switch to that group.
-#         # # mod1 + shift + letter of group = move focused window to group
-#         # Key([mod, 'shift'], i.name, lazy.window.togroup(i.name),
-#         #     desc='move focused window to group {}'.format(i.name)),
-#     ])
 
 ##################################################
 # Layouts
@@ -764,23 +645,12 @@ def init_widget_list():
         # widget.CapsNumLockIndicator(
         #     background=widget_background_color,
         # ),
-
-        ####################
-
-        # widget.CurrentLayout(),
-        # widget.GroupBox(),
-        # widget.Prompt(),
-        # widget.WindowName(),
         # widget.Chord(
         #     chords_colors={
         #         'launch': ('#ff0000', '#ffffff'),
         #     },
         #     name_transform=lambda name: name.upper(),
         # ),
-        # widget.TextBox('default config', name='default'),
-        # widget.TextBox('Press &lt;M-r&gt; to spawn', foreground='#d75f5f'),
-        # widget.Systray(),
-        # widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
         # widget.QuickExit(),
     ]
     return widget_list
