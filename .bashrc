@@ -77,7 +77,7 @@ alias updatepkg='sudo pacman -Syu && yay -Syu'
 
 alias cleandt='~/.config/darktable/purge_non_existing_images.sh --purge && darktable-generate-cache'
 
-alias mountmtp='aft-mtp-mount ~/Quest2'
+alias mountmtp='aft-mtp-mount ~/MTP'
 
 alias adddot='~/.scripts/add_dotfiles.sh'
 alias pushdot='~/.scripts/push_dotfiles.sh'

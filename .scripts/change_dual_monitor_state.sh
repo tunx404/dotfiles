@@ -2,7 +2,7 @@
 
 state=$(cat /tmp/dual_monitor_state)
 
-if [[ "$state" = 2 ]];
+if [[ "$state" = 3 ]];
 then
   echo "Monitor 1";
   echo "0" > /tmp/dual_monitor_state;
@@ -14,9 +14,14 @@ then
   echo "1" > /tmp/dual_monitor_state;
   xrandr --output eDP-1 --off;
   xrandr --output DP-3  --mode 1920x1080 --pos 0x0 --rotate inverted;
-else
+elif [[ "$state" = 1 ]];
+then
   echo "Extended";
   echo "2" > /tmp/dual_monitor_state;
   xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal;
   xrandr --output DP-3  --mode 1920x1080 --pos 1920x0 --rotate inverted;
+else
+  echo "Mirror";
+  echo "3" > /tmp/dual_monitor_state;
+  xrandr --output DP-3 --same-as eDP-1 --rotate inverted;
 fi
