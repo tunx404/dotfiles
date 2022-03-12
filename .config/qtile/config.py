@@ -108,6 +108,8 @@ terminal = 'alacritty'
 file_manager = 'nemo'
 # WEB
 browser = 'google-chrome-stable'
+messenger1 = 'whatsapp-nativefier'
+messenger2 = 'caprine'
 email_client = 'thunderbird'
 password_manager = 'keepassxc'
 music_playlist = 'google-chrome-stable https://www.youtube.com/playlist?list=PL14zqHuhShBB2_PRQOaD3imODj0Ejzjcv'
@@ -222,6 +224,7 @@ keys = [
     # Key([mod], 'g',  lazy.function(app_to_group(group_names[1], email_client)), desc='Email client'),
     Key([mod], 'k',  lazy.function(app_to_group(group_names[1], password_manager)), desc='Password manager'),
     Key([mod], 'u',  lazy.function(app_to_group(group_names[1], music_playlist)), desc='Music playlist'),
+    Key([mod], 'm',  lazy.function(app_to_group(group_names[1], messenger1)), desc='Messenger'),
     # DEV
     Key([mod], 't',  lazy.function(app_to_group(group_names[2], text_editor)),  desc='Text editor'),
     # DOC
@@ -230,7 +233,7 @@ keys = [
     # MM_
     Key([mod], 'i',  lazy.function(app_to_group(group_names[6], photo_library)),  desc='Photo library'),
     # MON
-    Key([mod], 'm',  lazy.function(app_to_group(group_names[7], system_monitor)), desc='System monitor'),
+    Key([mod], 'y',  lazy.function(app_to_group(group_names[7], system_monitor)), desc='System monitor'),
     Key([mod], 'F9', lazy.function(app_to_group(group_names[7], performance_controller)), desc='Performance controller'),
     # SYS
     Key([mod], 'v',  lazy.function(app_to_group(group_names[8], volume_controller)),
@@ -346,6 +349,11 @@ keys = [
     Key(['control'], 'Print', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
     Key(['shift'],   'Print', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
     Key(['control', 'shift'], 'Print', lazy.spawn(screen_recorder), desc='Screen recorder'),
+
+    Key([],          'XF86AudioNext', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
+    Key(['control'], 'XF86AudioNext', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
+    Key(['shift'],   'XF86AudioNext', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
+    Key(['control', 'shift'], 'XF86AudioNext', lazy.spawn(screen_recorder), desc='Screen recorder'),
 
     ####################
 
