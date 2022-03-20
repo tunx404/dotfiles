@@ -58,36 +58,42 @@ paleofetch
 ##################################################
 # Miscellaneous
 
-alias cmuvpn='sudo openconnect -u alehoang vpn.cmu.edu'
+# alias dng='WINEPREFIX=$HOME/.wine-dng wine "$HOME/.wine-dng/drive_c/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"'
+# alias dng-wine='WINEPREFIX=$HOME/.wine-dng wine'
+# alias dng-cfg='WINEPREFIX=$HOME/.wine-dng winecfg'
 
-alias dng='WINEPREFIX=$HOME/.wine-dng wine "$HOME/.wine-dng/drive_c/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"'
-alias dng-wine='WINEPREFIX=$HOME/.wine-dng wine'
-alias dng-cfg='WINEPREFIX=$HOME/.wine-dng winecfg'
-
-alias resetcuda='sudo rmmod nvidia_uvm && sudo modprobe nvidia_uvm'
 alias resetlogid='sudo systemctl restart logid'
 
 alias checkpower='cat /proc/acpi/bbswitch'
 
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
+alias updatepkg='sudo pacman -Syu && yay -Syu'
 alias removeorphans='pacman -Qtdq | sudo pacman -Rns -'
 alias cleanpkg='sudo pacman -Scc && yay -Scc && rm -rf ~/.cache/yay && removeorphans'
-alias updatepkg='sudo pacman -Syu && yay -Syu'
 
 alias cleandt='~/.config/darktable/purge_non_existing_images.sh --purge && darktable-generate-cache'
+
+alias cleanall='cleanpkg && cleandt && conda clean -a'
 
 alias mountmtp='aft-mtp-mount ~/MTP'
 
 alias adddot='~/.scripts/add_dotfiles.sh'
 alias pushdot='~/.scripts/push_dotfiles.sh'
 
-alias ohmonitor='xrandr --output DP-3 --mode 1680x1050 --pos 1920x0 --rotate normal'
+alias exmonitor='xrandr --output DP-3 --mode 1920x1080 --pos 1920x0 --rotate normal'
 
+alias phonecam='scrcpy --v4l2-sink=/dev/video3 --lock-video-orientation=2'
+
+# CMU
+alias cmuvpn='sudo openconnect -u alehoang vpn.cmu.edu'
 alias ssh='TERM=xterm-256color ssh'
+alias resetcuda='sudo rmmod nvidia_uvm && sudo modprobe nvidia_uvm'
 
 # 18744
 alias cdav='cd $HOME/Miscellaneous/18744'
 
 # 18646
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/cppunit/lib
+
+
