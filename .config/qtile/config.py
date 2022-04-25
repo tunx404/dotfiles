@@ -34,7 +34,7 @@
 from typing import List
 
 from libqtile import bar, layout, widget, hook, qtile
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule
 from libqtile.lazy import lazy
 # from libqtile.utils import guess_terminal
 
@@ -156,7 +156,7 @@ change_wallpaper_dracula_1 = 'nitrogen --head=0 --set-zoom-fill --random --save 
 change_wallpaper_dracula_2 = 'nitrogen --head=1 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide/Dracula'
 
 # screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "xclip -selection clip -t image/png -i $f; mv $f ~/SSD1/Miscellaneous"'
-screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "mv $f ~/SSD1/Miscellaneous"'
+screenshot_clipboard = ' -o "IMG_%Y%m%d_%H%M%S.png" -e "mv $f ~/SSD1/Miscellaneous"'
 screen_recorder = 'sa.sy.bluerecorder'
 
 change_dual_monitor_state = 'sh /home/tunx404/.scripts/change_dual_monitor_state.sh'
@@ -299,8 +299,8 @@ keys = [
     Key([mod], 'Up',   lazy.window.toggle_fullscreen(), desc='Fullscreen'),
     Key([mod], 'Down', lazy.window.toggle_floating(),   desc='Floating'),
 
-    Key([mod, 'shift'],   'q', lazy.window.toggle_fullscreen(), desc='Fullscreen'),
-    Key([mod, 'control'], 'q', lazy.window.toggle_floating(),   desc='Floating'),
+    Key([mod, 'control'],   'q', lazy.window.toggle_fullscreen(), desc='Fullscreen'),
+    Key([mod, 'shift'], 'q', lazy.window.toggle_floating(),   desc='Floating'),
 
     Key([mod, 'shift'], 'c', lazy.window.kill(), desc='Kill focused window'),
 
@@ -365,6 +365,11 @@ keys = [
     Key(['control'], 'Print', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
     Key(['shift'],   'Print', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
     Key(['control', 'shift'], 'Print', lazy.spawn(screen_recorder), desc='Screen recorder'),
+
+    Key([],          'F9', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
+    Key(['control'], 'F9', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
+    Key(['shift'],   'F9', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
+    Key(['control', 'shift'], 'F9', lazy.spawn(screen_recorder), desc='Screen recorder'),
 
     Key([],          'XF86AudioNext', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
     Key(['control'], 'XF86AudioNext', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
@@ -433,7 +438,7 @@ group_matches = [
     [Match(wm_class=['Darktable', 'Gimp-2.10', 'Spotify', 'Steam'])],
     [Match(wm_class=['Gnome-system-monitor', 'Cpupower-gui', 'Gnome-power-statistics'])],
     [Match(wm_class=['Blueman-manager', 'Pavucontrol', 'Pamac-manager'])],
-    [Match(wm_class=['VirtualBox Manager', 'Vmware'])],
+    [Match(wm_class=['VirtualBox Manager', 'Vmware', 'TeamViewer'])],
 ]
 
 group_layouts = [
@@ -451,11 +456,15 @@ group_layouts = [
 
 groups = [Group(group_names[i], matches=group_matches[i], layout=group_layouts[i]) for i in range(num_groups)]
 
+dgroups_app_rules = [
+    Rule(Match(wm_class=['et', 'wps', 'wpp']), float=False, intrusive=True),
+    ]
+
 for k, group in zip(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], groups):
     keys.extend([
         Key([mod], k, lazy.group[group.name].toscreen(), desc='Switch to group {}'.format(group.name)),
         # Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=True), desc='Switch to & move focused window to group {}'.format(group.name))
-        Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=False), desc='Switch to & move focused window to group {}'.format(group.name))
+        Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=False), desc='Move focused window to group {}'.format(group.name))
     ])
 
 ##################################################
