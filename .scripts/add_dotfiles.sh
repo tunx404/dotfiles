@@ -17,6 +17,7 @@
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .config/pomotroid/user-preferences.json
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .config/baloofilerc
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .config/darktable/purge_non_existing_images.sh
+/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .config/minidlna
 
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .ssh/config
 

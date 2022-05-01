@@ -97,5 +97,8 @@ alias cdav='cd $HOME/Miscellaneous/18744'
 alias cdai='cd $HOME/Miscellaneous/18662/CyCADA'
 alias cdfin='cd $HOME/Miscellaneous/financialadvisor && conda activate fin'
 
+alias startdlna='minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid'
+alias stopdlna='killall minidlnad'
+
 # 18646
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/cppunit/lib
