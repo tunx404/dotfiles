@@ -171,3 +171,31 @@
 [2022/05/01 01:21:26] playlist.c:135: warn: Parsing playlists...
 [2022/05/01 01:21:26] playlist.c:269: warn: Finished parsing playlists.
 [2022/05/01 01:23:20] minidlna.c:199: warn: received signal 15, good-bye
+[2022/05/01 01:26:35] minidlna.c:1134: warn: Starting MiniDLNA version 1.3.1.
+[2022/05/01 01:26:35] minidlna.c:1182: warn: HTTP listening on port 8200
+[2022/05/01 01:47:02] minidlna.c:199: warn: received signal 15, good-bye
+[2022/05/01 01:47:02] minidlna.c:217: warn: received signal 1, reloading
+[2022/05/01 01:47:03] minissdp.c:816: error: sendto(udp_shutdown=9): Network is unreachable
+[2022/05/01 01:47:03] minissdp.c:816: error: sendto(udp_shutdown=9): Network is unreachable
+[2022/05/05 20:14:43] minidlna.c:1134: warn: Starting MiniDLNA version 1.3.1.
+[2022/05/05 20:14:43] minidlna.c:1182: warn: HTTP listening on port 8200
+[2022/05/05 20:30:08] minidlna.c:199: warn: received signal 15, good-bye
+[2022/05/05 20:30:08] minidlna.c:217: warn: received signal 1, reloading
+[2022/05/05 20:30:08] minissdp.c:816: error: sendto(udp_shutdown=9): Network is unreachable
+[2022/05/05 20:30:08] minissdp.c:816: error: sendto(udp_shutdown=9): Network is unreachable
+[2022/05/06 23:43:39] minidlna.c:1134: warn: Starting MiniDLNA version 1.3.1.
+[2022/05/06 23:43:39] minidlna.c:1182: warn: HTTP listening on port 8200
+[2022/05/06 23:43:39] monitor_inotify.c:131: error: inotify_add_watch(/home/tunx404/SSD2/Backups/DLNA/VR/VirtualRealPorn.com/Asian love) [No such file or directory]
+[2022/05/06 23:43:39] monitor_inotify.c:131: error: inotify_add_watch(/home/tunx404/SSD2/Backups/DLNA/VR/VirtualRealPorn.com/BDSM) [No such file or directory]
+[2022/05/06 23:43:39] monitor_inotify.c:131: error: inotify_add_watch(/home/tunx404/SSD2/Backups/DLNA/VR/VirtualRealPorn.com/Ocean's sex) [No such file or directory]
+[2022/05/06 23:43:39] monitor_inotify.c:131: error: inotify_add_watch(/home/tunx404/SSD2/Backups/DLNA/VR/VirtualRealPorn.com/Savage's school) [No such file or directory]
+[2022/05/06 23:49:06] minidlna.c:199: warn: received signal 15, good-bye
+[2022/05/06 23:49:29] minidlna.c:1134: warn: Starting MiniDLNA version 1.3.1.
+[2022/05/06 23:49:29] minidlna.c:394: warn: Creating new database at /home/tunx404/.cache/minidlna/files.db
+[2022/05/06 23:49:29] scanner.c:731: warn: Scanning /home/tunx404/SSD2/Backups/DLNA
+[2022/05/06 23:49:29] minidlna.c:1182: warn: HTTP listening on port 8200
+[2022/05/06 23:49:33] scanner.c:820: warn: Scanning /home/tunx404/SSD2/Backups/DLNA finished (163 files)!
+[2022/05/06 23:49:33] playlist.c:135: warn: Parsing playlists...
+[2022/05/06 23:49:33] playlist.c:269: warn: Finished parsing playlists.
+[2022/05/07 00:09:43] minidlna.c:199: warn: received signal 15, good-bye
+[2022/05/07 00:09:43] minidlna.c:217: warn: received signal 1, reloading

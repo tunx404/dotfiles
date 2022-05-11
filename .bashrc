@@ -83,10 +83,6 @@ alias pushdot='~/.scripts/push_dotfiles.sh'
 
 alias exmonitor='xrandr --output DP-3 --mode 1920x1080 --pos 1920x0 --rotate normal'
 
-alias newcam='sudo modprobe v4l2loopback exclusive_caps=1 && v4l2-ctl --list-devices'
-alias phonecam='scrcpy --tcpip=10.10.10.2:37727 --v4l2-sink=/dev/video2 --stay-awake --bit-rate 2M --max-size 1440 --max-fps 30 --crop 1080:1440:0:300 --lock-video-orientation'
-alias phonecam2='scrcpy --v4l2-sink=/dev/video2 --stay-awake --bit-rate 2M --max-size 1080 --max-fps 30 --crop 1080:810:0:615 --lock-video-orientation=2'
-
 # CMU
 alias cmuvpn='sudo openconnect -u alehoang vpn.cmu.edu'
 alias ssh='TERM=xterm-256color ssh'
@@ -94,11 +90,7 @@ alias resetcuda='sudo rmmod nvidia_uvm && sudo modprobe nvidia_uvm'
 
 # 18744
 alias cdav='cd $HOME/Miscellaneous/18744'
-alias cdai='cd $HOME/Miscellaneous/18662/CyCADA'
 alias cdfin='cd $HOME/Miscellaneous/financialadvisor && conda activate fin'
 
 alias startdlna='minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid'
 alias stopdlna='killall minidlnad'
-
-# 18646
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/cppunit/lib
