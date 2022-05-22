@@ -58,10 +58,6 @@ paleofetch
 ##################################################
 # Miscellaneous
 
-# alias dng='WINEPREFIX=$HOME/.wine-dng wine "$HOME/.wine-dng/drive_c/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe"'
-# alias dng-wine='WINEPREFIX=$HOME/.wine-dng wine'
-# alias dng-cfg='WINEPREFIX=$HOME/.wine-dng winecfg'
-
 alias resetlogid='sudo systemctl restart logid'
 
 alias checkpower='cat /proc/acpi/bbswitch'
@@ -94,3 +90,5 @@ alias cdfin='cd $HOME/Miscellaneous/financialadvisor && conda activate fin'
 
 alias startdlna='minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid'
 alias stopdlna='killall minidlnad'
+
+alias mountftp='curlftpfs 10.10.10.10/Gargoyle ~/Gargoyle -o user=tunx404:x00rdsrw'

@@ -64,7 +64,7 @@ color_dracula = {
 ##################################################
 # Configurations
 
-layout_margin = 4
+layout_margin = 2
 
 font = 'Ubuntu Condensed Regular'
 
@@ -77,8 +77,8 @@ widget_foreground_color = color_dracula['Foreground']
 bar_size = 24
 # bar_margin = [layout_margin, layout_margin, 0, layout_margin]
 bar_margin = [0, 0, layout_margin, 0]
-bar_background = color_dracula['Transparent']
-# bar_background = color_dracula['Background']
+# bar_background = color_dracula['Transparent']
+bar_background = color_dracula['Background']
 bar_opacity = 1
 # bar_opacity = 0.85
 
