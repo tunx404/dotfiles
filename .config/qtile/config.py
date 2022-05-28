@@ -429,7 +429,7 @@ num_groups = 10
 
 # xprop
 group_matches = [
-    [Match(wm_class=['Nemo', 'Insync', 'Gprename'])],
+    [Match(wm_class=['Nemo', 'Insync', 'krename', "FreeFileSync"])],
     [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'whatsapp-nativefier-d40211', 'Cisco AnyConnect Secure Mobility Client', 'Thunderbird'])],
     [Match(wm_class=['Subl', 'jetbrains-studio', 'code-oss', 'zoom'])],
     [Match(wm_class=['qpdfview', 'pdf', 'pomotroid'])],
