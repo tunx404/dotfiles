@@ -227,7 +227,9 @@ keys = [
     Key([mod], 'k',  lazy.function(app_to_group(group_names[1], password_manager)), desc='Password manager'),
     Key([mod], 'u',          lazy.function(app_to_group(group_names[1], music_playlist)), desc='Music playlist'),
     Key([mod, 'shift'], 'u', lazy.function(app_to_group(group_names[1], study_playlist)), desc='Study with me playlist'),
-    Key([mod], 'm',  lazy.function(app_to_group(group_names[1], messenger1)), desc='Messenger'),
+    # Key([mod], 'm',  lazy.function(app_to_group(group_names[1], messenger1)), desc='Messenger'),
+    Key([mod], 'm',  lazy.function(app_to_group(group_names[1], messenger1)),
+                     lazy.function(app_to_group(group_names[1], messenger2)), desc='Messenger'),
     # DEV
     Key([mod], 't',  lazy.function(app_to_group(group_names[2], text_editor)),  desc='Text editor'),
     # DOC
@@ -435,7 +437,7 @@ group_matches = [
     [Match(wm_class=['qpdfview', 'pdf', 'pomotroid'])],
     [Match(wm_class=[])],
     [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'Ao'])],
-    [Match(wm_class=['Darktable', 'Gimp-2.10', 'Spotify', 'Steam'])],
+    [Match(wm_class=['Darktable', 'Gimp-2.10', 'Spotify', 'Steam', 'resolve'])],
     [Match(wm_class=['Gnome-system-monitor', 'Cpupower-gui', 'Gnome-power-statistics'])],
     [Match(wm_class=['Blueman-manager', 'Pavucontrol', 'Pamac-manager'])],
     [Match(wm_class=['VirtualBox Manager', 'Vmware', 'TeamViewer'])],

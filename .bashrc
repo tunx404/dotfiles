@@ -12,6 +12,12 @@ export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 
 ##################################################
+# DaVinci Resolve
+
+export __NV_PRIME_RENDER_OFFLOAD=1
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+
+##################################################
 # Conda
 
 # >>> conda initialize >>>
@@ -84,8 +90,6 @@ alias cmuvpn='sudo openconnect -u alehoang vpn.cmu.edu'
 alias ssh='TERM=xterm-256color ssh'
 alias resetcuda='sudo rmmod nvidia_uvm && sudo modprobe nvidia_uvm'
 
-# 18744
-alias cdav='cd $HOME/Miscellaneous/18744'
 alias cdfin='cd $HOME/Miscellaneous/financialadvisor && conda activate fin'
 
 alias startdlna='minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid'
