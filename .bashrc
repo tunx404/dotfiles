@@ -90,9 +90,11 @@ alias cmuvpn='sudo openconnect -u alehoang vpn.cmu.edu'
 alias ssh='TERM=xterm-256color ssh'
 alias resetcuda='sudo rmmod nvidia_uvm && sudo modprobe nvidia_uvm'
 
-alias cdfin='cd $HOME/Miscellaneous/financialadvisor && conda activate fin'
+alias fintec='cd $HOME/Cloud/Google\ Drive\ 1/Projects/Fintecism/financialadvisor && conda activate fin && jupyter-lab'
 
 alias startdlna='minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid'
 alias stopdlna='killall minidlnad'
 
 alias mountftp='curlftpfs 10.10.10.10/Gargoyle ~/Gargoyle -o user=tunx404:x00rdsrw'
+
+alias pkgtop='pkgtop -pacman yay'
