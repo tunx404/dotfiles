@@ -62,6 +62,11 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 paleofetch
 
 ##################################################
+# MATLAB
+
+export LD_PRELOAD=/lib64/libfreetype.so 
+
+##################################################
 # Miscellaneous
 
 alias resetlogid='sudo systemctl restart logid'
@@ -95,6 +100,8 @@ alias fintec='cd $HOME/Cloud/Google\ Drive\ 1/Projects/Fintecism/financialadviso
 alias startdlna='minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid'
 alias stopdlna='killall minidlnad'
 
-alias mountftp='curlftpfs 10.10.10.10/Gargoyle ~/Gargoyle -o user=tunx404:x00rdsrw'
+alias mountftp='curlftpfs 10.10.10.10/Gargoyle ~/Gargoyle -o'
 
 alias pkgtop='pkgtop -pacman yay'
+
+alias frac='cd ~/Miscellaneous/fracture && jupyter-lab'

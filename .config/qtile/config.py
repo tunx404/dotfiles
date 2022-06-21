@@ -368,18 +368,20 @@ keys = [
     Key(['shift'],   'Print', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
     Key(['control', 'shift'], 'Print', lazy.spawn(screen_recorder), desc='Screen recorder'),
 
-    Key([],          'F9', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
-    Key(['control'], 'F9', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
-    Key(['shift'],   'F9', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
-    Key(['control', 'shift'], 'F9', lazy.spawn(screen_recorder), desc='Screen recorder'),
+    # Key([],          'F9', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
+    # Key(['control'], 'F9', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
+    # Key(['shift'],   'F9', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
+    # Key(['control', 'shift'], 'F9', lazy.spawn(screen_recorder), desc='Screen recorder'),
 
-    Key([],          'XF86AudioNext', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
-    Key(['control'], 'XF86AudioNext', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
-    Key(['shift'],   'XF86AudioNext', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
-    Key(['control', 'shift'], 'XF86AudioNext', lazy.spawn(screen_recorder), desc='Screen recorder'),
+    # Key([],          'XF86AudioNext', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
+    # Key(['control'], 'XF86AudioNext', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
+    # Key(['shift'],   'XF86AudioNext', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
+    # Key(['control', 'shift'], 'XF86AudioNext', lazy.spawn(screen_recorder), desc='Screen recorder'),
 
-    
-    Key(['control'], 'Escape', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
+    Key([mod],          'x', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
+    Key([mod, 'control'], 'x', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
+    Key([mod, 'shift'],   'x', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
+    Key([mod, 'control', 'shift'], 'x', lazy.spawn(screen_recorder), desc='Screen recorder'),
 
     ####################
 
