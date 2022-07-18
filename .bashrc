@@ -95,7 +95,7 @@ alias cmuvpn='sudo openconnect -u alehoang vpn.cmu.edu'
 alias ssh='TERM=xterm-256color ssh'
 alias resetcuda='sudo rmmod nvidia_uvm && sudo modprobe nvidia_uvm'
 
-alias fintec='cd $HOME/Cloud/Google\ Drive\ 1/Projects/Fintecism/financialadvisor && conda activate fin && jupyter-lab'
+alias fintec='cd ~/Cloud/Google\ Drive\ 1/Projects/Fintecism/financialadvisor && conda activate fin && jupyter-lab'
 
 alias startdlna='minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid'
 alias stopdlna='killall minidlnad'
@@ -105,3 +105,9 @@ alias mountftp='curlftpfs 10.10.10.10/Gargoyle ~/Gargoyle -o'
 alias pkgtop='pkgtop -pacman yay'
 
 alias frac='cd ~/Miscellaneous/fracture && jupyter-lab'
+
+alias dd='sudo dd status=progress'
+
+alias resetserial='sudo chmod 666 /dev/ttyUSB0'
+
+# alias esphome='esphome dashboard esphome/'

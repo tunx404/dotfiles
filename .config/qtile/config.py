@@ -324,31 +324,31 @@ keys = [
     Key([mod, 'control', 'shift'], 's', lazy.function(window_to_prev_group), desc='Move window to the prev group'),
 
     # Screens
-    Key([mod], 'Right', lazy.to_screen(1), desc='Move focus to the next screen'),
-    Key([mod], 'Left',  lazy.to_screen(0), desc='Move focus to the prev screen'),
+    # Key([mod], 'Right', lazy.to_screen(1), desc='Move focus to the next screen'),
+    # Key([mod], 'Left',  lazy.to_screen(0), desc='Move focus to the prev screen'),
 
-    Key([mod, 'control'], 'd', lazy.to_screen(1), desc='Move focus to the next screen'),
-    Key([mod, 'control'], 'a', lazy.to_screen(0), desc='Move focus to the prev screen'),
+    # Key([mod, 'control'], 'd', lazy.to_screen(1), desc='Move focus to the next screen'),
+    # Key([mod, 'control'], 'a', lazy.to_screen(0), desc='Move focus to the prev screen'),
     
-    Key([mod, 'shift'], 'Right', lazy.function(window_to_next_screen),     lazy.to_screen(1), desc='Move window to the next screen'),
-    Key([mod, 'shift'], 'Left',  lazy.function(window_to_previous_screen), lazy.to_screen(0), desc='Move window to the prev screen'),
+    # Key([mod, 'shift'], 'Right', lazy.function(window_to_next_screen),     lazy.to_screen(1), desc='Move window to the next screen'),
+    # Key([mod, 'shift'], 'Left',  lazy.function(window_to_previous_screen), lazy.to_screen(0), desc='Move window to the prev screen'),
 
     Key([mod, 'control', 'shift'], 'd', lazy.function(window_to_next_screen),     lazy.to_screen(1), desc='Move window to the next screen'),
     Key([mod, 'control', 'shift'], 'a', lazy.function(window_to_previous_screen), lazy.to_screen(0), desc='Move window to the prev screen'),
 
-    Key([mod, 'control'], 'Left',  lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate left'),
-                                   lazy.spawn('nitrogen --restore'),
-                                   desc='Rotate monitor 2 left'),
-    Key([mod, 'control'], 'Right', lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate right'),
-                                   lazy.spawn('nitrogen --restore'),
-                                   desc='Rotate monitor 2 right'),
-    Key([mod, 'control'], 'Up',    lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate normal'),
-                                   lazy.spawn('nitrogen --restore'),
-                                   desc='Rotate monitor 2 normal'),
-    Key([mod, 'control'], 'Down',  lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate inverted'),
-                                   lazy.spawn('xrandr --output DP-1-3  --mode 1920x1080 --pos 1920x0 --rotate inverted'),
-                                   lazy.spawn('nitrogen --restore'),
-                                   desc='Rotate monitor 2 inverted'),
+    # Key([mod, 'control'], 'Left',  lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate left'),
+    #                                lazy.spawn('nitrogen --restore'),
+    #                                desc='Rotate monitor 2 left'),
+    # Key([mod, 'control'], 'Right', lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate right'),
+    #                                lazy.spawn('nitrogen --restore'),
+    #                                desc='Rotate monitor 2 right'),
+    # Key([mod, 'control'], 'Up',    lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate normal'),
+    #                                lazy.spawn('nitrogen --restore'),
+    #                                desc='Rotate monitor 2 normal'),
+    # Key([mod, 'control'], 'Down',  lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate inverted'),
+    #                                lazy.spawn('xrandr --output DP-1-3  --mode 1920x1080 --pos 1920x0 --rotate inverted'),
+    #                                lazy.spawn('nitrogen --restore'),
+    #                                desc='Rotate monitor 2 inverted'),
 
     Key([mod, 'control'], 'Return', lazy.spawn('nitrogen --restore'), desc='Reset wallpaper'),
 
@@ -435,7 +435,7 @@ num_groups = 10
 group_matches = [
     [Match(wm_class=['Nemo', 'Insync', 'krename', "FreeFileSync"])],
     [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'whatsapp-nativefier-d40211', 'Cisco AnyConnect Secure Mobility Client', 'Thunderbird'])],
-    [Match(wm_class=['Subl', 'jetbrains-studio', 'code-oss', 'zoom'])],
+    [Match(wm_class=['Subl', 'jetbrains-studio', 'code-oss', 'zoom', 'sun-awt-X11-XFramePeer'])],
     [Match(wm_class=['qpdfview', 'pdf', 'pomotroid'])],
     [Match(wm_class=[])],
     [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'Ao'])],
@@ -697,6 +697,7 @@ def init_widget_list():
     
 widget_list1 = init_widget_list()
 widget_list2 = init_widget_list()[:-3] + init_widget_list()[-1:]
+widget_list3 = init_widget_list()[:-3] + init_widget_list()[-1:]
 
 widget_defaults = dict(
     font=font,
@@ -710,6 +711,7 @@ extension_defaults = widget_defaults.copy()
 screens = [
     Screen(top=bar.Bar(widgets=widget_list1, size=bar_size, background=bar_background, margin=bar_margin, opacity=bar_opacity)),
     Screen(top=bar.Bar(widgets=widget_list2, size=bar_size, background=bar_background, margin=bar_margin, opacity=bar_opacity)),
+    Screen(top=bar.Bar(widgets=widget_list3, size=bar_size, background=bar_background, margin=bar_margin, opacity=bar_opacity)),
 ]
 
 
