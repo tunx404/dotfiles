@@ -99,12 +99,12 @@ tunx404_color_red          = color_dracula['Red']
 # tunx404_color_foreground_2 = color_nord['nord3']
 # tunx404_color_red          = color_nord['nord11']
 
-layout_margin = 2
-
-font = 'Ubuntu Condensed Regular'
-
 widget_background_color = None
 widget_foreground_color = tunx404_color_foreground
+
+tunx404_font = 'Ubuntu Condensed Regular'
+
+layout_margin = 2
 
 bar_size = 24
 bar_margin = [0, 0, layout_margin, 0]
@@ -454,7 +454,6 @@ keys = [
     Key([], 'XF86Calculator', lazy.spawn(calculator)),
 ]
 
-
 ##################################################
 # Groups
 
@@ -528,37 +527,24 @@ layouts = [
     # layout.Floating(**layout_config),
 ]
 
-
 ##################################################
 # Screens
 
-# sudo subl /lib/python3.9/site-packages/libqtile/widget/graph.py
-graph_config = dict(
-    border_color=tunx404_color_foreground,
-    border_width=1,
-    fill_color=tunx404_color_foreground,
-    graph_color=tunx404_color_foreground,
-    line_width=1,
-    samples=60,
-)
-
 def init_widget_list():
-    def separator_right(bg_color, fg_color):
+    def separator_right():
         return widget.TextBox(
             text='|',
-            # text='',
-            fontsize=12,
-            # background=bg_color,
-            # foreground=fg_color,
+            # fontsize=12,
+            # background=None,
+            # foreground=tunx404_color_foreground,
         )
 
-    def separator_left(bg_color, fg_color):
+    def separator_left():
         return widget.TextBox(
             text='|',
-            # text='',
-            fontsize=12,
-            # background=bg_color,
-            # foreground=fg_color,
+            # fontsize=12,
+            # background=None,
+            # foreground=tunx404_color_foreground,
         )
 
     widget_list = [
@@ -569,13 +555,10 @@ def init_widget_list():
         ),
         widget.Prompt(
             prompt=prompt,
-            font='Inconsolata for Powerline',
         ),
 
-        separator_left(widget_background_color, widget_foreground_color),
+        separator_left(),
         widget.GroupBox(
-            # font='Inconsolata SemiBold',
-            # font=font,
             fontsize=28,
             active=tunx404_color_foreground,
             block_highlight_text_color=tunx404_color_foreground,
@@ -588,14 +571,13 @@ def init_widget_list():
             hide_unused=True,
         ),
 
-        separator_left(widget_background_color, widget_foreground_color),
+        separator_left(),
         widget.CurrentLayoutIcon(
             custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
             scale=0.7,
         ),
-        # widget.CurrentLayout(),
 
-        separator_left(widget_background_color, widget_foreground_color),
+        separator_left(),
         widget.TaskList(
             border=tunx404_color_foreground,
             borderwidth=1,
@@ -606,58 +588,31 @@ def init_widget_list():
 
         ####################
 
-        separator_right(widget_background_color, widget_foreground_color),
+        separator_right(),
         widget.OpenWeather(
-            cityid='5206379',
-            # https://openweathermap.org/city/5206379
+            cityid='5206379', # https://openweathermap.org/city/5206379
             format='{temp}°{units_temperature} {humidity}% {weather_details}',
         ),
 
-        # separator_right(widget_background_color, widget_foreground_color),
-        # widget.CPUGraph(
-        #     **graph_config,
-        #     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cpu_freq_monitor)},
-        # ),
-        
-        # separator_right(widget_background_color, widget_foreground_color),
-        # widget.MemoryGraph(
-        #     **graph_config,
-        #     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor_cli)},
-        # ),
-        
-        # separator_right(widget_background_color, widget_foreground_color),
-        # widget.NetGraph(
-        #     **graph_config,
-        #     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor)},
-        #     bandwidth_type='down',
-        # ),
-
-        # separator_right(widget_background_color, widget_foreground_color),
-        # widget.NetGraph(
-        #     **graph_config,
-        #     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor)},
-        #     bandwidth_type='up',
-        # ),
-
-        separator_right(widget_background_color, widget_foreground_color),
+        separator_right(),
         widget.CPU(
             format='{load_percent}%',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cpu_freq_monitor)},
         ),
 
-        separator_right(widget_background_color, widget_foreground_color),
+        separator_right(),
         widget.Memory(
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor_cli)},
         ),
 
-        separator_right(widget_background_color, widget_foreground_color),
+        separator_right(),
         widget.Net(
             interface='wlan0',
             format='{down} ↓↑ {up}',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor)},
         ),
 
-        separator_right(widget_background_color, widget_foreground_color),
+        separator_right(),
         widget.ThermalSensor(
             foreground=tunx404_color_foreground,
             foreground_alert=tunx404_color_red,
@@ -665,59 +620,36 @@ def init_widget_list():
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(sensor_monitor)},
         ),
 
-        separator_right(widget_background_color, widget_foreground_color),
+        separator_right(),
         widget.NvidiaSensors(
+            foreground=tunx404_color_foreground,
+            foreground_alert=tunx404_color_red,
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(gpu_monitor)},
         ),
 
-        separator_right(widget_background_color, widget_foreground_color),
+        separator_right(),
         widget.PulseVolume(
             limit_max_volume=True,
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(volume_controller)},
         ),
 
-        separator_right(widget_background_color, widget_foreground_color),
+        separator_right(),
         widget.Battery(
-            format='{char} {percent:2.0%} {watt:.2f} W', # '{char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W'
+            format='{char} {percent:2.0%} {watt:.2f} W',
+            # format='{char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(battery_monitor)},
             update_interval=10,
         ),
 
-        separator_right(widget_background_color, widget_foreground_color),
+        separator_right(),
         widget.Systray(
             icon_size=16,
         ),
 
-        separator_right(widget_background_color, widget_foreground_color),
+        separator_right(),
         widget.Clock(
             format="%a %d/%m %H:%M:%S",
         ),
-
-        # widget.Backlight(),
-        # widget.LaunchBar(progs=[('thunderbird', 'thunderbird -safe-mode', 'launch thunderbird in safe mode')]),
-        # widget.AGroupBox(),
-        # widget.WindowTabs(),
-        # widget.WidgetBox(widgets=[
-        #         widget.TextBox(text="This widget is in the box"),
-        #         widget.Memory()
-        #     ]
-        # ),
-        # widget.HDDBusyGraph(),
-        # widget.CheckUpdates(
-        #     background=widget_background_color,
-        #     update_interval=600,
-        #     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal + ' -e sudo pacman -Syyu')},
-        # ),
-        # widget.CapsNumLockIndicator(
-        #     background=widget_background_color,
-        # ),
-        # widget.Chord(
-        #     chords_colors={
-        #         'launch': ('#ff0000', '#ffffff'),
-        #     },
-        #     name_transform=lambda name: name.upper(),
-        # ),
-        # widget.QuickExit(),
     ]
     return widget_list
     
@@ -726,7 +658,7 @@ widget_list2 = init_widget_list()[:-3] + init_widget_list()[-1:]
 widget_list3 = init_widget_list()[:-3] + init_widget_list()[-1:]
 
 widget_defaults = dict(
-    font=font,
+    font=tunx404_font,
     fontsize=12,
     padding=3,
     background=widget_background_color,
@@ -740,7 +672,6 @@ screens = [
     Screen(top=bar.Bar(widgets=widget_list3, size=bar_size, background=bar_background, margin=bar_margin, opacity=bar_opacity)),
 ]
 
-
 ##################################################
 # Startup commands
 
@@ -748,7 +679,6 @@ screens = [
 def start_once():
     home = os.path.expanduser('~')
     subprocess.call([home + '/.scripts/autostart.sh'])
-
 
 ##################################################
 # Others
