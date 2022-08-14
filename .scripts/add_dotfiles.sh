@@ -23,6 +23,9 @@
 
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .scripts
 
+/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .themes
+/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .icons
+
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .Xresources
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .bashrc
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .gitconfig
