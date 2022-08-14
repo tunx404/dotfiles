@@ -62,25 +62,54 @@ color_dracula = {
 }
 
 ##################################################
+# Nord Color Palette
+
+color_nord = {
+    'nord0' : '2e3440', # Polar Night
+    'nord1' : '3b4252',          # brighter
+    'nord2' : '434c5e',          # more brighter
+    'nord3' : '4c566a',          # brightest
+    'nord4' : 'd8dee9', # Snow Storm
+    'nord5' : 'e5e9f0',          # brighter
+    'nord6' : 'eceff4',          # brightest
+    'nord7' : '8fbcbb', # Frost
+    'nord8' : '88c0d0',
+    'nord9' : '81a1c1',
+    'nord10': '5e81ac',
+    'nord11': 'bf616a', # Aurora # red
+    'nord12': 'd08770',          # orange
+    'nord13': 'ebcb8b',          # yellow
+    'nord14': 'a3be8c',          # green
+    'nord15': 'b48ead',          # purple
+    'Transparent':  '#00000000',
+}
+
+##################################################
 # Configurations
+
+tunx404_color_background   = color_dracula['Background']
+tunx404_color_background_2 = color_dracula['Comment']
+tunx404_color_foreground   = color_dracula['Foreground']
+tunx404_color_foreground_2 = color_dracula['Current Line']
+tunx404_color_red          = color_dracula['Red']
+
+# tunx404_color_background   = color_nord['nord4']
+# tunx404_color_background_2 = color_nord['nord5']
+# tunx404_color_foreground   = color_nord['nord0']
+# tunx404_color_foreground_2 = color_nord['nord3']
+# tunx404_color_red          = color_nord['nord11']
 
 layout_margin = 2
 
 font = 'Ubuntu Condensed Regular'
 
 widget_background_color = None
-# widget_background_color = color_dracula['Transparent']
-# widget_background_color = color_dracula['Background']
-widget_foreground_color = color_dracula['Foreground']
-# widget_foreground_color = color_dracula['Red']
+widget_foreground_color = tunx404_color_foreground
 
 bar_size = 24
-# bar_margin = [layout_margin, layout_margin, 0, layout_margin]
 bar_margin = [0, 0, layout_margin, 0]
-# bar_background = color_dracula['Transparent']
-bar_background = color_dracula['Background']
+bar_background = tunx404_color_background
 bar_opacity = 1
-# bar_opacity = 0.85
 
 # 
 group_names = [
@@ -476,10 +505,8 @@ for k, group in zip(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], groups):
 
 layout_config = {'border_width': 2,
                 'margin': layout_margin,
-                # 'border_focus': color_dracula['Comment'],
-                'border_focus': color_dracula['Foreground'],
-                # 'border_normal': color_dracula['Current Line'],
-                'border_normal': color_dracula['Comment'],
+                'border_focus': tunx404_color_foreground,
+                'border_normal': tunx404_color_background_2,
 }
 
 layouts = [
@@ -507,10 +534,10 @@ layouts = [
 
 # sudo subl /lib/python3.9/site-packages/libqtile/widget/graph.py
 graph_config = dict(
-    border_color=widget_foreground_color,
+    border_color=tunx404_color_foreground,
     border_width=1,
-    fill_color=widget_foreground_color,
-    graph_color=widget_foreground_color,
+    fill_color=tunx404_color_foreground,
+    graph_color=tunx404_color_foreground,
     line_width=1,
     samples=60,
 )
@@ -550,17 +577,14 @@ def init_widget_list():
             # font='Inconsolata SemiBold',
             # font=font,
             fontsize=28,
-            # active=color_dracula['Foreground'],
-            # inactive=color_dracula['Current Line'],
-            block_highlight_text_color=color_dracula['Foreground'],
-            # highlight_color=color_dracula['Current Line'],
-            # highlight_color=color_dracula['Comment'],
-            highlight_color=color_dracula['Red'],
+            active=tunx404_color_foreground,
+            block_highlight_text_color=tunx404_color_foreground,
+            highlight_color=tunx404_color_red,
             highlight_method='line',
-            this_current_screen_border=color_dracula['Foreground'],
-            this_screen_border=color_dracula['Current Line'],
-            other_current_screen_border=color_dracula['Foreground'],
-            other_screen_border=color_dracula['Current Line'],
+            this_current_screen_border=tunx404_color_foreground,
+            this_screen_border=tunx404_color_foreground_2,
+            other_current_screen_border=tunx404_color_foreground,
+            other_screen_border=tunx404_color_foreground_2,
             hide_unused=True,
         ),
 
@@ -573,7 +597,7 @@ def init_widget_list():
 
         separator_left(widget_background_color, widget_foreground_color),
         widget.TaskList(
-            border=color_dracula['Foreground'],
+            border=tunx404_color_foreground,
             borderwidth=1,
             max_title_width=200,
             icon_size=16,
@@ -635,6 +659,8 @@ def init_widget_list():
 
         separator_right(widget_background_color, widget_foreground_color),
         widget.ThermalSensor(
+            foreground=tunx404_color_foreground,
+            foreground_alert=tunx404_color_red,
             tag_sensor='Package id 0',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(sensor_monitor)},
         ),
