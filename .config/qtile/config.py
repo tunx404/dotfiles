@@ -155,7 +155,6 @@ task_manager = 'ao'
 photo_library = 'darktable'
 # MON
 system_monitor = 'gnome-system-monitor'
-performance_controller = 'cpupower-gui'
 system_monitor_cli = terminal + ' -e htop'
 cpu_freq_monitor = terminal + ' -e watch -n1 "grep \"MHz\" /proc/cpuinfo"'
 sensor_monitor = terminal + ' -e watch i8kctl' # ' -e watch sensors'
@@ -188,7 +187,7 @@ change_wallpaper_dracula_2 = 'nitrogen --head=1 --set-zoom-fill --random --save 
 screenshot_clipboard = ' -o "IMG_%Y%m%d_%H%M%S.png" -e "mv $f ~/SSD1/Miscellaneous"'
 screen_recorder = 'sa.sy.bluerecorder'
 
-change_dual_monitor_state = 'sh /home/tunx404/.scripts/change_dual_monitor_state.sh'
+change_multiple_monitor_setup = 'sh /home/tunx404/.scripts/change_multiple_monitor_setup.sh'
 power_saving = 'sh /home/tunx404/.scripts/power_saving.sh '
 performance_profile = 'cpupower-gui profile '
 
@@ -270,7 +269,6 @@ keys = [
     Key([mod], 'i',  lazy.function(app_to_group(group_names[6], photo_library)),  desc='Photo library'),
     # MON
     Key([mod], 'y',  lazy.function(app_to_group(group_names[7], system_monitor)), desc='System monitor'),
-    Key([mod], 'F9', lazy.function(app_to_group(group_names[7], performance_controller)), desc='Performance controller'),
     # SYS
     Key([mod], 'v',  lazy.function(app_to_group(group_names[8], volume_controller)),
                      lazy.function(app_to_group(group_names[8], bluetooth_manager)), desc='Volume controller & Bluetooth manager'),
@@ -353,35 +351,25 @@ keys = [
     Key([mod, 'control', 'shift'], 's', lazy.function(window_to_prev_group), desc='Move window to the prev group'),
 
     # Screens
-    # Key([mod], 'Right', lazy.to_screen(1), desc='Move focus to the next screen'),
-    # Key([mod], 'Left',  lazy.to_screen(0), desc='Move focus to the prev screen'),
-
-    # Key([mod, 'control'], 'd', lazy.to_screen(1), desc='Move focus to the next screen'),
-    # Key([mod, 'control'], 'a', lazy.to_screen(0), desc='Move focus to the prev screen'),
-    
-    # Key([mod, 'shift'], 'Right', lazy.function(window_to_next_screen),     lazy.to_screen(1), desc='Move window to the next screen'),
-    # Key([mod, 'shift'], 'Left',  lazy.function(window_to_previous_screen), lazy.to_screen(0), desc='Move window to the prev screen'),
-
     Key([mod, 'control', 'shift'], 'd', lazy.function(window_to_next_screen),     lazy.to_screen(1), desc='Move window to the next screen'),
     Key([mod, 'control', 'shift'], 'a', lazy.function(window_to_previous_screen), lazy.to_screen(0), desc='Move window to the prev screen'),
 
-    # Key([mod, 'control'], 'Left',  lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate left'),
-    #                                lazy.spawn('nitrogen --restore'),
-    #                                desc='Rotate monitor 2 left'),
-    # Key([mod, 'control'], 'Right', lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate right'),
-    #                                lazy.spawn('nitrogen --restore'),
-    #                                desc='Rotate monitor 2 right'),
-    # Key([mod, 'control'], 'Up',    lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate normal'),
-    #                                lazy.spawn('nitrogen --restore'),
-    #                                desc='Rotate monitor 2 normal'),
-    # Key([mod, 'control'], 'Down',  lazy.spawn('xrandr --output DP-3    --mode 1920x1080 --pos 1920x0 --rotate inverted'),
-    #                                lazy.spawn('xrandr --output DP-1-3  --mode 1920x1080 --pos 1920x0 --rotate inverted'),
-    #                                lazy.spawn('nitrogen --restore'),
-    #                                desc='Rotate monitor 2 inverted'),
+    Key([mod, 'control'], 'Left',  lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate left'),
+                                   lazy.spawn('nitrogen --restore'),
+                                   desc='Rotate monitor left'),
+    Key([mod, 'control'], 'Right', lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate right'),
+                                   lazy.spawn('nitrogen --restore'),
+                                   desc='Rotate monitor right'),
+    Key([mod, 'control'], 'Up',    lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate normal'),
+                                   lazy.spawn('nitrogen --restore'),
+                                   desc='Rotate monitor normal'),
+    Key([mod, 'control'], 'Down',  lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate inverted'),
+                                   lazy.spawn('nitrogen --restore'),
+                                   desc='Rotate monitor inverted'),
 
     Key([mod, 'control'], 'Return', lazy.spawn('nitrogen --restore'), desc='Reset wallpaper'),
 
-    Key([mod], 'p', lazy.spawn(change_dual_monitor_state), desc='Change dual monitor state'),
+    Key([mod], 'p', lazy.spawn(change_multiple_monitor_setup), desc='Change multiple monitor setup'),
 
     ####################
 
@@ -396,16 +384,6 @@ keys = [
     Key(['control'], 'Print', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
     Key(['shift'],   'Print', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
     Key(['control', 'shift'], 'Print', lazy.spawn(screen_recorder), desc='Screen recorder'),
-
-    # Key([],          'F9', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
-    # Key(['control'], 'F9', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
-    # Key(['shift'],   'F9', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
-    # Key(['control', 'shift'], 'F9', lazy.spawn(screen_recorder), desc='Screen recorder'),
-
-    # Key([],          'XF86AudioNext', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
-    # Key(['control'], 'XF86AudioNext', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
-    # Key(['shift'],   'XF86AudioNext', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
-    # Key(['control', 'shift'], 'XF86AudioNext', lazy.spawn(screen_recorder), desc='Screen recorder'),
 
     Key([mod],          'x', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
     Key([mod, 'control'], 'x', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
@@ -424,13 +402,6 @@ keys = [
 
     Key([mod, 'control', 'shift'], 'minus', lazy.spawn(power_saving + 'on'),  desc='Power saving on'),
     Key([mod, 'control', 'shift'], 'equal', lazy.spawn(power_saving + 'off'), desc='Power saving off'),
-
-    Key([mod, 'control', 'shift'], '0', lazy.spawn(performance_profile + '08'), desc='Performance level 0'),
-    Key([mod, 'control', 'shift'], '1', lazy.spawn(performance_profile + '16'), desc='Performance level 1'),
-    Key([mod, 'control', 'shift'], '2', lazy.spawn(performance_profile + '26'), desc='Performance level 2'),
-    Key([mod, 'control', 'shift'], '3', lazy.spawn(performance_profile + '36'), desc='Performance level 3'),
-    Key([mod, 'control', 'shift'], '4', lazy.spawn(performance_profile + '45'), desc='Performance level 4'),
-    Key([mod, 'control', 'shift'], '5', lazy.spawn(performance_profile + '45P'), desc='Performance level 5'),
 
     # Qtile
     # Key([mod, 'control'], 'r', lazy.reload_config(), desc='Reload the config'),
