@@ -88,10 +88,18 @@ color_nord = {
 # Configurations
 
 tunx404_color_background   = color_dracula['Background']
-tunx404_color_background_2 = color_dracula['Comment']
+tunx404_color_background_2 = color_dracula['Current Line']
 tunx404_color_foreground   = color_dracula['Foreground']
-tunx404_color_foreground_2 = color_dracula['Current Line']
+tunx404_color_foreground_2 = color_dracula['Comment']
+
 tunx404_color_red          = color_dracula['Red']
+tunx404_color_orange       = color_dracula['Orange']
+tunx404_color_yellow       = color_dracula['Yellow']
+tunx404_color_green        = color_dracula['Green']
+tunx404_color_blue         = color_dracula['Comment']
+tunx404_color_purple       = color_dracula['Purple']
+
+tunx404_color_transparent  = color_dracula['Transparent']
 
 # tunx404_color_background   = color_nord['nord4']
 # tunx404_color_background_2 = color_nord['nord5']
@@ -99,15 +107,13 @@ tunx404_color_red          = color_dracula['Red']
 # tunx404_color_foreground_2 = color_nord['nord3']
 # tunx404_color_red          = color_nord['nord11']
 
-widget_background_color = None
-widget_foreground_color = tunx404_color_foreground
-
 tunx404_font = 'Ubuntu Condensed Regular'
 
 layout_margin = 2
 
 bar_size = 24
 bar_margin = [0, 0, layout_margin, 0]
+# bar_margin = [layout_margin, layout_margin, layout_margin, layout_margin]
 bar_background = tunx404_color_background
 bar_opacity = 1
 
@@ -125,6 +131,19 @@ group_names = [
     '', # VM_
 ]
 
+group_translated_names = {
+    '': 'DIR',
+    '': 'WEB',
+    '': 'DEV',
+    '': 'DOC',
+    '': 'CLI',
+    '': 'OFF',
+    '': 'MM_',
+    '': 'MON',
+    '': 'SYS',
+    '': 'VM_',
+}
+
 ##################################################
 # Applications
 
@@ -135,19 +154,27 @@ terminal = 'alacritty'
 
 # DIR
 file_manager = 'nemo'
+renamer = 'krename'
+video_encoder = 'ghb'
+file_backup = '/opt/freefilesync/FreeFileSync'
 # WEB
 browser = 'google-chrome-stable'
 messenger1 = 'whatsapp-nativefier'
 messenger2 = 'caprine'
 email_client = 'thunderbird'
 password_manager = 'keepassxc'
-music_playlist = 'google-chrome-stable https://www.youtube.com/playlist?list=PL14zqHuhShBB2_PRQOaD3imODj0Ejzjcv'
+# music_playlist = 'google-chrome-stable https://www.youtube.com/playlist?list=PL14zqHuhShBB2_PRQOaD3imODj0Ejzjcv'
+music_playlist = 'google-chrome-stable https://music.youtube.com/playlist?list=PL14zqHuhShBB2_PRQOaD3imODj0Ejzjcv'
 study_playlist = 'google-chrome-stable https://www.youtube.com/playlist?list=PLtAPmAYb-kX9AfgUB7s90ez_j8D-2avvC'
 # DEV
 text_editor  = 'subl'
 # DOC
-pdf_reader = 'qpdfview'
 pomodoro_timer = 'pomotroid --no-sandbox'
+pdf_reader = 'qpdfview'
+pdf_reader_2 = '/usr/bin/wpspdf'
+spreadsheets = '/usr/bin/et'
+writer = '/usr/bin/wps'
+presentation = '/usr/bin/wpp'
 # CLI
 # OFF
 task_manager = 'ao'
@@ -172,7 +199,7 @@ cli_fun = terminal + ' -e asciiquarium'
 ####################
 
 gui_launcher = 'ulauncher'
-cli_launcher = 'dmenu_run'
+cli_launcher = 'dmenu-recent-aliases'
 app_launcher = 'rofi -modi drun -show drun -display-drun "RUN"'
 file_launcher = 'rofi -show find -modi find:~/.config/rofi/finder.sh'
 window_switcher = 'rofi -show window'
@@ -180,8 +207,10 @@ window_switcher = 'rofi -show window'
 change_wallpaper_all = 'nitrogen --set-zoom-fill --random --save /home/tunx404/.wallpapers/Ultra-wide'
 change_wallpaper_1   = 'nitrogen --head=0 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide'
 change_wallpaper_2   = 'nitrogen --head=1 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide'
+change_wallpaper_3   = 'nitrogen --head=2 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide'
 change_wallpaper_dracula_1 = 'nitrogen --head=0 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide/Dracula'
 change_wallpaper_dracula_2 = 'nitrogen --head=1 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide/Dracula'
+change_wallpaper_dracula_3 = 'nitrogen --head=2 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide/Dracula'
 
 # screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "xclip -selection clip -t image/png -i $f; mv $f ~/SSD1/Miscellaneous"'
 screenshot_clipboard = ' -o "IMG_%Y%m%d_%H%M%S.png" -e "mv $f ~/SSD1/Miscellaneous"'
@@ -190,6 +219,10 @@ screen_recorder = 'sa.sy.bluerecorder'
 change_multiple_monitor_setup = 'sh /home/tunx404/.scripts/change_multiple_monitor_setup.sh'
 power_saving = 'sh /home/tunx404/.scripts/power_saving.sh '
 performance_profile = 'cpupower-gui profile '
+
+audio_play_pause = 'dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause'
+audio_next       = 'dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next'
+audio_prev       = 'dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous'
 
 prompt = "{0}@{1}: ".format(os.environ['USER'], socket.gethostname())
 
@@ -249,31 +282,41 @@ keys = [
 
     # DIR
     Key([mod], 'e',  lazy.function(app_to_group(group_names[0], file_manager)), desc='File manager'),
+    Key([mod], 'n',  lazy.function(app_to_group(group_names[0], renamer)), desc='Renamer'),
+    Key([mod], 'h',  lazy.function(app_to_group(group_names[0], video_encoder)), desc='Video encoder'),
+    Key([mod], 'b',  lazy.function(app_to_group(group_names[0], file_backup)), desc='File backup'),
     # WEB
     Key([mod], 'c',  lazy.function(app_to_group(group_names[1], browser)),      desc='Browser'),
-    # Key([mod], 'g',  lazy.function(app_to_group(group_names[1], email_client)), desc='Email client'),
     Key([mod], 'k',  lazy.function(app_to_group(group_names[1], password_manager)), desc='Password manager'),
-    Key([mod], 'u',          lazy.function(app_to_group(group_names[1], music_playlist)), desc='Music playlist'),
-    Key([mod, 'shift'], 'u', lazy.function(app_to_group(group_names[1], study_playlist)), desc='Study with me playlist'),
-    # Key([mod], 'm',  lazy.function(app_to_group(group_names[1], messenger1)), desc='Messenger'),
-    Key([mod], 'm',  lazy.function(app_to_group(group_names[1], messenger1)),
+    Key([mod], 'u',  lazy.function(app_to_group(group_names[1], music_playlist)), desc='Music playlist'),
+    Key([mod], 'y',  lazy.function(app_to_group(group_names[1], study_playlist)), desc='Study with me playlist'),
+    Key([mod], 'm',  # lazy.function(app_to_group(group_names[1], messenger1)),
                      lazy.function(app_to_group(group_names[1], messenger2)), desc='Messenger'),
     # DEV
-    Key([mod], 't',  lazy.function(app_to_group(group_names[2], text_editor)),  desc='Text editor'),
+    Key([mod], 't',  lazy.function(app_to_group(group_names[2], text_editor)), desc='Text editor'),
     # DOC
-    Key([mod], 'f',  lazy.function(app_to_group(group_names[3], pdf_reader)),  desc='PDF reader'),
-    Key([mod], 'o',  lazy.function(app_to_group(group_names[3], pomodoro_timer)),  desc='Pomodoro timer'),
+    Key([mod], 'f',  lazy.function(app_to_group(group_names[3], pdf_reader)), desc='PDF reader'),
+    Key([mod], 'o',  lazy.function(app_to_group(group_names[3], pomodoro_timer)), desc='Pomodoro timer'),
+    Key([mod], 'comma',  lazy.function(app_to_group(group_names[3], spreadsheets)), desc='Spreadsheets'),
+    Key([mod], 'period', lazy.function(app_to_group(group_names[3], writer)), desc='Writer'),
+    Key([mod], 'slash',  lazy.function(app_to_group(group_names[3], presentation)), desc='Presentation'),
+    Key([mod], 'semicolon',  lazy.function(app_to_group(group_names[3], pdf_reader_2)), desc='PDF reader 2'),
     # OFF
-    Key([mod], 'j',  lazy.function(app_to_group(group_names[5], pomodoro_timer)),  desc='Task manager'),
+    Key([mod], 'g',  lazy.function(app_to_group(group_names[5], task_manager)), desc='Task manager'),
     # MM_
-    Key([mod], 'i',  lazy.function(app_to_group(group_names[6], photo_library)),  desc='Photo library'),
+    Key([mod], 'i',  lazy.function(app_to_group(group_names[6], photo_library)), desc='Photo library'),
     # MON
-    Key([mod], 'y',  lazy.function(app_to_group(group_names[7], system_monitor)), desc='System monitor'),
+    Key([mod, 'shift'], 'm',  lazy.function(app_to_group(group_names[7], system_monitor)), desc='System: System monitor'),
+    Key([mod, 'shift'], 'y',  lazy.function(app_to_group(group_names[7], system_monitor_cli)), desc='System: System monitor CLI'),
+    Key([mod, 'shift'], 'f',  lazy.function(app_to_group(group_names[7], cpu_freq_monitor)), desc='System: CPU frequency monitor'),
+    Key([mod, 'shift'], 'o',  lazy.function(app_to_group(group_names[7], sensor_monitor)), desc='System: Sensor monitor'),
+    Key([mod, 'shift'], 'g',  lazy.function(app_to_group(group_names[7], gpu_monitor)), desc='System: GPU monitor'),
+    Key([mod, 'shift'], 'b',  lazy.function(app_to_group(group_names[7], battery_monitor)), desc='System: Battery monitor'),
     # SYS
     Key([mod], 'v',  lazy.function(app_to_group(group_names[8], volume_controller)),
                      lazy.function(app_to_group(group_names[8], bluetooth_manager)), desc='Volume controller & Bluetooth manager'),
 
-    Key(['control', 'shift', 'mod1'], 'a',
+    Key([mod, 'shift', 'control'], 'z',
         # DIR
         lazy.spawn(file_manager),
         # WEB
@@ -294,135 +337,132 @@ keys = [
     desc='Open all'),
 
     # Launchers
-    Key(['control', 'mod1'], 't', lazy.spawn(terminal), desc='Launch terminal'),
-    Key([mod], 'Return', lazy.spawn(terminal), desc='Launch terminal'),
-    Key([mod], 'KP_Enter', lazy.spawn(terminal), desc='Launch terminal'),
-    Key([mod, 'shift'], 'Return', lazy.spawncmd(), desc='Spawn a command using a prompt widget'),
-
-    # Key([mod], 'f', lazy.spawn(file_launcher), desc='File launcher'),
-    
-    Key([mod], 'r', lazy.spawn(app_launcher), desc='Application launcher'),
-    Key([mod, 'shift'], 'r', lazy.spawn(cli_launcher), desc='CLI launcher'),
-    Key(['control'], 'space', lazy.spawn(gui_launcher), desc='GUI launcher'),
-
-    # Key(['mod1'], 'Tab', lazy.spawn(window_switcher), desc='Switch window'),
+    Key([mod], 'q', lazy.spawn(terminal), desc='System: Launch terminal'),
+    Key([mod], 'Return', lazy.spawn(terminal), desc='System: Launch terminal'),
+    Key([mod], 'KP_Enter', lazy.spawn(terminal), desc='System: Launch terminal'),
+    Key([mod, 'control'], 'r', lazy.spawncmd(), desc='System: Prompt'),
+    Key([mod, 'shift'], 'r', lazy.spawn(cli_launcher), desc='System: CLI launcher'),
+    #
+    Key([mod], 'r', lazy.spawn(app_launcher), desc='System: Application launcher'),
+    Key(['control'], 'space', lazy.spawn(gui_launcher), desc='System: GUI launcher'),
 
     ####################
     # Windows
 
-    Key([mod], 'q', lazy.layout.next(), desc='Move window focus to other window'),
     Key(['mod1'], 'Tab', lazy.layout.next(), desc='Move window focus to other window'),
-
+    #
     Key([mod, 'shift'], 'a', lazy.layout.shuffle_left(),  desc='Move window to the left'),
     Key([mod, 'shift'], 'd', lazy.layout.shuffle_right(), desc='Move window to the right'),
     Key([mod, 'shift'], 's', lazy.layout.shuffle_down(),  desc='Move window down'),
     Key([mod, 'shift'], 'w', lazy.layout.shuffle_up(),    desc='Move window up'),
-
+    #
     Key([mod], 'a', lazy.layout.grow_left(),  desc='Grow window to the left'),
     Key([mod], 'd', lazy.layout.grow_right(), desc='Grow window to the right'),
     Key([mod], 's', lazy.layout.grow_down(),  desc='Grow window down'),
     Key([mod], 'w', lazy.layout.grow_up(),    desc='Grow window up'),
-
+    #
     Key([mod], 'z', lazy.layout.normalize(), desc='Reset all window sizes'),
-
+    #
     Key([mod], 'Up',   lazy.window.toggle_fullscreen(), desc='Fullscreen'),
     Key([mod], 'Down', lazy.window.toggle_floating(),   desc='Floating'),
-
+    #
     Key([mod, 'control'],   'q', lazy.window.toggle_fullscreen(), desc='Fullscreen'),
     Key([mod, 'shift'], 'q', lazy.window.toggle_floating(),   desc='Floating'),
-
+    #
     Key([mod, 'shift'], 'c', lazy.window.kill(), desc='Kill focused window'),
-
+    #
     Key([mod], 'Tab', lazy.next_layout(), desc='Toggle between layouts'),
 
     ####################
 
     # Groups
-    Key(['control', 'mod1'], 'Right', lazy.function(screen_to_next_group), desc='Switch to the next group'),
-    Key(['control', 'mod1'], 'Left',  lazy.function(screen_to_prev_group), desc='Switch to the prev group'),
-
+    Key([mod, 'control'], 'd', lazy.function(screen_to_next_group), desc='Switch to the next group'),
+    Key([mod, 'control'], 'a', lazy.function(screen_to_prev_group), desc='Switch to the prev group'),
     Key([mod, 'control'], 'w', lazy.function(screen_to_next_group), desc='Switch to the next group'),
     Key([mod, 'control'], 's', lazy.function(screen_to_prev_group), desc='Switch to the prev group'),
-
-    Key(['control', 'shift', 'mod1'], 'Right', lazy.function(window_to_next_group), desc='Move window to the next group'),
-    Key(['control', 'shift', 'mod1'], 'Left',  lazy.function(window_to_prev_group), desc='Move window to the prev group'),
-
-    Key([mod, 'control', 'shift'], 'w', lazy.function(window_to_next_group), desc='Move window to the next group'),
-    Key([mod, 'control', 'shift'], 's', lazy.function(window_to_prev_group), desc='Move window to the prev group'),
+    #
+    Key([mod, 'shift', 'control'], 'd', lazy.function(window_to_next_group), desc='Move window to the next group'),
+    Key([mod, 'shift', 'control'], 'a', lazy.function(window_to_prev_group), desc='Move window to the prev group'),
 
     # Screens
-    Key([mod, 'control', 'shift'], 'd', lazy.function(window_to_next_screen),     lazy.to_screen(1), desc='Move window to the next screen'),
-    Key([mod, 'control', 'shift'], 'a', lazy.function(window_to_previous_screen), lazy.to_screen(0), desc='Move window to the prev screen'),
-
+    Key([mod, 'shift', 'control'], 'w', lazy.function(window_to_next_screen),     desc='Move window to the next screen'),
+    Key([mod, 'shift', 'control'], 's', lazy.function(window_to_previous_screen), desc='Move window to the prev screen'),
+    #
     Key([mod, 'control'], 'Left',  lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate left'),
                                    lazy.spawn('nitrogen --restore'),
-                                   desc='Rotate monitor left'),
+                                   desc='Rotate screen left'),
     Key([mod, 'control'], 'Right', lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate right'),
                                    lazy.spawn('nitrogen --restore'),
-                                   desc='Rotate monitor right'),
+                                   desc='Rotate screen right'),
     Key([mod, 'control'], 'Up',    lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate normal'),
                                    lazy.spawn('nitrogen --restore'),
-                                   desc='Rotate monitor normal'),
+                                   desc='Rotate screen normal'),
     Key([mod, 'control'], 'Down',  lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate inverted'),
                                    lazy.spawn('nitrogen --restore'),
-                                   desc='Rotate monitor inverted'),
-
-    Key([mod, 'control'], 'Return', lazy.spawn('nitrogen --restore'), desc='Reset wallpaper'),
-
-    Key([mod], 'p', lazy.spawn(change_multiple_monitor_setup), desc='Change multiple monitor setup'),
+                                   desc='Rotate screen inverted'),
+    #
+    Key([mod], 'p', lazy.spawn(change_multiple_monitor_setup), desc='Change multiple screen setup'),
 
     ####################
 
     # Wallpapers
-    Key([mod, 'control'], 'grave', lazy.spawn(change_wallpaper_all), desc='Change wallpaper on both screen'),
+    Key([mod, 'shift', 'control'], 'grave', lazy.spawn(change_wallpaper_all), desc='Change wallpaper on all screens'),
+    Key([mod, 'control'],          'grave', lazy.spawn('nitrogen --restore'), desc='Reset screen wallpapers'),
+
     Key([mod, 'control'], '1',     lazy.spawn(change_wallpaper_1),   desc='Change wallpaper on screen 1'),
     Key([mod, 'control'], '2',     lazy.spawn(change_wallpaper_2),   desc='Change wallpaper on screen 2'),
-    Key([mod, 'control'], '3',     lazy.spawn(change_wallpaper_dracula_1), lazy.spawn(change_wallpaper_dracula_2), desc='Change wallpaper to dracula'),
+    Key([mod, 'control'], '3',     lazy.spawn(change_wallpaper_3),   desc='Change wallpaper on screen 2'),
+    #
+    Key([mod, 'shift', 'control'], '1', lazy.spawn(change_wallpaper_dracula_1), desc='Change wallpaper on screen 1 to Dracula'),
+    Key([mod, 'shift', 'control'], '2', lazy.spawn(change_wallpaper_dracula_2), desc='Change wallpaper on screen 2 to Dracula'),
+    Key([mod, 'shift', 'control'], '3', lazy.spawn(change_wallpaper_dracula_3), desc='Change wallpaper on screen 3 to Dracula'),
 
     # Screenshots
-    Key([],          'Print', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
-    Key(['control'], 'Print', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
-    Key(['shift'],   'Print', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
-    Key(['control', 'shift'], 'Print', lazy.spawn(screen_recorder), desc='Screen recorder'),
-
-    Key([mod],          'x', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
-    Key([mod, 'control'], 'x', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
-    Key([mod, 'shift'],   'x', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
-    Key([mod, 'control', 'shift'], 'x', lazy.spawn(screen_recorder), desc='Screen recorder'),
+    Key([],                   'Print', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
+    Key(['control'],          'Print', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
+    Key(['shift'],            'Print', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
+    Key(['shift', 'control'], 'Print', lazy.spawn(screen_recorder), desc='Screen recorder'),
+    #
+    Key([mod],                     'Print', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
+    Key([mod, 'control'],          'Print', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
+    Key([mod, 'shift'],            'Print', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
+    Key([mod, 'shift', 'control'], 'Print', lazy.spawn(screen_recorder),                      desc='Screen recorder'),
+    #
+    Key([mod],                     'x', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
+    Key([mod, 'control'],          'x', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
+    Key([mod, 'shift'],            'x', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
+    Key([mod, 'shift', 'control'], 'x', lazy.spawn(screen_recorder),                      desc='Screen recorder'),
 
     ####################
 
     # System
-    Key([mod], 'l', lazy.spawn('loginctl lock-session'), desc='Lock screen'),
-    Key([mod, 'control', 'shift'], 'End', lazy.shutdown(), desc='Shutdown Qtile'),
-    Key([mod, 'control', 'shift'], 'Escape', lazy.spawn('shutdown -h now'), desc='Shutdown'),
-    Key([mod, 'control', 'shift'], 'Delete', lazy.spawn('reboot'), desc='Reboot'),
-    Key([mod, 'control', 'shift'], 'l', lazy.spawn('systemctl suspend'), desc='Suspend'),
-    Key([mod, 'control', 'shift'], 'h', lazy.spawn('systemctl hibernate'), desc='Hibernate'),
-
-    Key([mod, 'control', 'shift'], 'minus', lazy.spawn(power_saving + 'on'),  desc='Power saving on'),
-    Key([mod, 'control', 'shift'], 'equal', lazy.spawn(power_saving + 'off'), desc='Power saving off'),
+    Key([mod], 'l', lazy.spawn('loginctl lock-session'), desc='System: Lock'),
+    #
+    Key([mod, 'shift', 'control'], 'End', lazy.shutdown(), desc='System: Logout'),
+    Key([mod, 'shift', 'control'], 'Escape', lazy.spawn('shutdown -h now'), desc='System: Shutdown'),
+    Key([mod, 'shift', 'control'], 'Delete', lazy.spawn('reboot'), desc='System: Reboot'),
+    Key([mod, 'shift', 'control'], 'l', lazy.spawn('systemctl suspend'), desc='System: Suspend'),
+    Key([mod, 'shift', 'control'], 'h', lazy.spawn('systemctl hibernate'), desc='System: Hibernate'),
+    #
+    Key([mod, 'shift', 'control'], 'minus', lazy.spawn(power_saving + 'on'),  desc='System: Power saving on'),
+    Key([mod, 'shift', 'control'], 'equal', lazy.spawn(power_saving + 'off'), desc='System: Power saving off'),
 
     # Qtile
-    # Key([mod, 'control'], 'r', lazy.reload_config(), desc='Reload the config'),
-    Key([mod, 'control'], 'r', lazy.restart(), desc='Reload the config'),
+    Key([mod, 'shift', 'control'], 'r', lazy.restart(), desc='System: Reload the config'),
 
     # Fn keys
-    Key([], 'XF86MonBrightnessUp',   lazy.spawn('brightnessctl set +10%')),
-    Key([], 'XF86MonBrightnessDown', lazy.spawn('brightnessctl set 10%-')),
+    Key([], 'XF86MonBrightnessUp',   lazy.spawn('brightnessctl set +10%'), desc='System: Brightness up'),
+    Key([], 'XF86MonBrightnessDown', lazy.spawn('brightnessctl set 10%-'), desc='System: Brightness down'),
 
-    Key([], 'XF86AudioLowerVolume', lazy.spawn('pulseaudio-ctl down 5')),
-    Key([], 'XF86AudioRaiseVolume', lazy.spawn('pulseaudio-ctl up 5')),
-    Key([], 'XF86AudioMute',        lazy.spawn('pulseaudio-ctl mute')),
-    Key([], 'XF86AudioPlay',        lazy.spawn(
-        'dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify'
-        '/org/mpris/MediaPlayer2'
-        'org.mpris.MediaPlayer2.Player.PlayPause')
-    ),
-    Key([], 'XF86AudioPrev', lazy.spawn('')),
-    Key([], 'XF86AudioNext', lazy.spawn('')),
+    Key([], 'XF86AudioRaiseVolume', lazy.spawn('pulseaudio-ctl up 5'),   desc='System: Volume up'),
+    Key([], 'XF86AudioLowerVolume', lazy.spawn('pulseaudio-ctl down 5'), desc='System: Volume down'),
+    Key([], 'XF86AudioMute',        lazy.spawn('pulseaudio-ctl mute'), desc='System: Mute'),
 
-    Key([], 'XF86Calculator', lazy.spawn(calculator)),
+    Key([], 'XF86AudioPlay',        lazy.spawn(audio_play_pause), desc='Play/pause'),
+    Key([], 'XF86AudioPrev',        lazy.spawn(audio_next),       desc='Next'),
+    Key([], 'XF86AudioNext',        lazy.spawn(audio_prev),       desc='Previous'),
+
+    Key([], 'XF86Calculator', lazy.spawn(calculator), desc='Calculator'),
 ]
 
 ##################################################
@@ -465,9 +505,9 @@ dgroups_app_rules = [
 
 for k, group in zip(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], groups):
     keys.extend([
-        Key([mod], k, lazy.group[group.name].toscreen(), desc='Switch to group {}'.format(group.name)),
-        # Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=True), desc='Switch to & move focused window to group {}'.format(group.name))
-        Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=False), desc='Move focused window to group {}'.format(group.name))
+        Key([mod], k, lazy.group[group.name].toscreen(), desc='Switch to group {}'.format(group_translated_names[group.name])),
+        # Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=True), desc='Switch to & move focused window to group {}'.format(group_translated_names[group.name]))
+        Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=False), desc='Move focused window to group {}'.format(group_translated_names[group.name]))
     ])
 
 ##################################################
@@ -502,20 +542,26 @@ layouts = [
 # Screens
 
 def init_widget_list():
-    def separator_right():
-        return widget.TextBox(
-            text='|',
-            # fontsize=12,
-            # background=None,
-            # foreground=tunx404_color_foreground,
-        )
+    def separator(direction, color):
+        if direction == 'right':
+            text = ''
+        else:
+            text = ''
 
-    def separator_left():
+        if color == 1:
+            background = tunx404_color_background_2
+            foreground = tunx404_color_background
+        else:
+            background = tunx404_color_background
+            foreground = tunx404_color_background_2
+
         return widget.TextBox(
-            text='|',
-            # fontsize=12,
-            # background=None,
-            # foreground=tunx404_color_foreground,
+            text=text,
+            # font='meslolgs',
+            fontsize=18,
+            background=background,
+            foreground=foreground,
+            padding=0,
         )
 
     widget_list = [
@@ -523,12 +569,13 @@ def init_widget_list():
             filename='~/.config/qtile/icons/arch.png',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cli_fun)},
             margin=4,
+            background=tunx404_color_background_2,
         ),
         widget.Prompt(
             prompt=prompt,
         ),
+        separator(direction='left', color=2),
 
-        separator_left(),
         widget.GroupBox(
             fontsize=28,
             active=tunx404_color_foreground,
@@ -540,100 +587,114 @@ def init_widget_list():
             other_current_screen_border=tunx404_color_foreground,
             other_screen_border=tunx404_color_foreground_2,
             hide_unused=True,
-        ),
+            background=tunx404_color_background,
 
-        separator_left(),
+        ),
+        separator(direction='left', color=1),
+
         widget.CurrentLayoutIcon(
             custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
             scale=0.7,
+            background=tunx404_color_background_2,
         ),
+        separator(direction='left', color=2),
 
-        separator_left(),
         widget.TaskList(
             border=tunx404_color_foreground,
             borderwidth=1,
             max_title_width=200,
             icon_size=16,
             margin=0,
+            background=tunx404_color_background,
         ),
 
         ####################
 
-        separator_right(),
+        separator(direction='right', color=2),
         widget.OpenWeather(
             cityid='5206379', # https://openweathermap.org/city/5206379
             format='{temp}°{units_temperature} {humidity}% {weather_details}',
+            background=tunx404_color_background_2
         ),
 
-        separator_right(),
+        separator(direction='right', color=1),
         widget.CPU(
             format='{load_percent}%',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cpu_freq_monitor)},
+            background=tunx404_color_background
         ),
 
-        separator_right(),
+        separator(direction='right', color=2),
         widget.Memory(
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor_cli)},
+            background=tunx404_color_background_2
         ),
 
-        separator_right(),
+        separator(direction='right', color=1),
         widget.Net(
             interface='wlan0',
             format='{down} ↓↑ {up}',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor)},
+            background=tunx404_color_background
         ),
 
-        separator_right(),
+        separator(direction='right', color=2),
         widget.ThermalSensor(
             foreground=tunx404_color_foreground,
             foreground_alert=tunx404_color_red,
             tag_sensor='Package id 0',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(sensor_monitor)},
+            background=tunx404_color_background_2
         ),
 
-        separator_right(),
+        separator(direction='right', color=1),
         widget.NvidiaSensors(
             foreground=tunx404_color_foreground,
             foreground_alert=tunx404_color_red,
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(gpu_monitor)},
+            background=tunx404_color_background
         ),
 
-        separator_right(),
+        separator(direction='right', color=2),
         widget.PulseVolume(
             limit_max_volume=True,
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(volume_controller)},
+            background=tunx404_color_background_2
         ),
 
-        separator_right(),
+        separator(direction='right', color=1),
         widget.Battery(
             format='{char} {percent:2.0%} {watt:.2f} W',
             # format='{char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(battery_monitor)},
             update_interval=10,
+            background=tunx404_color_background
         ),
 
-        separator_right(),
-        widget.Systray(
-            icon_size=16,
-        ),
-
-        separator_right(),
+        separator(direction='right', color=2),
         widget.Clock(
             format="%a %d/%m %H:%M:%S",
+            background=tunx404_color_background_2
+        ),
+
+        separator(direction='right', color=1),
+        widget.Systray(
+            icon_size=16,
+            background=tunx404_color_background
         ),
     ]
     return widget_list
     
 widget_list1 = init_widget_list()
-widget_list2 = init_widget_list()[:-3] + init_widget_list()[-1:]
-widget_list3 = init_widget_list()[:-3] + init_widget_list()[-1:]
+widget_list2 = init_widget_list()[:-2]
+widget_list3 = init_widget_list()[:-2]
 
 widget_defaults = dict(
     font=tunx404_font,
     fontsize=12,
     padding=3,
-    background=widget_background_color,
-    foreground=widget_foreground_color,
+    background=None,
+    foreground=tunx404_color_foreground,
 )
 extension_defaults = widget_defaults.copy()
 

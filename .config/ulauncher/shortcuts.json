@@ -22,7 +22,7 @@
     "b2d2bb6b-e2b0-4c94-b7e2-16f8f34a4d50": {
         "id": "b2d2bb6b-e2b0-4c94-b7e2-16f8f34a4d50",
         "name": "Wikipedia",
-        "keyword": "wiki",
+        "keyword": "w",
         "cmd": "https://en.wikipedia.org/wiki/%s",
         "icon": "/usr/share/ulauncher/media/wikipedia-icon.png",
         "is_default_search": true,
