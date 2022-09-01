@@ -63,4 +63,9 @@ paleofetch
 ##################################################
 # MATLAB
 
-export LD_PRELOAD=/lib64/libfreetype.so 
+export LD_PRELOAD=/lib64/libfreetype.so
+
+##################################################
+# ROS
+
+source /opt/ros/noetic/setup.bash

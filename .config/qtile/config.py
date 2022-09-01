@@ -65,22 +65,22 @@ color_dracula = {
 # Nord Color Palette
 
 color_nord = {
-    'nord0' : '2e3440', # Polar Night
-    'nord1' : '3b4252',          # brighter
-    'nord2' : '434c5e',          # more brighter
-    'nord3' : '4c566a',          # brightest
-    'nord4' : 'd8dee9', # Snow Storm
-    'nord5' : 'e5e9f0',          # brighter
-    'nord6' : 'eceff4',          # brightest
-    'nord7' : '8fbcbb', # Frost
-    'nord8' : '88c0d0',
-    'nord9' : '81a1c1',
-    'nord10': '5e81ac',
-    'nord11': 'bf616a', # Aurora # red
-    'nord12': 'd08770',          # orange
-    'nord13': 'ebcb8b',          # yellow
-    'nord14': 'a3be8c',          # green
-    'nord15': 'b48ead',          # purple
+    'nord0' : '#2e3440', # Polar Night
+    'nord1' : '#3b4252',          # brighter
+    'nord2' : '#434c5e',          # more brighter
+    'nord3' : '#4c566a',          # brightest
+    'nord4' : '#d8dee9', # Snow Storm
+    'nord5' : '#e5e9f0',          # brighter
+    'nord6' : '#eceff4',          # brightest
+    'nord7' : '#8fbcbb', # Frost
+    'nord8' : '#88c0d0',
+    'nord9' : '#81a1c1',
+    'nord10': '#5e81ac',
+    'nord11': '#bf616a', # Aurora # red
+    'nord12': '#d08770',          # orange
+    'nord13': '#ebcb8b',          # yellow
+    'nord14': '#a3be8c',          # green
+    'nord15': '#b48ead',          # purple
     'Transparent':  '#00000000',
 }
 
@@ -102,18 +102,26 @@ tunx404_color_purple       = color_dracula['Purple']
 tunx404_color_transparent  = color_dracula['Transparent']
 
 # tunx404_color_background   = color_nord['nord4']
-# tunx404_color_background_2 = color_nord['nord5']
+# tunx404_color_background_2 = color_nord['nord6']
 # tunx404_color_foreground   = color_nord['nord0']
 # tunx404_color_foreground_2 = color_nord['nord3']
+
 # tunx404_color_red          = color_nord['nord11']
+# tunx404_color_orange       = color_nord['nord12']
+# tunx404_color_yellow       = color_nord['nord13']
+# tunx404_color_green        = color_nord['nord14']
+# tunx404_color_blue         = color_nord['nord7']
+# tunx404_color_purple       = color_nord['nord15']
+
+# tunx404_color_transparent  = color_dracula['Transparent']
 
 tunx404_font = 'Ubuntu Condensed Regular'
 
-layout_margin = 2
+layout_margin = 4
 
 bar_size = 24
-bar_margin = [0, 0, layout_margin, 0]
-# bar_margin = [layout_margin, layout_margin, layout_margin, layout_margin]
+# bar_margin = [0, 0, layout_margin, 0]
+bar_margin = [layout_margin, layout_margin, layout_margin, layout_margin]
 bar_background = tunx404_color_background
 bar_opacity = 1
 
@@ -181,7 +189,7 @@ task_manager = 'ao'
 # MM_
 photo_library = 'darktable'
 # MON
-system_monitor = 'gnome-system-monitor'
+system_monitor = terminal + ' -e gtop' # 'gnome-system-monitor'
 system_monitor_cli = terminal + ' -e htop'
 cpu_freq_monitor = terminal + ' -e watch -n1 "grep \"MHz\" /proc/cpuinfo"'
 sensor_monitor = terminal + ' -e watch i8kctl' # ' -e watch sensors'
@@ -191,7 +199,7 @@ battery_monitor = terminal + ' -e battop'
 bluetooth_manager = 'blueman-manager'
 volume_controller = 'pavucontrol'
 # VM_
-virtual_machine = 'vmware' # 'virtualbox'
+virtual_machines = 'virtualbox' # 'vmware'
 # OTHERS
 calculator = 'qalculate-gtk'
 cli_fun = terminal + ' -e asciiquarium'
@@ -281,40 +289,43 @@ keys = [
     # Applications
 
     # DIR
-    Key([mod], 'e',  lazy.function(app_to_group(group_names[0], file_manager)), desc='File manager'),
-    Key([mod], 'n',  lazy.function(app_to_group(group_names[0], renamer)), desc='Renamer'),
-    Key([mod], 'h',  lazy.function(app_to_group(group_names[0], video_encoder)), desc='Video encoder'),
-    Key([mod], 'b',  lazy.function(app_to_group(group_names[0], file_backup)), desc='File backup'),
+    Key([mod], 'e', lazy.function(app_to_group(group_names[0], file_manager)), desc='File manager'),
+    Key([mod], 'n', lazy.function(app_to_group(group_names[0], renamer)), desc='Renamer'),
+    Key([mod], 'h', lazy.function(app_to_group(group_names[0], video_encoder)), desc='Video encoder'),
+    Key([mod], 'b', lazy.function(app_to_group(group_names[0], file_backup)), desc='File backup'),
     # WEB
-    Key([mod], 'c',  lazy.function(app_to_group(group_names[1], browser)),      desc='Browser'),
-    Key([mod], 'k',  lazy.function(app_to_group(group_names[1], password_manager)), desc='Password manager'),
-    Key([mod], 'u',  lazy.function(app_to_group(group_names[1], music_playlist)), desc='Music playlist'),
-    Key([mod], 'y',  lazy.function(app_to_group(group_names[1], study_playlist)), desc='Study with me playlist'),
-    Key([mod], 'm',  # lazy.function(app_to_group(group_names[1], messenger1)),
-                     lazy.function(app_to_group(group_names[1], messenger2)), desc='Messenger'),
+    Key([mod], 'c', lazy.function(app_to_group(group_names[1], browser)),      desc='Browser'),
+    Key([mod], 'k', lazy.function(app_to_group(group_names[1], password_manager)), desc='Password manager'),
+    Key([mod], 'u', lazy.function(app_to_group(group_names[1], music_playlist)), desc='Music playlist'),
+    Key([mod], 'y', lazy.function(app_to_group(group_names[1], study_playlist)), desc='Study with me playlist'),
+    Key([mod], 'm', # lazy.function(app_to_group(group_names[1], messenger1)),
+                    lazy.function(app_to_group(group_names[1], messenger2)), desc='Messenger'),
     # DEV
-    Key([mod], 't',  lazy.function(app_to_group(group_names[2], text_editor)), desc='Text editor'),
+    Key([mod], 't', lazy.function(app_to_group(group_names[2], text_editor)), desc='Text editor'),
     # DOC
-    Key([mod], 'f',  lazy.function(app_to_group(group_names[3], pdf_reader)), desc='PDF reader'),
-    Key([mod], 'o',  lazy.function(app_to_group(group_names[3], pomodoro_timer)), desc='Pomodoro timer'),
-    Key([mod], 'comma',  lazy.function(app_to_group(group_names[3], spreadsheets)), desc='Spreadsheets'),
-    Key([mod], 'period', lazy.function(app_to_group(group_names[3], writer)), desc='Writer'),
-    Key([mod], 'slash',  lazy.function(app_to_group(group_names[3], presentation)), desc='Presentation'),
+    Key([mod], 'f', lazy.function(app_to_group(group_names[3], pdf_reader)), desc='PDF reader'),
+    Key([mod], 'o', lazy.function(app_to_group(group_names[3], pomodoro_timer)), desc='Pomodoro timer'),
+    Key([mod], 'comma',      lazy.function(app_to_group(group_names[3], spreadsheets)), desc='Spreadsheets'),
+    Key([mod], 'period',     lazy.function(app_to_group(group_names[3], writer)), desc='Writer'),
+    Key([mod], 'slash',      lazy.function(app_to_group(group_names[3], presentation)), desc='Presentation'),
     Key([mod], 'semicolon',  lazy.function(app_to_group(group_names[3], pdf_reader_2)), desc='PDF reader 2'),
     # OFF
-    Key([mod], 'g',  lazy.function(app_to_group(group_names[5], task_manager)), desc='Task manager'),
+    Key([mod], 'g', lazy.function(app_to_group(group_names[5], task_manager)), desc='Task manager'),
     # MM_
-    Key([mod], 'i',  lazy.function(app_to_group(group_names[6], photo_library)), desc='Photo library'),
+    Key([mod], 'i', lazy.function(app_to_group(group_names[6], photo_library)), desc='Photo library'),
     # MON
-    Key([mod, 'shift'], 'm',  lazy.function(app_to_group(group_names[7], system_monitor)), desc='System: System monitor'),
-    Key([mod, 'shift'], 'y',  lazy.function(app_to_group(group_names[7], system_monitor_cli)), desc='System: System monitor CLI'),
-    Key([mod, 'shift'], 'f',  lazy.function(app_to_group(group_names[7], cpu_freq_monitor)), desc='System: CPU frequency monitor'),
-    Key([mod, 'shift'], 'o',  lazy.function(app_to_group(group_names[7], sensor_monitor)), desc='System: Sensor monitor'),
-    Key([mod, 'shift'], 'g',  lazy.function(app_to_group(group_names[7], gpu_monitor)), desc='System: GPU monitor'),
-    Key([mod, 'shift'], 'b',  lazy.function(app_to_group(group_names[7], battery_monitor)), desc='System: Battery monitor'),
+    Key([mod, 'shift'], 'm', lazy.function(app_to_group(group_names[7], system_monitor)), desc='System: System monitor'),
+    Key([mod, 'shift'], 'y', lazy.function(app_to_group(group_names[7], system_monitor_cli)), desc='System: System monitor CLI'),
+    Key([mod, 'shift'], 'f', lazy.function(app_to_group(group_names[7], cpu_freq_monitor)), desc='System: CPU frequency monitor'),
+    Key([mod, 'shift'], 'o', lazy.function(app_to_group(group_names[7], sensor_monitor)), desc='System: Sensor monitor'),
+    Key([mod, 'shift'], 'g', lazy.function(app_to_group(group_names[7], gpu_monitor)), desc='System: GPU monitor'),
+    Key([mod, 'shift'], 'b', lazy.function(app_to_group(group_names[7], battery_monitor)), desc='System: Battery monitor'),
     # SYS
-    Key([mod], 'v',  lazy.function(app_to_group(group_names[8], volume_controller)),
-                     lazy.function(app_to_group(group_names[8], bluetooth_manager)), desc='Volume controller & Bluetooth manager'),
+    Key([mod], 'v', lazy.function(app_to_group(group_names[8], volume_controller)),
+                    lazy.function(app_to_group(group_names[8], bluetooth_manager)), desc='Volume controller & Bluetooth manager'),
+    # VM_
+    Key([mod], 'j', lazy.function(app_to_group(group_names[9], virtual_machines)), desc='Virtual machines'),
+
 
     Key([mod, 'shift', 'control'], 'z',
         # DIR
@@ -380,9 +391,13 @@ keys = [
     Key([mod, 'control'], 'a', lazy.function(screen_to_prev_group), desc='Switch to the prev group'),
     Key([mod, 'control'], 'w', lazy.function(screen_to_next_group), desc='Switch to the next group'),
     Key([mod, 'control'], 's', lazy.function(screen_to_prev_group), desc='Switch to the prev group'),
+    Key(['mod1', 'control'], 'Right', lazy.function(screen_to_next_group), desc='Switch to the next group'),
+    Key(['mod1', 'control'], 'Left',  lazy.function(screen_to_prev_group), desc='Switch to the prev group'),
     #
     Key([mod, 'shift', 'control'], 'd', lazy.function(window_to_next_group), desc='Move window to the next group'),
     Key([mod, 'shift', 'control'], 'a', lazy.function(window_to_prev_group), desc='Move window to the prev group'),
+    Key(['mod1', 'shift', 'control'], 'Right', lazy.function(window_to_next_group), desc='Move window to the next group'),
+    Key(['mod1', 'shift', 'control'], 'Left', lazy.function(window_to_prev_group), desc='Move window to the prev group'),
 
     # Screens
     Key([mod, 'shift', 'control'], 'w', lazy.function(window_to_next_screen),     desc='Move window to the next screen'),
@@ -503,7 +518,8 @@ dgroups_app_rules = [
     Rule(Match(wm_class=['et', 'wps', 'wpp']), float=False, intrusive=True),
     ]
 
-for k, group in zip(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], groups):
+# for k, group in zip(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], groups):
+for k, group in zip(['1', '2', '3', '4', '5', '6', '7', '8', '9', 'grave'], groups):
     keys.extend([
         Key([mod], k, lazy.group[group.name].toscreen(), desc='Switch to group {}'.format(group_translated_names[group.name])),
         # Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=True), desc='Switch to & move focused window to group {}'.format(group_translated_names[group.name]))
@@ -513,10 +529,11 @@ for k, group in zip(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], groups):
 ##################################################
 # Layouts
 
-layout_config = {'border_width': 2,
-                'margin': layout_margin,
-                'border_focus': tunx404_color_foreground,
-                'border_normal': tunx404_color_background_2,
+layout_config = {
+    'border_width': 2,
+    'margin': layout_margin,
+    'border_focus': tunx404_color_foreground,
+    'border_normal': tunx404_color_background_2,
 }
 
 layouts = [
@@ -611,6 +628,7 @@ def init_widget_list():
         ####################
 
         separator(direction='right', color=2),
+        widget.TextBox(text='', fontsize=20, background=tunx404_color_background_2),
         widget.OpenWeather(
             cityid='5206379', # https://openweathermap.org/city/5206379
             format='{temp}°{units_temperature} {humidity}% {weather_details}',
@@ -618,6 +636,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=1),
+        widget.TextBox(text='', fontsize=20, background=tunx404_color_background),
         widget.CPU(
             format='{load_percent}%',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cpu_freq_monitor)},
@@ -625,12 +644,14 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=2),
+        widget.TextBox(text='', fontsize=20, background=tunx404_color_background_2),
         widget.Memory(
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor_cli)},
             background=tunx404_color_background_2
         ),
 
         separator(direction='right', color=1),
+        widget.TextBox(text='', fontsize=20, background=tunx404_color_background),
         widget.Net(
             interface='wlan0',
             format='{down} ↓↑ {up}',
@@ -639,6 +660,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=2),
+        widget.TextBox(text='', fontsize=14, background=tunx404_color_background_2),
         widget.ThermalSensor(
             foreground=tunx404_color_foreground,
             foreground_alert=tunx404_color_red,
@@ -648,6 +670,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=1),
+        widget.TextBox(text='', fontsize=14, background=tunx404_color_background),
         widget.NvidiaSensors(
             foreground=tunx404_color_foreground,
             foreground_alert=tunx404_color_red,
@@ -656,6 +679,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=2),
+        widget.TextBox(text='', fontsize=20, background=tunx404_color_background_2),
         widget.PulseVolume(
             limit_max_volume=True,
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(volume_controller)},
@@ -663,6 +687,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=1),
+        widget.TextBox(text='', fontsize=14, background=tunx404_color_background),
         widget.Battery(
             format='{char} {percent:2.0%} {watt:.2f} W',
             # format='{char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W',
@@ -672,6 +697,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=2),
+        widget.TextBox(text='', fontsize=20, background=tunx404_color_background_2),
         widget.Clock(
             format="%a %d/%m %H:%M:%S",
             background=tunx404_color_background_2
