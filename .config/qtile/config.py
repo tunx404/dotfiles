@@ -220,8 +220,8 @@ change_wallpaper_dracula_1 = 'nitrogen --head=0 --set-zoom-fill --random --save 
 change_wallpaper_dracula_2 = 'nitrogen --head=1 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide/Dracula'
 change_wallpaper_dracula_3 = 'nitrogen --head=2 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide/Dracula'
 
-# screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "xclip -selection clip -t image/png -i $f; mv $f ~/SSD1/Miscellaneous"'
-screenshot_clipboard = ' -o "IMG_%Y%m%d_%H%M%S.png" -e "mv $f ~/SSD1/Miscellaneous"'
+# screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "xclip -selection clip -t image/png -i $f; mv $f ~/Miscellaneous"'
+screenshot_clipboard = ' -o "IMG_%Y%m%d_%H%M%S.png" -e "mv $f ~/Miscellaneous"'
 screen_recorder = 'sa.sy.bluerecorder'
 
 change_multiple_monitor_setup = 'sh /home/tunx404/.scripts/change_multiple_monitor_setup.sh'
