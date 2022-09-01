@@ -13,7 +13,7 @@ alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias pkgtop='pkgtop -pacman yay'
 alias dd='sudo dd status=progress'
 alias ssh='TERM=xterm-256color ssh'
-alias genqtile='mkdir -p ~/Miscellaneous/Qtile && python ~/.config/qtile/gen-keybinding-img -c ~/.config/qtile/config.py -o ~/Miscellaneous/Qtile'
+alias genqtile='mkdir -p ~/Cloud/Google\ Drive\ 1/Miscellaneous/Qtile && python ~/.config/qtile/gen-keybinding-img -c ~/.config/qtile/config.py -o ~/Cloud/Google\ Drive\ 1/Miscellaneous/Qtile'
 
 ##################################################
 # CMU
