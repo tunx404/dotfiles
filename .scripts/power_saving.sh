@@ -12,7 +12,5 @@ then
 	brightnessctl set 70%
 	balooctl resume
 	balooctl enable
-	# balooctl suspend
-	# balooctl disable
 	insync start
 fi

@@ -19,12 +19,6 @@ export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 
 ##################################################
-# DaVinci Resolve
-
-export __NV_PRIME_RENDER_OFFLOAD=1
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-
-##################################################
 # Conda
 
 # >>> conda initialize >>>
@@ -69,3 +63,9 @@ export LD_PRELOAD=/lib64/libfreetype.so
 # ROS
 
 source /opt/ros/noetic/setup.bash
+
+##################################################
+# DaVinci Resolve
+
+export __NV_PRIME_RENDER_OFFLOAD=1
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
