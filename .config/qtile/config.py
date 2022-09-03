@@ -121,7 +121,7 @@ task_manager = 'ao'
 # MM_
 photo_library = 'darktable'
 # MON
-system_monitor = terminal + ' -e gtop' # 'gnome-system-monitor'
+system_monitor = 'gnome-system-monitor' # terminal + ' -e gtop'
 system_monitor_cli = terminal + ' -e htop'
 cpu_freq_monitor = terminal + ' -e watch -n1 "grep \"MHz\" /proc/cpuinfo"'
 sensor_monitor = terminal + ' -e watch i8kctl' # ' -e watch sensors'
@@ -464,7 +464,7 @@ for k, group in zip(['1', '2', '3', '4', '5', '6', '7', '8', '9', 'grave'], grou
 layout_config = {
     'border_width': 2,
     'margin': layout_margin,
-    'border_focus': tunx404_color_foreground,
+    'border_focus': tunx404_color_red,
     'border_normal': tunx404_color_background_2,
 }
 
