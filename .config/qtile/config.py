@@ -117,7 +117,7 @@ writer = '/usr/bin/wps'
 presentation = '/usr/bin/wpp'
 # CLI
 # OFF
-task_manager = 'ao'
+task_manager = '/opt/kuro/Kuro.AppImage'
 # MM_
 photo_library = 'darktable'
 # MON
@@ -135,6 +135,7 @@ virtual_machines = 'virtualbox' # 'vmware'
 # OTHERS
 calculator = 'qalculate-gtk'
 cli_fun = terminal + ' -e asciiquarium'
+key_bindings = 'eog /home/tunx404/Cloud/Google\\ Drive\\ 1/Miscellaneous/Qtile/mod4.png'
 
 ####################
 
@@ -257,8 +258,9 @@ keys = [
                     lazy.function(app_to_group(group_names[8], bluetooth_manager)), desc='Volume controller & Bluetooth manager'),
     # VM_
     Key([mod], 'j', lazy.function(app_to_group(group_names[9], virtual_machines)), desc='Virtual machines'),
-
-
+    
+    # OTHERS
+    Key([mod], 'F1', lazy.spawn(key_bindings), desc='Key bindings'),
     Key([mod, 'shift', 'control'], 'z',
         # DIR
         lazy.spawn(file_manager),
@@ -450,8 +452,8 @@ dgroups_app_rules = [
     Rule(Match(wm_class=['et', 'wps', 'wpp']), float=False, intrusive=True),
     ]
 
-# for k, group in zip(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], groups):
-for k, group in zip(['1', '2', '3', '4', '5', '6', '7', '8', '9', 'grave'], groups):
+for k, group in zip(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], groups):
+# for k, group in zip(['1', '2', '3', '4', '5', '6', '7', '8', '9', 'grave'], groups):
     keys.extend([
         Key([mod], k, lazy.group[group.name].toscreen(), desc='Switch to group {}'.format(group_translated_names[group.name])),
         # Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=True), desc='Switch to & move focused window to group {}'.format(group_translated_names[group.name]))
