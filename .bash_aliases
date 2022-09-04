@@ -58,3 +58,5 @@ alias mountmtp='aft-mtp-mount ~/MTP'
 alias mountftp='curlftpfs 10.10.10.10/Gargoyle ~/Gargoyle -o'
 
 alias exmonitor='xrandr --output DP-3 --mode 1920x1080 --pos 1920x0 --rotate normal'
+
+alias updatedot='cd ~/SSD/Applications/Git/dotfiles && git pull'
