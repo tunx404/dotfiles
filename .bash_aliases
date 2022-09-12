@@ -27,7 +27,7 @@ alias removeorphans='pacman -Qtdq | sudo pacman -Rns -'
 alias cleanpkg='sudo pacman -Scc && yay -Scc && rm -rf ~/.cache/yay && removeorphans'
 alias cleandt='~/.config/darktable/purge_non_existing_images.sh --purge && darktable-generate-cache'
 alias cleanconda='conda clean -a'
-alias cleanall='cleanpkg && cleandt && cleanconda'
+alias cleanall='cleandt && cleanconda && cleanpkg'
 
 alias updatepkg='sudo pacman -Syu && yay -Syu'
 alias updateall='updatepkg'
