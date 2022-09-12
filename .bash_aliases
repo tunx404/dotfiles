@@ -40,12 +40,6 @@ alias resetcuda='sudo rmmod nvidia_uvm && sudo modprobe nvidia_uvm'
 alias resetserial='sudo chmod 666 /dev/ttyUSB0'
 
 ##################################################
-# Projects
-
-alias fintec='cd ~/Cloud/Google\ Drive\ 1/Projects/Fintecism/financialadvisor && conda activate fin && jupyter-lab'
-alias frac='cd ~/Miscellaneous/fracture && jupyter-lab'
-
-##################################################
 # Applications
 
 alias startdlna='minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid'
@@ -60,3 +54,12 @@ alias mountftp='curlftpfs 10.10.10.10/Gargoyle ~/Gargoyle -o'
 alias exmonitor='xrandr --output DP-3 --mode 1920x1080 --pos 1920x0 --rotate normal'
 
 alias updatedot='cd ~/SSD/Applications/Git/dotfiles && git pull'
+
+##################################################
+# Projects
+
+alias fintec='cd ~/Cloud/Google\ Drive\ 1/Projects/Fintecism/financialadvisor && conda activate fin && jupyter-lab'
+
+alias frac='cd ~/Miscellaneous/fracture && jupyter-lab'
+
+alias cdcv='cd /home/tunx404/Studying/04.\ Fall\ 2022/16720\ Computer\ Vision/HW1/code/ && conda activate cv'
