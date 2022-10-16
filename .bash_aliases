@@ -69,5 +69,4 @@ alias frac='cd ~/Miscellaneous/fracture && jupyter-lab'
 
 alias cdcv='cd /home/tunx404/Studying/04.\ Fall\ 2022/16720\ Computer\ Vision/HW2/code/ && conda activate cv'
 
-
 alias makevideo='ffmpeg -framerate 24 -pattern_type glob -i "*.png" -c:v libx264 -pix_fmt yuv420p -vf "crop=trunc(iw/2)*2:trunc(ih/2)*2" 0.mp4'
