@@ -62,9 +62,8 @@ export LD_PRELOAD=/lib64/libfreetype.so
 ##################################################
 # ROS
 
-source /opt/ros/noetic/setup.bash
-
-export ECE642RTLE_DIR=~/catkin_ws/src/ece642rtle
+# source /opt/ros/noetic/setup.bash
+# export ECE642RTLE_DIR=~/catkin_ws/src/ece642rtle
 
 ##################################################
 # DaVinci Resolve

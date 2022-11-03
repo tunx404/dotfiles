@@ -52,9 +52,10 @@ tunx404_font = 'Ubuntu Condensed Regular'
 layout_margin = 4
 
 bar_size = 24
-# bar_margin = [0, 0, layout_margin, 0]
-bar_margin = [layout_margin, layout_margin, layout_margin, layout_margin]
-bar_background = tunx404_color_background
+bar_margin = [0, 0, layout_margin, 0]
+# bar_margin = [layout_margin, layout_margin, layout_margin, layout_margin]
+bar_background = tunx404_color_transparent
+# bar_background = tunx404_color_background
 bar_opacity = 1
 
 # 
@@ -539,7 +540,6 @@ def init_widget_list():
             other_screen_border=tunx404_color_foreground_2,
             hide_unused=True,
             background=tunx404_color_background,
-
         ),
         separator(direction='left', color=1),
 
@@ -549,7 +549,7 @@ def init_widget_list():
             background=tunx404_color_background_2,
         ),
         separator(direction='left', color=2),
-
+        
         widget.TaskList(
             border=tunx404_color_foreground,
             borderwidth=1,
