@@ -54,8 +54,8 @@ layout_margin = 4
 bar_size = 24
 bar_margin = [0, 0, layout_margin, 0]
 # bar_margin = [layout_margin, layout_margin, layout_margin, layout_margin]
-bar_background = tunx404_color_transparent
-# bar_background = tunx404_color_background
+# bar_background = tunx404_color_transparent
+bar_background = tunx404_color_background
 bar_opacity = 1
 
 # 
