@@ -1,0 +1,3 @@
+[submodule ".wallpapers/Wide/wallpapers"]
+	path = .wallpapers/Wide/wallpapers
+	url = https://gitlab.com/dwt1/wallpapers.git
