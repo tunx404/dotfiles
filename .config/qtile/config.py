@@ -26,7 +26,7 @@
 
 ##################################################
 
-# python -m py_compile ~/.config/qtile/config.py
+# python3 -m py_compile ~/.config/qtile/config.py
 
 ##################################################
 # Imports
@@ -60,36 +60,36 @@ bar_opacity = 1
 
 # 
 group_names = [
-    '', # DIR
-    '', # WEB
-    '', # DEV
-    '', # DOC
-    '', # CLI
-    '', # OFF
-    '', # MM_
-    '', # MON
-    '', # SYS
-    '', # VM_
+    'DIR', # DIR
+    'WEB', # WEB
+    'DEV', # DEV
+    'DOC', # DOC
+    'CLI', # CLI
+    'OFF', # OFF
+    'MM_', # MM_
+    'MON', # MON
+    'SYS', # SYS
+    'VM_', # VM_
 ]
 
 group_translated_names = {
-    '': 'DIR',
-    '': 'WEB',
-    '': 'DEV',
-    '': 'DOC',
-    '': 'CLI',
-    '': 'OFF',
-    '': 'MM_',
-    '': 'MON',
-    '': 'SYS',
-    '': 'VM_',
+    'DIR': 'DIR',
+    'WEB': 'WEB',
+    'DEV': 'DEV',
+    'DOC': 'DOC',
+    'CLI': 'CLI',
+    'OFF': 'OFF',
+    'MM_': 'MM_',
+    'MON': 'MON',
+    'SYS': 'SYS',
+    'VM_': 'VM_',
 }
 
 ##################################################
 # Applications
 
 mod = 'mod4'
-terminal = 'alacritty'
+terminal = 'gnome-terminal' # 'alacritty'
 
 ####################
 
@@ -104,11 +104,12 @@ messenger1 = 'whatsapp-nativefier'
 messenger2 = 'caprine'
 email_client = 'thunderbird'
 password_manager = 'keepassxc'
-# music_playlist = 'google-chrome-stable https://www.youtube.com/playlist?list=PL14zqHuhShBB2_PRQOaD3imODj0Ejzjcv'
-music_playlist = 'google-chrome-stable https://music.youtube.com/playlist?list=PL14zqHuhShBB2_PRQOaD3imODj0Ejzjcv'
+music_playlist = 'google-chrome-stable https://www.youtube.com/playlist?list=PL14zqHuhShBB2_PRQOaD3imODj0Ejzjcv'
+# music_playlist = 'google-chrome-stable https://music.youtube.com/playlist?list=PL14zqHuhShBB2_PRQOaD3imODj0Ejzjcv'
 study_playlist = 'google-chrome-stable https://www.youtube.com/playlist?list=PLtAPmAYb-kX9AfgUB7s90ez_j8D-2avvC'
 # DEV
 text_editor  = 'subl'
+code_editor = 'code'
 # DOC
 pomodoro_timer = 'pomotroid --no-sandbox'
 pdf_reader = 'qpdfview'
@@ -135,31 +136,30 @@ volume_controller = 'pavucontrol'
 virtual_machines = 'virtualbox' # 'vmware'
 # OTHERS
 calculator = 'qalculate-gtk'
-cli_fun = terminal + ' -e asciiquarium'
-key_bindings = 'eog /home/tunx404/Cloud/Google\\ Drive\\ 1/Miscellaneous/Qtile/mod4.png'
+cli_fun = terminal + ' -e glava' # ' -e asciiquarium'
+key_bindings = 'eog /home/anhlh33/Cloud/Google\\ Drive\\ 1/Miscellaneous/Qtile/mod4.png'
 
 ####################
 
 gui_launcher = 'ulauncher'
-cli_launcher = 'dmenu-recent-aliases'
+cli_launcher = 'dmenu' # 'dmenu-recent-aliases'
 app_launcher = 'rofi -modi drun -show drun -display-drun "RUN"'
 file_launcher = 'rofi -show find -modi find:~/.config/rofi/finder.sh'
 window_switcher = 'rofi -show window'
 
-change_wallpaper_all = 'nitrogen --set-zoom-fill --random --save /home/tunx404/.wallpapers/Ultra-wide'
-change_wallpaper_1   = 'nitrogen --head=0 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide'
-change_wallpaper_2   = 'nitrogen --head=1 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide'
-change_wallpaper_3   = 'nitrogen --head=2 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide'
-change_wallpaper_dracula_1 = 'nitrogen --head=0 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide/Dracula'
-change_wallpaper_dracula_2 = 'nitrogen --head=1 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide/Dracula'
-change_wallpaper_dracula_3 = 'nitrogen --head=2 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide/Dracula'
+change_wallpaper_all = 'nitrogen --set-zoom-fill --random --save /home/anhlh33/.wallpapers/Ultra-wide'
+change_wallpaper_1   = 'nitrogen --head=0 --set-zoom-fill --random --save /home/anhlh33/.wallpapers/Wide'
+change_wallpaper_2   = 'nitrogen --head=1 --set-zoom-fill --random --save /home/anhlh33/.wallpapers/Wide'
+change_wallpaper_3   = 'nitrogen --head=2 --set-zoom-fill --random --save /home/anhlh33/.wallpapers/Wide'
+change_wallpaper_dracula_1 = 'nitrogen --head=0 --set-zoom-fill --random --save /home/anhlh33/.wallpapers/Wide/Dracula'
+change_wallpaper_dracula_2 = 'nitrogen --head=1 --set-zoom-fill --random --save /home/anhlh33/.wallpapers/Wide/Dracula'
+change_wallpaper_dracula_3 = 'nitrogen --head=2 --set-zoom-fill --random --save /home/anhlh33/.wallpapers/Wide/Dracula'
 
-# screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "xclip -selection clip -t image/png -i $f; mv $f ~/Miscellaneous"'
-screenshot_clipboard = ' -o "IMG_%Y%m%d_%H%M%S.png" -e "mv $f ~/Miscellaneous"'
+screenshot_clipboard = ' IMG_%Y%m%d_%H%M%S.png -e \'mv $f ~/Miscellaneous\''
 screen_recorder = 'sa.sy.bluerecorder'
 
-change_multiple_monitor_setup = 'sh /home/tunx404/.scripts/change_multiple_monitor_setup.sh'
-power_saving = 'sh /home/tunx404/.scripts/power_saving.sh '
+change_multiple_monitor_setup = 'sh /home/anhlh33/.scripts/change_multiple_monitor_setup.sh'
+power_saving = 'sh /home/anhlh33/.scripts/power_saving.sh '
 performance_profile = 'cpupower-gui profile '
 
 audio_play_pause = 'dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause'
@@ -232,10 +232,9 @@ keys = [
     Key([mod], 'k', lazy.function(app_to_group(group_names[1], password_manager)), desc='Password manager'),
     Key([mod], 'u', lazy.function(app_to_group(group_names[1], music_playlist)), desc='Music playlist'),
     Key([mod], 'y', lazy.function(app_to_group(group_names[1], study_playlist)), desc='Study with me playlist'),
-    Key([mod], 'm', # lazy.function(app_to_group(group_names[1], messenger1)),
-                    lazy.function(app_to_group(group_names[1], messenger2)), desc='Messenger'),
     # DEV
     Key([mod], 't', lazy.function(app_to_group(group_names[2], text_editor)), desc='Text editor'),
+    Key([mod, 'shift'], 't', lazy.function(app_to_group(group_names[3], code_editor)), desc='Code editor'),
     # DOC
     Key([mod], 'f', lazy.function(app_to_group(group_names[3], pdf_reader)), desc='PDF reader'),
     Key([mod], 'o', lazy.function(app_to_group(group_names[3], pomodoro_timer)), desc='Pomodoro timer'),
@@ -245,6 +244,11 @@ keys = [
     Key([mod], 'semicolon',  lazy.function(app_to_group(group_names[3], pdf_reader_2)), desc='PDF reader 2'),
     # OFF
     Key([mod], 'g', lazy.function(app_to_group(group_names[5], task_manager)), desc='Task manager'),
+    Key([mod], 'm', # lazy.function(app_to_group(group_names[1], messenger1)),
+                    # lazy.function(app_to_group(group_names[1], messenger2)), desc='Messenger'),
+                    lazy.function(app_to_group(group_names[5], 'slack')),
+                    lazy.spawn('teams-for-linux'),
+                    desc='Messenger'),
     # MM_
     Key([mod], 'i', lazy.function(app_to_group(group_names[6], photo_library)), desc='Photo library'),
     # MON
@@ -270,11 +274,12 @@ keys = [
         lazy.spawn(browser),
         # DEV
         lazy.spawn(text_editor),
+        lazy.spawn(code_editor),
         # DOC
-        lazy.spawn(pdf_reader),
-        lazy.spawn(pomodoro_timer),
         # OFF
         lazy.spawn(task_manager),
+        lazy.spawn('teams-for-linux'),
+        lazy.spawn('slack'),
         # MON
         lazy.spawn(system_monitor),
         # SYS
@@ -338,18 +343,18 @@ keys = [
     Key([mod, 'shift', 'control'], 'w', lazy.function(window_to_next_screen),     desc='Move window to the next screen'),
     Key([mod, 'shift', 'control'], 's', lazy.function(window_to_previous_screen), desc='Move window to the prev screen'),
     #
-    Key([mod, 'control'], 'Left',  lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate left'),
-                                   lazy.spawn('nitrogen --restore'),
-                                   desc='Rotate screen left'),
-    Key([mod, 'control'], 'Right', lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate right'),
-                                   lazy.spawn('nitrogen --restore'),
-                                   desc='Rotate screen right'),
-    Key([mod, 'control'], 'Up',    lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate normal'),
-                                   lazy.spawn('nitrogen --restore'),
-                                   desc='Rotate screen normal'),
-    Key([mod, 'control'], 'Down',  lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate inverted'),
-                                   lazy.spawn('nitrogen --restore'),
-                                   desc='Rotate screen inverted'),
+    # Key([mod, 'control'], 'Left',  lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate left'),
+    #                                lazy.spawn('nitrogen --restore'),
+    #                                desc='Rotate screen left'),
+    # Key([mod, 'control'], 'Right', lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate right'),
+    #                                lazy.spawn('nitrogen --restore'),
+    #                                desc='Rotate screen right'),
+    # Key([mod, 'control'], 'Up',    lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate normal'),
+    #                                lazy.spawn('nitrogen --restore'),
+    #                                desc='Rotate screen normal'),
+    # Key([mod, 'control'], 'Down',  lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate inverted'),
+    #                                lazy.spawn('nitrogen --restore'),
+    #                                desc='Rotate screen inverted'),
     #
     Key([mod], 'p', lazy.spawn(change_multiple_monitor_setup), desc='Change multiple screen setup'),
 
@@ -370,17 +375,17 @@ keys = [
     # Screenshots
     Key([],                   'Print', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
     Key(['control'],          'Print', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
-    Key(['shift'],            'Print', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
+    Key(['shift'],            'Print', lazy.spawn('scrot -s -f ' + screenshot_clipboard), desc='Screenshot (area)'),
     Key(['shift', 'control'], 'Print', lazy.spawn(screen_recorder), desc='Screen recorder'),
     #
-    Key([mod],                     'Print', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
-    Key([mod, 'control'],          'Print', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
-    Key([mod, 'shift'],            'Print', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
+    Key([mod],                     'Print', lazy.spawn('scrot' + screenshot_clipboard),    desc='Screenshot (all)'),
+    Key([mod, 'control'],          'Print', lazy.spawn('scrot -u' + screenshot_clipboard), desc='Screenshot (window)'),
+    Key([mod, 'shift'],            'Print', lazy.spawn('scrot -s' + screenshot_clipboard), desc='Screenshot (area)'),
     Key([mod, 'shift', 'control'], 'Print', lazy.spawn(screen_recorder),                      desc='Screen recorder'),
     #
     Key([mod],                     'x', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
     Key([mod, 'control'],          'x', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
-    Key([mod, 'shift'],            'x', lazy.spawn('scrot -s -f' + screenshot_clipboard), desc='Screenshot (area)'),
+    Key([mod, 'shift'],            'x', lazy.spawn('scrot -s' + screenshot_clipboard), desc='Screenshot (area)'),
     Key([mod, 'shift', 'control'], 'x', lazy.spawn(screen_recorder),                      desc='Screen recorder'),
 
     ####################
@@ -423,11 +428,11 @@ num_groups = 10
 # xprop
 group_matches = [
     [Match(wm_class=['Nemo', 'Insync', 'krename', "FreeFileSync"])],
-    [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'whatsapp-nativefier-d40211', 'Cisco AnyConnect Secure Mobility Client', 'Thunderbird'])],
+    [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'whatsapp-nativefier-d40211', 'Thunderbird'])],
     [Match(wm_class=['Subl', 'jetbrains-studio', 'code-oss', 'sun-awt-X11-XFramePeer', 'STM32CubeIDE'])],
-    [Match(wm_class=['qpdfview', 'pdf', 'pomotroid', 'zoom'])],
+    [Match(wm_class=['qpdfview', 'pdf', 'pomotroid'])],
     [Match(wm_class=[])],
-    [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'kuro'])],
+    [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'kuro', 'zoom', 'teams-for-linux', 'slack'])],
     [Match(wm_class=['Darktable', 'Gimp-2.10', 'Spotify', 'Steam', 'resolve', 'csgo_linux64', 'hl2_linux'])],
     [Match(wm_class=['Gnome-system-monitor', 'Cpupower-gui', 'Gnome-power-statistics'])],
     [Match(wm_class=['Blueman-manager', 'Pavucontrol', 'Pamac-manager'])],
@@ -496,9 +501,9 @@ layouts = [
 def init_widget_list():
     def separator(direction, color):
         if direction == 'right':
-            text = ''
+            text = '  '
         else:
-            text = ''
+            text = ' '
 
         if color == 1:
             background = tunx404_color_background_2
@@ -529,7 +534,7 @@ def init_widget_list():
         separator(direction='left', color=2),
 
         widget.GroupBox(
-            fontsize=28,
+            fontsize=12,
             active=tunx404_color_foreground,
             block_highlight_text_color=tunx404_color_foreground,
             highlight_color=tunx404_color_red,
@@ -562,15 +567,15 @@ def init_widget_list():
         ####################
 
         separator(direction='right', color=2),
-        widget.TextBox(text='', fontsize=20, background=tunx404_color_background_2),
+        widget.TextBox(text=' ', fontsize=20, background=tunx404_color_background_2),
         widget.OpenWeather(
-            cityid='5206379', # https://openweathermap.org/city/5206379
+            cityid='1581130', # https://openweathermap.org/city/1581130
             format='{temp}°{units_temperature} {humidity}% {weather_details}',
             background=tunx404_color_background_2
         ),
 
         separator(direction='right', color=1),
-        widget.TextBox(text='', fontsize=20, background=tunx404_color_background),
+        widget.TextBox(text=' ', fontsize=20, background=tunx404_color_background),
         widget.CPU(
             format='{load_percent}%',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cpu_freq_monitor)},
@@ -578,14 +583,14 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=2),
-        widget.TextBox(text='', fontsize=20, background=tunx404_color_background_2),
+        widget.TextBox(text=' ', fontsize=20, background=tunx404_color_background_2),
         widget.Memory(
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor_cli)},
             background=tunx404_color_background_2
         ),
 
         separator(direction='right', color=1),
-        widget.TextBox(text='', fontsize=20, background=tunx404_color_background),
+        widget.TextBox(text=' ', fontsize=20, background=tunx404_color_background),
         widget.Net(
             interface='wlan0',
             format='{down} ↓↑ {up}',
@@ -594,7 +599,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=2),
-        widget.TextBox(text='', fontsize=14, background=tunx404_color_background_2),
+        widget.TextBox(text=' ', fontsize=14, background=tunx404_color_background_2),
         widget.ThermalSensor(
             foreground=tunx404_color_foreground,
             foreground_alert=tunx404_color_red,
@@ -604,7 +609,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=1),
-        widget.TextBox(text='', fontsize=14, background=tunx404_color_background),
+        widget.TextBox(text=' ', fontsize=14, background=tunx404_color_background),
         widget.NvidiaSensors(
             foreground=tunx404_color_foreground,
             foreground_alert=tunx404_color_red,
@@ -613,7 +618,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=2),
-        widget.TextBox(text='', fontsize=20, background=tunx404_color_background_2),
+        widget.TextBox(text=' ', fontsize=20, background=tunx404_color_background_2),
         widget.PulseVolume(
             limit_max_volume=True,
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(volume_controller)},
@@ -621,7 +626,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=1),
-        widget.TextBox(text='', fontsize=14, background=tunx404_color_background),
+        widget.TextBox(text=' ', fontsize=14, background=tunx404_color_background),
         widget.Battery(
             format='{char} {percent:2.0%} {watt:.2f} W',
             # format='{char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W',
@@ -631,7 +636,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=2),
-        widget.TextBox(text='', fontsize=20, background=tunx404_color_background_2),
+        widget.TextBox(text=' ', fontsize=20, background=tunx404_color_background_2),
         widget.Clock(
             format="%a %d/%m %H:%M:%S",
             background=tunx404_color_background_2
@@ -661,7 +666,7 @@ extension_defaults = widget_defaults.copy()
 screens = [
     Screen(top=bar.Bar(widgets=widget_list1, size=bar_size, background=bar_background, margin=bar_margin, opacity=bar_opacity)),
     Screen(top=bar.Bar(widgets=widget_list2, size=bar_size, background=bar_background, margin=bar_margin, opacity=bar_opacity)),
-    Screen(top=bar.Bar(widgets=widget_list3, size=bar_size, background=bar_background, margin=bar_margin, opacity=bar_opacity)),
+    # Screen(top=bar.Bar(widgets=widget_list3, size=bar_size, background=bar_background, margin=bar_margin, opacity=bar_opacity)),
 ]
 
 ##################################################
@@ -677,33 +682,38 @@ def start_once():
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod],  'Button1', lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([mod],  'Button3', lazy.window.set_size_floating(),     start=lazy.window.get_size()),
-    Click([mod], 'Button2', lazy.window.bring_to_front())
+    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
+    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: List
+dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
-floating_layout = layout.Floating(float_rules=[
-    # Run the utility of `xprop` to see the wm class and name of an X client.
-    *layout.Floating.default_float_rules,
-    Match(wm_class='confirmreset'),  # gitk
-    Match(wm_class='makebranch'),  # gitk
-    Match(wm_class='maketag'),  # gitk
-    Match(wm_class='ssh-askpass'),  # ssh-askpass
-    Match(title='branchdialog'),  # gitk
-    Match(title='pinentry'),  # GPG key password entry
-])
+floating_layout = layout.Floating(
+    float_rules=[
+        # Run the utility of `xprop` to see the wm class and name of an X client.
+        *layout.Floating.default_float_rules,
+        Match(wm_class="confirmreset"),  # gitk
+        Match(wm_class="makebranch"),  # gitk
+        Match(wm_class="maketag"),  # gitk
+        Match(wm_class="ssh-askpass"),  # ssh-askpass
+        Match(title="branchdialog"),  # gitk
+        Match(title="pinentry"),  # GPG key password entry
+    ]
+)
 auto_fullscreen = True
-focus_on_window_activation = 'smart'
+focus_on_window_activation = "smart"
 reconfigure_screens = True
 
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
 auto_minimize = True
+
+# When using the Wayland backend, this can be used to configure input devices.
+wl_input_rules = None
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
@@ -713,4 +723,4 @@ auto_minimize = True
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = 'LG3D'
+wmname = "LG3D"
