@@ -14,7 +14,7 @@
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .config/mimeapps.list
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .config/pomotroid/user-preferences.json
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .config/baloofilerc
-/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .config/darktable/purge_non_existing_images.sh
+# /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .config/darktable/purge_non_existing_images.sh
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .config/minidlna/minidlna.conf
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .config/Caprine/custom.css
 
