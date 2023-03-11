@@ -48,8 +48,7 @@ alias stopdlna='killall minidlnad'
 alias mountmtp='aft-mtp-mount ~/MTP'
 alias mountftp='curlftpfs 10.10.10.10/Gargoyle ~/Gargoyle -o'
 
-alias exmonitor='xrandr --output DP-3 --mode 1920x1080 --pos 1920x0 --rotate normal'
-alias exmonitortop='xrandr --output DP1 --mode 1920x1080 --pos 0x-1080 --rotate normal'
+alias exmonitor='xrandr --output HDMI-1-0 --mode 1920x1080 --pos 1920x0 --rotate normal'
 
 alias updatedot='cd ~/SSD/Applications/Git/dotfiles && git pull'
 

@@ -109,6 +109,7 @@ music_playlist = 'google-chrome-stable https://music.youtube.com/playlist?list=P
 study_playlist = 'google-chrome-stable https://www.youtube.com/playlist?list=PLtAPmAYb-kX9AfgUB7s90ez_j8D-2avvC'
 # DEV
 text_editor  = 'subl'
+code_editor = 'code'
 # DOC
 pomodoro_timer = 'pomotroid --no-sandbox'
 pdf_reader = 'qpdfview'
@@ -236,6 +237,7 @@ keys = [
                     lazy.function(app_to_group(group_names[1], messenger2)), desc='Messenger'),
     # DEV
     Key([mod], 't', lazy.function(app_to_group(group_names[2], text_editor)), desc='Text editor'),
+    Key([mod, 'shift'], 't', lazy.function(app_to_group(group_names[2], code_editor)), desc='Code editor'),
     # DOC
     Key([mod], 'f', lazy.function(app_to_group(group_names[3], pdf_reader)), desc='PDF reader'),
     Key([mod], 'o', lazy.function(app_to_group(group_names[3], pomodoro_timer)), desc='Pomodoro timer'),
