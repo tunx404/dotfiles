@@ -8,33 +8,37 @@ alias adddot='~/.scripts/add_dotfiles.sh'
 alias pushdot='~/.scripts/push_dotfiles.sh'
 
 ##################################################
+# Monitor
+
+alias exmonitor='xrandr --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate normal'
+alias exmonitor2k='xrandr --output HDMI-0 --mode 2560x1440 --pos 1920x0 --rotate normal'
+
+##################################################
 # System
 
+alias removeorphans=''
 alias cleanpkg='sudo apt --purge autoremove && sudo apt clean'
+alias cleandt=''
 alias cleanconda='conda clean -a'
 alias cleanall='cleanconda && cleanpkg'
-
-alias checkppa='ls /etc/apt/sources.list.d'
-alias checksource='cat /etc/apt/sources.list'
 
 alias updatepkg='sudo apt update && sudo apt upgrade'
 alias updateall='updatepkg'
 
-alias dd='sudo dd status=progress'
+alias checkppa='ls /etc/apt/sources.list.d'
+alias checksource='cat /etc/apt/sources.list'
 
+alias dd='sudo dd status=progress'
 alias ssh='TERM=xterm-256color ssh'
 
 alias blup='sudo brightnessctl set +10%'
 alias bldown='sudo brightnessctl set 10%-'
 
-alias hbn='sudo systemctl hibernate'
-
 alias python='python3'
 
-alias setpem='sudo chown -R anhlh33 ./'
+alias hbn='sudo systemctl hibernate'
 
-alias exmonitor2k='xrandr --output HDMI-0 --mode 2560x1440 --pos 1920x0 --rotate normal'
-alias exmonitor='xrandr --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate normal'
+alias setpem='sudo chown -R anhlh33 ./'
 
 ##################################################
 # Reset

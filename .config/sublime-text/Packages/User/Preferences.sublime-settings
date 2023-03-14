@@ -1,3 +1,9 @@
 {
 	"font_size": 8,
+	"color_scheme": "Packages/Dracula Color Scheme/Dracula.tmTheme",
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"theme": "Default Dark.sublime-theme",
 }

@@ -89,7 +89,7 @@ group_translated_names = {
 # Applications
 
 mod = 'mod4'
-terminal = 'gnome-terminal' # 'alacritty'
+terminal = 'gnome-terminal'
 
 ####################
 
@@ -123,17 +123,17 @@ task_manager = '/opt/kuro/Kuro.AppImage'
 # MM_
 photo_library = 'darktable'
 # MON
-system_monitor = 'gnome-system-monitor' # terminal + ' -e gtop'
+system_monitor = 'gnome-system-monitor'
 system_monitor_cli = terminal + ' -e htop'
 cpu_freq_monitor = terminal + ' -e watch -n1 "grep \"MHz\" /proc/cpuinfo"'
-sensor_monitor = terminal + ' -e watch i8kctl' # ' -e watch sensors'
+sensor_monitor = terminal + ' -e watch sensors'
 gpu_monitor = terminal + ' -e nvtop'
 battery_monitor = terminal + ' -e battop'
 # SYS
 bluetooth_manager = 'blueman-manager'
 volume_controller = 'pavucontrol'
 # VM_
-virtual_machines = 'virtualbox' # 'vmware'
+virtual_machines = 'virtualbox'
 # OTHERS
 calculator = 'qalculate-gtk'
 cli_fun = terminal + ' -e glava' # ' -e asciiquarium'
@@ -142,7 +142,7 @@ key_bindings = 'eog /home/anhlh33/Cloud/Google\\ Drive\\ 1/Miscellaneous/Qtile/m
 ####################
 
 gui_launcher = 'ulauncher'
-cli_launcher = 'dmenu' # 'dmenu-recent-aliases'
+cli_launcher = 'dmenu'
 app_launcher = 'rofi -modi drun -show drun -display-drun "RUN"'
 file_launcher = 'rofi -show find -modi find:~/.config/rofi/finder.sh'
 window_switcher = 'rofi -show window'
@@ -244,9 +244,7 @@ keys = [
     Key([mod], 'semicolon',  lazy.function(app_to_group(group_names[3], pdf_reader_2)), desc='PDF reader 2'),
     # OFF
     Key([mod], 'g', lazy.function(app_to_group(group_names[5], task_manager)), desc='Task manager'),
-    Key([mod], 'm', # lazy.function(app_to_group(group_names[1], messenger1)),
-                    # lazy.function(app_to_group(group_names[1], messenger2)), desc='Messenger'),
-                    lazy.function(app_to_group(group_names[5], 'slack')),
+    Key([mod], 'm', lazy.function(app_to_group(group_names[5], 'slack')),
                     lazy.spawn('teams-for-linux'),
                     desc='Messenger'),
     # MM_
@@ -343,19 +341,6 @@ keys = [
     Key([mod, 'shift', 'control'], 'w', lazy.function(window_to_next_screen),     desc='Move window to the next screen'),
     Key([mod, 'shift', 'control'], 's', lazy.function(window_to_previous_screen), desc='Move window to the prev screen'),
     #
-    # Key([mod, 'control'], 'Left',  lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate left'),
-    #                                lazy.spawn('nitrogen --restore'),
-    #                                desc='Rotate screen left'),
-    # Key([mod, 'control'], 'Right', lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate right'),
-    #                                lazy.spawn('nitrogen --restore'),
-    #                                desc='Rotate screen right'),
-    # Key([mod, 'control'], 'Up',    lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate normal'),
-    #                                lazy.spawn('nitrogen --restore'),
-    #                                desc='Rotate screen normal'),
-    # Key([mod, 'control'], 'Down',  lazy.spawn('xrandr --output DP-3 --mode 1920x1080 --pos 3840x0 --rotate inverted'),
-    #                                lazy.spawn('nitrogen --restore'),
-    #                                desc='Rotate screen inverted'),
-    #
     Key([mod], 'p', lazy.spawn(change_multiple_monitor_setup), desc='Change multiple screen setup'),
 
     ####################
@@ -373,20 +358,20 @@ keys = [
     Key([mod, 'shift', 'control'], '3', lazy.spawn(change_wallpaper_dracula_3), desc='Change wallpaper on screen 3 to Dracula'),
 
     # Screenshots
-    Key([],                   'Print', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
-    Key(['control'],          'Print', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
-    Key(['shift'],            'Print', lazy.spawn('scrot -s -f ' + screenshot_clipboard), desc='Screenshot (area)'),
-    Key(['shift', 'control'], 'Print', lazy.spawn(screen_recorder), desc='Screen recorder'),
+    Key([],                   'Print', lazy.spawn('scrot' + screenshot_clipboard),    desc='Screenshot (all)'),
+    Key(['control'],          'Print', lazy.spawn('scrot -u' + screenshot_clipboard), desc='Screenshot (window)'),
+    Key(['shift'],            'Print', lazy.spawn('scrot -s' + screenshot_clipboard), desc='Screenshot (area)'),
+    Key(['shift', 'control'], 'Print', lazy.spawn(screen_recorder),                   desc='Screen recorder'),
     #
     Key([mod],                     'Print', lazy.spawn('scrot' + screenshot_clipboard),    desc='Screenshot (all)'),
     Key([mod, 'control'],          'Print', lazy.spawn('scrot -u' + screenshot_clipboard), desc='Screenshot (window)'),
     Key([mod, 'shift'],            'Print', lazy.spawn('scrot -s' + screenshot_clipboard), desc='Screenshot (area)'),
-    Key([mod, 'shift', 'control'], 'Print', lazy.spawn(screen_recorder),                      desc='Screen recorder'),
+    Key([mod, 'shift', 'control'], 'Print', lazy.spawn(screen_recorder),                   desc='Screen recorder'),
     #
-    Key([mod],                     'x', lazy.spawn('scrot' + screenshot_clipboard),       desc='Screenshot (all)'),
-    Key([mod, 'control'],          'x', lazy.spawn('scrot -u' + screenshot_clipboard),    desc='Screenshot (window)'),
+    Key([mod],                     'x', lazy.spawn('scrot' + screenshot_clipboard),    desc='Screenshot (all)'),
+    Key([mod, 'control'],          'x', lazy.spawn('scrot -u' + screenshot_clipboard), desc='Screenshot (window)'),
     Key([mod, 'shift'],            'x', lazy.spawn('scrot -s' + screenshot_clipboard), desc='Screenshot (area)'),
-    Key([mod, 'shift', 'control'], 'x', lazy.spawn(screen_recorder),                      desc='Screen recorder'),
+    Key([mod, 'shift', 'control'], 'x', lazy.spawn(screen_recorder),                   desc='Screen recorder'),
 
     ####################
 
@@ -569,7 +554,9 @@ def init_widget_list():
         separator(direction='right', color=2),
         widget.TextBox(text=' ', fontsize=20, background=tunx404_color_background_2),
         widget.OpenWeather(
-            cityid='1581130', # https://openweathermap.org/city/1581130
+            # https://openweathermap.org/city/1581130 # Hanoi
+            # https://openweathermap.org/city/1580578 # HCMC
+            cityid='1580578',
             format='{temp}°{units_temperature} {humidity}% {weather_details}',
             background=tunx404_color_background_2
         ),
@@ -666,7 +653,7 @@ extension_defaults = widget_defaults.copy()
 screens = [
     Screen(top=bar.Bar(widgets=widget_list1, size=bar_size, background=bar_background, margin=bar_margin, opacity=bar_opacity)),
     Screen(top=bar.Bar(widgets=widget_list2, size=bar_size, background=bar_background, margin=bar_margin, opacity=bar_opacity)),
-    # Screen(top=bar.Bar(widgets=widget_list3, size=bar_size, background=bar_background, margin=bar_margin, opacity=bar_opacity)),
+    Screen(top=bar.Bar(widgets=widget_list3, size=bar_size, background=bar_background, margin=bar_margin, opacity=bar_opacity)),
 ]
 
 ##################################################
@@ -682,13 +669,13 @@ def start_once():
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
+    Drag([mod], 'Button1', lazy.window.set_position_floating(), start=lazy.window.get_position()),
+    Drag([mod], 'Button3', lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Click([mod], 'Button2', lazy.window.bring_to_front()),
 ]
 
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: list
+dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
@@ -696,16 +683,16 @@ floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
-        Match(wm_class="confirmreset"),  # gitk
-        Match(wm_class="makebranch"),  # gitk
-        Match(wm_class="maketag"),  # gitk
-        Match(wm_class="ssh-askpass"),  # ssh-askpass
-        Match(title="branchdialog"),  # gitk
-        Match(title="pinentry"),  # GPG key password entry
+        Match(wm_class='confirmreset'),  # gitk
+        Match(wm_class='makebranch'),  # gitk
+        Match(wm_class='maketag'),  # gitk
+        Match(wm_class='ssh-askpass'),  # ssh-askpass
+        Match(title='branchdialog'),  # gitk
+        Match(title='pinentry'),  # GPG key password entry
     ]
 )
 auto_fullscreen = True
-focus_on_window_activation = "smart"
+focus_on_window_activation = 'smart'
 reconfigure_screens = True
 
 # If things like steam games want to auto-minimize themselves when losing
@@ -723,4 +710,4 @@ wl_input_rules = None
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"
+wmname = 'LG3D'
