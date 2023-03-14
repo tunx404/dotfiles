@@ -4,10 +4,8 @@
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles-ubuntu/ --work-tree=$HOME'
 alias dotstatus='dotfiles status'
 
-alias dotadd='~/.scripts/add_dotfiles.sh'
-alias dotpush='~/.scripts/push_dotfiles.sh'
-
-alias dotupdate='cd ~/SSD/Applications/Git/dotfiles && git pull'
+alias adddot='~/.scripts/add_dotfiles.sh'
+alias pushdot='~/.scripts/push_dotfiles.sh'
 
 ##################################################
 # System
@@ -35,8 +33,8 @@ alias python='python3'
 
 alias setpem='sudo chown -R anhlh33 ./'
 
-alias exmonitor='xrandr --output HDMI-0 --mode 2560x1440 --pos 1920x0 --rotate normal'
-alias exmonitorfhd='xrandr --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate normal'
+alias exmonitor2k='xrandr --output HDMI-0 --mode 2560x1440 --pos 1920x0 --rotate normal'
+alias exmonitor='xrandr --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate normal'
 
 ##################################################
 # Reset
