@@ -1,7 +1,7 @@
 ##################################################
 # Dotfiles
 
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles-ubuntu/ --work-tree=$HOME'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias dotstatus='dotfiles status'
 
 alias adddot='~/.scripts/add_dotfiles.sh'
@@ -74,3 +74,5 @@ alias z43='ssh z43'
 alias mountz43='sshfs z43:/home/ubuntuz43 /home/anhlh33/SSHFS/z43'
 alias mountnouvohcm='sshfs nouvo-hcm:/home/ubuntu /home/anhlh33/SSHFS/nouvo-hcm'
 alias mountnouvo='sshfs nouvo:/home/ubuntu /home/anhlh33/SSHFS/nouvo'
+
+alias testgpu='docker exec -it test_gpu bash'
