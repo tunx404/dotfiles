@@ -16,6 +16,11 @@ alias ssh='TERM=xterm-256color ssh'
 alias genqtile='mkdir -p ~/Cloud/Google\ Drive\ 1/Miscellaneous/Qtile && python ~/.config/qtile/gen-keybinding-img -c ~/.config/qtile/config.py -o ~/Cloud/Google\ Drive\ 1/Miscellaneous/Qtile'
 
 ##################################################
+# CMU
+
+alias cmuvpn='sudo openconnect -u alehoang vpn.cmu.edu'
+
+##################################################
 # Update
 
 alias removeorphans='pacman -Qtdq | sudo pacman -Rns -'
@@ -42,6 +47,8 @@ alias resetserial='sudo chmod 666 /dev/ttyUSB0'
 alias startdlna='minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid'
 alias stopdlna='killall minidlnad'
 
+alias understand='/home/tunx404/Portable/Linux/scitools/bin/linux64/understand'
+
 ##################################################
 # Miscellaneous
 
@@ -57,5 +64,9 @@ alias updatedot='cd ~/SSD/Applications/Git/dotfiles && git pull'
 # Projects
 
 alias fintec='cd ~/Cloud/Google\ Drive\ 1/Projects/Fintecism/financialadvisor && conda activate fin && jupyter-lab'
+
+alias frac='cd ~/Miscellaneous/fracture && jupyter-lab'
+
+alias cdcv='cd /home/tunx404/Studying/04.\ Fall\ 2022/16720\ Computer\ Vision/HW5/hw5/python/ && conda activate cv'
 
 alias makevideo='ffmpeg -framerate 24 -pattern_type glob -i "*.png" -c:v libx264 -pix_fmt yuv420p -vf "crop=trunc(iw/2)*2:trunc(ih/2)*2" 0.mp4'

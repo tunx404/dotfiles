@@ -1,7 +1,7 @@
 [Default Applications]
 application/msword=wps-office-wps.desktop
 application/msword-template=wps-office-wps.desktop
-application/pdf=google-chrome.desktop
+application/pdf=wps-office-pdf.desktop
 application/ppdf=FoxitReader.desktop
 application/rtf=wps-office-wps.desktop
 application/vnd.ms-works=wps-office-wps.desktop
@@ -90,10 +90,10 @@ audio/x-wav=vlc.desktop
 audio/x-wavpack=vlc.desktop
 audio/x-xm=vlc.desktop
 image/bmp=org.nomacs.ImageLounge.desktop
-image/gif=org.gnome.eog.desktop
+image/gif=org.nomacs.ImageLounge.desktop
 image/jpeg=org.gnome.eog.desktop
 image/png=org.gnome.eog.desktop
-image/svg+xml=org.gnome.eog.desktop
+image/svg+xml=org.nomacs.ImageLounge.desktop
 image/tiff=org.nomacs.ImageLounge.desktop
 image/webp=vlc.desktop
 image/x-adobe-dng=org.gnome.eog.desktop
@@ -170,7 +170,7 @@ application/x-java=sublime_text.desktop
 x-scheme-handler/tg=userapp-Telegram Desktop-B5SWL1.desktop
 application/x-x509-ca-cert=sublime_text.desktop
 application/x-trash=sublime_text.desktop
-x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc=_opt_stm32cubeide_.desktop
+x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc=_home_tunx404_st_stm32cubeide_1.10.1_.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=userapp-Thunderbird-QW16B1.desktop;
@@ -214,6 +214,3 @@ application/x-java=sublime_text.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-B5SWL1.desktop;
 application/x-x509-ca-cert=sublime_text.desktop;
 application/x-trash=sublime_text.desktop;
-image/svg+xml=org.gnome.eog.desktop;
-application/pdf=google-chrome.desktop;
-image/gif=org.gnome.eog.desktop;

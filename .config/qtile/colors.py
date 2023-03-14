@@ -42,30 +42,30 @@ color_nord = {
 ##################################################
 # Color settings
 
-tunx404_color_background   = color_dracula['Background'] # + '00'
-tunx404_color_background_2 = color_dracula['Current Line'] # + '00'
-tunx404_color_foreground   = color_dracula['Foreground']
-tunx404_color_foreground_2 = color_dracula['Comment']
+# tunx404_color_background   = color_dracula['Background']
+# tunx404_color_background_2 = color_dracula['Current Line']
+# tunx404_color_foreground   = color_dracula['Foreground']
+# tunx404_color_foreground_2 = color_dracula['Comment']
 
-tunx404_color_red          = color_dracula['Red']
-tunx404_color_orange       = color_dracula['Orange']
-tunx404_color_yellow       = color_dracula['Yellow']
-tunx404_color_green        = color_dracula['Green']
-tunx404_color_blue         = color_dracula['Comment']
-tunx404_color_purple       = color_dracula['Purple']
-
-tunx404_color_transparent  = color_dracula['Transparent']
-
-# tunx404_color_background   = color_nord['nord4']
-# tunx404_color_background_2 = color_nord['nord6']
-# tunx404_color_foreground   = color_nord['nord0']
-# tunx404_color_foreground_2 = color_nord['nord3']
-
-# tunx404_color_red          = color_nord['nord11']
-# tunx404_color_orange       = color_nord['nord12']
-# tunx404_color_yellow       = color_nord['nord13']
-# tunx404_color_green        = color_nord['nord14']
-# tunx404_color_blue         = color_nord['nord7']
-# tunx404_color_purple       = color_nord['nord15']
+# tunx404_color_red          = color_dracula['Red']
+# tunx404_color_orange       = color_dracula['Orange']
+# tunx404_color_yellow       = color_dracula['Yellow']
+# tunx404_color_green        = color_dracula['Green']
+# tunx404_color_blue         = color_dracula['Comment']
+# tunx404_color_purple       = color_dracula['Purple']
 
 # tunx404_color_transparent  = color_dracula['Transparent']
+
+tunx404_color_background   = color_nord['nord4']
+tunx404_color_background_2 = color_nord['nord6']
+tunx404_color_foreground   = color_nord['nord0']
+tunx404_color_foreground_2 = color_nord['nord3']
+
+tunx404_color_red          = color_nord['nord11']
+tunx404_color_orange       = color_nord['nord12']
+tunx404_color_yellow       = color_nord['nord13']
+tunx404_color_green        = color_nord['nord14']
+tunx404_color_blue         = color_nord['nord7']
+tunx404_color_purple       = color_nord['nord15']
+
+tunx404_color_transparent  = color_dracula['Transparent']

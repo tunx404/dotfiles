@@ -59,14 +59,13 @@ paleofetch
 
 export LD_PRELOAD=/lib64/libfreetype.so
 
-##################################################
-# ROS
+# ##################################################
+# # ROS
 
 # source /opt/ros/noetic/setup.bash
-# export ECE642RTLE_DIR=~/catkin_ws/src/ece642rtle
 
-##################################################
-# DaVinci Resolve
+# ##################################################
+# # DaVinci Resolve
 
-export __NV_PRIME_RENDER_OFFLOAD=1
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
+# export __NV_PRIME_RENDER_OFFLOAD=1
+# export __GLX_VENDOR_LIBRARY_NAME=nvidia

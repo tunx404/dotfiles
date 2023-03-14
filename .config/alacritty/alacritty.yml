@@ -1,5 +1,5 @@
 import:
-  - ~/.config/alacritty/dracula.yml
+  - ~/.config/alacritty/nord.yml
 
 font:
-  size: 8.0
+  size: 7.0

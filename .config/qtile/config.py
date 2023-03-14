@@ -52,9 +52,8 @@ tunx404_font = 'Ubuntu Condensed Regular'
 layout_margin = 4
 
 bar_size = 24
-bar_margin = [0, 0, layout_margin, 0]
-# bar_margin = [layout_margin, layout_margin, layout_margin, layout_margin]
-# bar_background = tunx404_color_transparent
+# bar_margin = [0, 0, layout_margin, 0]
+bar_margin = [layout_margin, layout_margin, layout_margin, layout_margin]
 bar_background = tunx404_color_background
 bar_opacity = 1
 
@@ -424,7 +423,7 @@ num_groups = 10
 group_matches = [
     [Match(wm_class=['Nemo', 'Insync', 'krename', "FreeFileSync"])],
     [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'whatsapp-nativefier-d40211', 'Cisco AnyConnect Secure Mobility Client', 'Thunderbird'])],
-    [Match(wm_class=['Subl', 'jetbrains-studio', 'code-oss', 'sun-awt-X11-XFramePeer', 'STM32CubeIDE'])],
+    [Match(wm_class=['Subl', 'jetbrains-studio', 'code-oss', 'sun-awt-X11-XFramePeer'])],
     [Match(wm_class=['qpdfview', 'pdf', 'pomotroid', 'zoom'])],
     [Match(wm_class=[])],
     [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'kuro'])],
@@ -540,6 +539,7 @@ def init_widget_list():
             other_screen_border=tunx404_color_foreground_2,
             hide_unused=True,
             background=tunx404_color_background,
+
         ),
         separator(direction='left', color=1),
 
@@ -549,7 +549,7 @@ def init_widget_list():
             background=tunx404_color_background_2,
         ),
         separator(direction='left', color=2),
-        
+
         widget.TaskList(
             border=tunx404_color_foreground,
             borderwidth=1,
@@ -564,7 +564,7 @@ def init_widget_list():
         separator(direction='right', color=2),
         widget.TextBox(text='', fontsize=20, background=tunx404_color_background_2),
         widget.OpenWeather(
-            cityid='5206379', # https://openweathermap.org/city/5206379
+            cityid='1581130', # https://openweathermap.org/city/1581130
             format='{temp}°{units_temperature} {humidity}% {weather_details}',
             background=tunx404_color_background_2
         ),
