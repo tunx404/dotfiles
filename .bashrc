@@ -5,18 +5,11 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 ##################################################
-# 0bash_aliases
+# bash_aliases
 
 if [ -f ~/.bash_aliases ]; then
-. ~/.bash_aliases
+    . ~/.bash_aliases
 fi
-
-##################################################
-# IBus
-
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
 
 ##################################################
 # Conda
@@ -36,13 +29,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# conda activate torch
-
-##################################################
-# Kaggle
-
-export PATH=~/.local/bin:$PATH
-
 ##################################################
 # Prompt
 
@@ -51,22 +37,12 @@ eval "$(starship init bash)"
 ##################################################
 # Fetch
 
-# neofetch
 paleofetch
 
 ##################################################
-# MATLAB
+# Applications
 
-export LD_PRELOAD=/lib64/libfreetype.so
-
-##################################################
-# ROS
-
-# source /opt/ros/noetic/setup.bash
-# export ECE642RTLE_DIR=~/catkin_ws/src/ece642rtle
-
-##################################################
-# DaVinci Resolve
-
-export __NV_PRIME_RENDER_OFFLOAD=1
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
+# IBus
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
