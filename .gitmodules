@@ -1,3 +1,6 @@
 [submodule ".wallpapers/Wide/wallpapers"]
 	path = .wallpapers/Wide/wallpapers
 	url = https://gitlab.com/dwt1/wallpapers.git
+[submodule ".config/sublime-text/Packages/Dracula Color Scheme"]
+	path = .config/sublime-text/Packages/Dracula Color Scheme
+	url = https://github.com/dracula/sublime.git

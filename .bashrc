@@ -137,6 +137,8 @@ unset __conda_setup
 
 # eval "$(starship init bash)"
 
+cd() { builtin cd "$@" && ls; }
+
 ##################################################
 # Fetch
 
@@ -154,3 +156,30 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH=$PATH:/usr/local/go/bin
+
+export PATH=$PATH:$HOME/.minio-binaries/
+
+
+
+
+
+##################################################
+# Paddle
+
+# Python
+export PYTHON_INCLUDE_DIR=/usr/include/python3.8
+export PYTHON_LIBRARIES=/usr/lib/x86_64-linux-gnu
+export PYTHON_EXECUTABLE=/usr/bin/python3.8
+
+# Go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# GPU
+export CUDA_PATH=/usr/local/cuda
+export CUDNN_LIBRARY=/usr/local/cuda/lib64
+export CUDA_CUDART_LIBRARY=/usr/local/cuda/lib64
+export TENSORRT_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
+
+# BIN
+# export SERVING_BIN=/home/anhlh33/VinAI/SmartStream/PaddleServing/Serving/build_server/core/general-server/serving

@@ -358,16 +358,6 @@ keys = [
     Key([mod, 'shift', 'control'], '3', lazy.spawn(change_wallpaper_dracula_3), desc='Change wallpaper on screen 3 to Dracula'),
 
     # Screenshots
-    Key([],                   'Print', lazy.spawn('scrot' + screenshot_clipboard),    desc='Screenshot (all)'),
-    Key(['control'],          'Print', lazy.spawn('scrot -u' + screenshot_clipboard), desc='Screenshot (window)'),
-    Key(['shift'],            'Print', lazy.spawn('scrot -s' + screenshot_clipboard), desc='Screenshot (area)'),
-    Key(['shift', 'control'], 'Print', lazy.spawn(screen_recorder),                   desc='Screen recorder'),
-    #
-    Key([mod],                     'Print', lazy.spawn('scrot' + screenshot_clipboard),    desc='Screenshot (all)'),
-    Key([mod, 'control'],          'Print', lazy.spawn('scrot -u' + screenshot_clipboard), desc='Screenshot (window)'),
-    Key([mod, 'shift'],            'Print', lazy.spawn('scrot -s' + screenshot_clipboard), desc='Screenshot (area)'),
-    Key([mod, 'shift', 'control'], 'Print', lazy.spawn(screen_recorder),                   desc='Screen recorder'),
-    #
     Key([mod],                     'x', lazy.spawn('scrot' + screenshot_clipboard),    desc='Screenshot (all)'),
     Key([mod, 'control'],          'x', lazy.spawn('scrot -u' + screenshot_clipboard), desc='Screenshot (window)'),
     Key([mod, 'shift'],            'x', lazy.spawn('scrot -s' + screenshot_clipboard), desc='Screenshot (area)'),
@@ -394,9 +384,9 @@ keys = [
     Key([], 'XF86MonBrightnessUp',   lazy.spawn('brightnessctl set +10%'), desc='System: Brightness up'),
     Key([], 'XF86MonBrightnessDown', lazy.spawn('brightnessctl set 10%-'), desc='System: Brightness down'),
 
-    Key([], 'XF86AudioRaiseVolume', lazy.spawn('pulseaudio-ctl up 5'),   desc='System: Volume up'),
-    Key([], 'XF86AudioLowerVolume', lazy.spawn('pulseaudio-ctl down 5'), desc='System: Volume down'),
-    Key([], 'XF86AudioMute',        lazy.spawn('pulseaudio-ctl mute'), desc='System: Mute'),
+    Key([], 'XF86AudioRaiseVolume', lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ +5%'),   desc='System: Volume up'),
+    Key([], 'XF86AudioLowerVolume', lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ -5%'), desc='System: Volume down'),
+    Key([], 'XF86AudioMute',        lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ toggle'), desc='System: Mute'),
 
     Key([], 'XF86AudioPlay',        lazy.spawn(audio_play_pause), desc='Play/pause'),
     Key([], 'XF86AudioPrev',        lazy.spawn(audio_next),       desc='Next'),
