@@ -11,7 +11,9 @@
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .wallpapers
 
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .themes/*.zip
+/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .themes/*.tar.gz
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .icons/*.zip
+/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .icons/*.tar.gz
 
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .bashrc
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .bash_aliases
