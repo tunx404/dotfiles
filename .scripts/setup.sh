@@ -1,2 +1,2 @@
-tar -xzf /home/tunx404/.icons/Dracula.tar.gz -C /home/tunx404/.icons
-tar -xzf /home/tunx404/.themes/gtk-master.tar.gz -C /home/tunx404/.themes
+unzip /home/tunx404/.icons/Dracula.zip -d /home/tunx404/.icons
+unzip /home/tunx404/.themes/master.zip -d /home/tunx404/.themes
