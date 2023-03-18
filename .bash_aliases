@@ -22,6 +22,8 @@ alias cleandt='~/.config/darktable/purge_non_existing_images.sh --purge && darkt
 alias cleanconda='conda clean -a'
 alias cleanall='cleanconda && cleanpkg'
 
+alias searchpkg='pacman -Qsq'
+alias removepkg='sudo pacman -Rsun '
 alias updatepkg='sudo pacman -Syu && yay -Syu'
 alias updateall='updatepkg'
 
@@ -32,7 +34,6 @@ alias pkgtop='pkgtop -pacman yay'
 
 alias dd='sudo dd status=progress'
 alias ssh='TERM=xterm-256color ssh'
-
 
 alias hbn='sudo systemctl hibernate'
 
