@@ -104,8 +104,8 @@ messenger1 = 'whatsapp-nativefier'
 messenger2 = 'caprine'
 email_client = 'thunderbird'
 password_manager = 'keepassxc'
-# music_playlist = 'google-chrome-stable https://www.youtube.com/playlist?list=PL14zqHuhShBB2_PRQOaD3imODj0Ejzjcv'
-music_playlist = 'google-chrome-stable https://music.youtube.com/playlist?list=PL14zqHuhShBB2_PRQOaD3imODj0Ejzjcv'
+music_playlist = 'google-chrome-stable https://www.youtube.com/playlist?list=PL14zqHuhShBB2_PRQOaD3imODj0Ejzjcv'
+# music_playlist = 'google-chrome-stable https://music.youtube.com/playlist?list=PL14zqHuhShBB2_PRQOaD3imODj0Ejzjcv'
 study_playlist = 'google-chrome-stable https://www.youtube.com/playlist?list=PLtAPmAYb-kX9AfgUB7s90ez_j8D-2avvC'
 # DEV
 text_editor  = 'subl'
@@ -123,7 +123,7 @@ task_manager = '/opt/kuro/Kuro.AppImage'
 # MM_
 photo_library = 'darktable'
 # MON
-system_monitor = 'gnome-system-monitor' # terminal + ' -e gtop'
+system_monitor = 'gnome-system-monitor'
 system_monitor_cli = terminal + ' -e htop'
 cpu_freq_monitor = terminal + ' -e watch -n1 "grep \"MHz\" /proc/cpuinfo"'
 sensor_monitor = terminal + ' -e watch i8kctl' # ' -e watch sensors'
@@ -133,7 +133,7 @@ battery_monitor = terminal + ' -e battop'
 bluetooth_manager = 'blueman-manager'
 volume_controller = 'pavucontrol'
 # VM_
-virtual_machines = 'virtualbox' # 'vmware'
+virtual_machines = 'virtualbox'
 # OTHERS
 calculator = 'qalculate-gtk'
 cli_fun = terminal + ' -e asciiquarium'
@@ -155,7 +155,6 @@ change_wallpaper_dracula_1 = 'nitrogen --head=0 --set-zoom-fill --random --save 
 change_wallpaper_dracula_2 = 'nitrogen --head=1 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide/Dracula'
 change_wallpaper_dracula_3 = 'nitrogen --head=2 --set-zoom-fill --random --save /home/tunx404/.wallpapers/Wide/Dracula'
 
-# screenshot_clipboard = ' -o "%Y-%m-%d_%H-%M-%S.png" -e "xclip -selection clip -t image/png -i $f; mv $f ~/Miscellaneous"'
 screenshot_clipboard = ' -o "IMG_%Y%m%d_%H%M%S.png" -e "mv $f ~/Miscellaneous"'
 screen_recorder = 'sa.sy.bluerecorder'
 
@@ -233,8 +232,7 @@ keys = [
     Key([mod], 'k', lazy.function(app_to_group(group_names[1], password_manager)), desc='Password manager'),
     Key([mod], 'u', lazy.function(app_to_group(group_names[1], music_playlist)), desc='Music playlist'),
     Key([mod], 'y', lazy.function(app_to_group(group_names[1], study_playlist)), desc='Study with me playlist'),
-    Key([mod], 'm', # lazy.function(app_to_group(group_names[1], messenger1)),
-                    lazy.function(app_to_group(group_names[1], messenger2)), desc='Messenger'),
+    Key([mod], 'm', lazy.function(app_to_group(group_names[1], messenger2)), desc='Messenger'),
     # DEV
     Key([mod], 't', lazy.function(app_to_group(group_names[2], text_editor)), desc='Text editor'),
     Key([mod, 'shift'], 't', lazy.function(app_to_group(group_names[2], code_editor)), desc='Code editor'),
@@ -272,9 +270,8 @@ keys = [
         lazy.spawn(browser),
         # DEV
         lazy.spawn(text_editor),
+        lazy.spawn(code_editor),
         # DOC
-        lazy.spawn(pdf_reader),
-        lazy.spawn(pomodoro_timer),
         # OFF
         lazy.spawn(task_manager),
         # MON
@@ -425,11 +422,11 @@ num_groups = 10
 # xprop
 group_matches = [
     [Match(wm_class=['Nemo', 'Insync', 'krename', "FreeFileSync"])],
-    [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'whatsapp-nativefier-d40211', 'Cisco AnyConnect Secure Mobility Client', 'Thunderbird'])],
+    [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'whatsapp-nativefier-d40211', 'Thunderbird'])],
     [Match(wm_class=['Subl', 'jetbrains-studio', 'code-oss', 'sun-awt-X11-XFramePeer', 'STM32CubeIDE'])],
-    [Match(wm_class=['qpdfview', 'pdf', 'pomotroid', 'zoom'])],
+    [Match(wm_class=['qpdfview', 'pdf', 'pomotroid'])],
     [Match(wm_class=[])],
-    [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'kuro'])],
+    [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'kuro', 'zoom', 'teams-for-linux', 'slack'])],
     [Match(wm_class=['Darktable', 'Gimp-2.10', 'Spotify', 'Steam', 'resolve', 'csgo_linux64', 'hl2_linux'])],
     [Match(wm_class=['Gnome-system-monitor', 'Cpupower-gui', 'Gnome-power-statistics'])],
     [Match(wm_class=['Blueman-manager', 'Pavucontrol', 'Pamac-manager'])],
@@ -566,7 +563,9 @@ def init_widget_list():
         separator(direction='right', color=2),
         widget.TextBox(text='', fontsize=20, background=tunx404_color_background_2),
         widget.OpenWeather(
-            cityid='1580578', # https://openweathermap.org/city/1580578 # SG
+            # https://openweathermap.org/city/1581130 # Hanoi
+            # https://openweathermap.org/city/1580578 # HCMC
+            cityid='1580578',
             format='{temp}°{units_temperature} {humidity}% {weather_details}',
             background=tunx404_color_background_2
         ),
@@ -679,9 +678,9 @@ def start_once():
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod],  'Button1', lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([mod],  'Button3', lazy.window.set_size_floating(),     start=lazy.window.get_size()),
-    Click([mod], 'Button2', lazy.window.bring_to_front())
+    Drag([mod], 'Button1', lazy.window.set_position_floating(), start=lazy.window.get_position()),
+    Drag([mod], 'Button3', lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Click([mod], 'Button2', lazy.window.bring_to_front()),
 ]
 
 dgroups_key_binder = None
@@ -689,16 +688,18 @@ dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
-floating_layout = layout.Floating(float_rules=[
-    # Run the utility of `xprop` to see the wm class and name of an X client.
-    *layout.Floating.default_float_rules,
-    Match(wm_class='confirmreset'),  # gitk
-    Match(wm_class='makebranch'),  # gitk
-    Match(wm_class='maketag'),  # gitk
-    Match(wm_class='ssh-askpass'),  # ssh-askpass
-    Match(title='branchdialog'),  # gitk
-    Match(title='pinentry'),  # GPG key password entry
-])
+floating_layout = layout.Floating(
+    float_rules=[
+        # Run the utility of `xprop` to see the wm class and name of an X client.
+        *layout.Floating.default_float_rules,
+        Match(wm_class='confirmreset'),  # gitk
+        Match(wm_class='makebranch'),  # gitk
+        Match(wm_class='maketag'),  # gitk
+        Match(wm_class='ssh-askpass'),  # ssh-askpass
+        Match(title='branchdialog'),  # gitk
+        Match(title='pinentry'),  # GPG key password entry
+    ]
+)
 auto_fullscreen = True
 focus_on_window_activation = 'smart'
 reconfigure_screens = True
@@ -706,6 +707,9 @@ reconfigure_screens = True
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
 auto_minimize = True
+
+# When using the Wayland backend, this can be used to configure input devices.
+wl_input_rules = None
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
