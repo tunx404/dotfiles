@@ -115,7 +115,7 @@ text/html=google-chrome.desktop
 text/plain=sublime_text.desktop
 text/x-chdr=sublime_text.desktop
 text/x-csrc=sublime_text.desktop
-video/mp2t=xplayer.desktop
+video/mp2t=vlc.desktop
 video/mp4=vlc.desktop
 video/webm=vlc.desktop
 video/x-matroska=vlc.desktop
@@ -172,6 +172,7 @@ application/x-x509-ca-cert=sublime_text.desktop
 application/x-trash=sublime_text.desktop
 x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc=_opt_stm32cubeide_.desktop
 application/x-zerosize=sublime_text.desktop
+application/vnd.oasis.opendocument.spreadsheet=wps-office-et.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=userapp-Thunderbird-QW16B1.desktop;
@@ -219,3 +220,5 @@ image/svg+xml=org.gnome.eog.desktop;
 application/pdf=google-chrome.desktop;
 image/gif=org.gnome.eog.desktop;
 application/x-zerosize=sublime_text.desktop;
+video/mp2t=smplayer.desktop;vlc.desktop;
+application/vnd.oasis.opendocument.spreadsheet=wps-office-et.desktop;
