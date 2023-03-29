@@ -10,6 +10,7 @@ alias pushdot='~/.scripts/push_dotfiles.sh'
 ##################################################
 # Monitor
 
+alias resetmonitor='xrandr --output eDP-1-1 --mode 1920x1080 --pos 0x0 --rotate normal'
 alias exmonitor='xrandr --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate normal'
 alias exmonitor2k='xrandr --output HDMI-0 --mode 2560x1440 --pos 1920x0 --rotate normal'
 
@@ -20,7 +21,8 @@ alias removeorphans=''
 alias cleanpkg='sudo apt --purge autoremove && sudo apt clean'
 alias cleandt=''
 alias cleanconda='conda clean -a'
-alias cleanall='cleanconda && cleanpkg'
+alias cleandocker='docker image prune'
+alias cleanall='cleanconda && cleanpkg && cleandocker'
 
 alias updatepkg='sudo apt update && sudo apt upgrade'
 alias updateall='updatepkg'
@@ -39,6 +41,8 @@ alias python='python3'
 alias hbn='sudo systemctl hibernate'
 
 alias setpem='sudo chown -R anhlh33 ./'
+
+alias limittemp='sudo undervolt -v --temp 95 --core -0 --cache -0 --gpu -0'
 
 ##################################################
 # Reset

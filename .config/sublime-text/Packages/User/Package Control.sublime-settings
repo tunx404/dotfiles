@@ -2,7 +2,9 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
-		"dracula",
-		"Dracula Color Scheme",
+	],
+	"installed_packages":
+	[
+		"Package Control"
 	],
 }

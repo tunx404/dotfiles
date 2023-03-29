@@ -3,8 +3,6 @@
 	"color_scheme": "Packages/User/Dracula Color Scheme/Dracula.tmTheme",
 	"ignored_packages":
 	[
-		"dracula",
-		"Dracula Color Scheme",
 		"Vintage",
 	],
 	"theme": "Default Dark.sublime-theme",
