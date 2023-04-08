@@ -183,3 +183,6 @@ export TENSORRT_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
 
 # BIN
 # export SERVING_BIN=/home/anhlh33/VinAI/SmartStream/PaddleServing/Serving/build_server/core/general-server/serving
+
+
+export LD_LIBRARY_PATH=/home/anhlh33/.local/lib/python3.9/site-packages/paddle_serving_server/serving-gpu-112-0.9.0:$LD_LIBRARY_PATH

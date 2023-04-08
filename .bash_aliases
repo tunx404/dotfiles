@@ -11,8 +11,12 @@ alias pushdot='~/.scripts/push_dotfiles.sh'
 # Monitor
 
 alias resetmonitor='xrandr --output eDP-1-1 --mode 1920x1080 --pos 0x0 --rotate normal'
+
 alias exmonitor='xrandr --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate normal'
+alias exmonitorhub='xrandr --output DP-1-1 --mode 1920x1080 --pos 1920x0 --rotate normal'
+
 alias exmonitor2k='xrandr --output HDMI-0 --mode 2560x1440 --pos 1920x0 --rotate normal'
+alias exmonitorhub2k='xrandr --output DP-1-1 --mode 2560x1440 --pos 1920x0 --rotate normal'
 
 ##################################################
 # System
@@ -27,7 +31,7 @@ alias cleanall='cleanconda && cleanpkg && cleandocker'
 alias updatepkg='sudo apt update && sudo apt upgrade'
 alias updateall='updatepkg'
 
-alias checkppa='ls /etc/apt/sources.list.d'
+alias checkppa='cd /etc/apt/sources.list'
 alias checksource='cat /etc/apt/sources.list'
 
 alias dd='sudo dd status=progress'
@@ -82,5 +86,10 @@ alias z43='ssh z43'
 alias mountz43='sshfs z43:/home/ubuntuz43 /home/anhlh33/SSHFS/z43'
 alias mountnouvohcm='sshfs nouvo-hcm:/home/ubuntu /home/anhlh33/SSHFS/nouvo-hcm'
 alias mountnouvo='sshfs nouvo:/home/ubuntu /home/anhlh33/SSHFS/nouvo'
+alias mountrs720='sshfs rs720:/home/rs720 /home/anhlh33/SSHFS/rs720'
 
 alias testgpu='docker exec -it test_gpu bash'
+
+alias anhlh33_deepstream='docker exec -it anhlh33_deepstream bash'
+
+alias rtspserver='RTSP_RTSPADDRESS="127.0.0.1:8556" ~/Portable/Linux/RTSP/rtsp-simple-server'

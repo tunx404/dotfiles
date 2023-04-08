@@ -1,3 +1,3 @@
 #!/bin/sh
 
-xrandr --auto
+# xrandr --auto
