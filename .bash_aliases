@@ -13,6 +13,9 @@ alias pushdot='~/.scripts/push_dotfiles.sh'
 alias exmonitor='xrandr --output DP-3 --mode 1920x1080 --pos 1920x0 --rotate normal'
 alias exmonitortop='xrandr --output DP1 --mode 1920x1080 --pos 0x-1080 --rotate normal'
 
+alias exmonitorhub='xrandr --output DP-1 --mode 1920x1080 --pos 1920x0 --rotate normal'
+alias exmonitorhubtop='xrandr --output DP-1 --mode 1920x1080 --pos 0x-1080 --rotate normal'
+
 ##################################################
 # System
 

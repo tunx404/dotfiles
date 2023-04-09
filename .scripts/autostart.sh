@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-xrandr --output eDP-1 --mode 1920x1080 --pos 0x840    --rotate normal;
-xrandr --output DP-2  --mode 1920x1080 --pos 1920x840 --rotate normal;
-xrandr --output DP-3  --mode 1920x1080 --pos 3840x0   --rotate left
+xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal;
+xrandr --output DP-1 --mode 1920x1080 --pos 1920x0 --rotate normal;
+# xrandr --output DP-2  --mode 1920x1080 --pos 1920x840 --rotate normal;
+# xrandr --output DP-3  --mode 1920x1080 --pos 3840x0   --rotate left
 
 picom --experimental-backends &
 nitrogen --restore &
