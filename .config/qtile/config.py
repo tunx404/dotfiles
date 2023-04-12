@@ -26,7 +26,7 @@
 
 ##################################################
 
-# python3 -m py_compile ~/.config/qtile/config.py
+# python3.9 -m py_compile ~/.config/qtile/config.py
 
 ##################################################
 # Imports
@@ -448,7 +448,7 @@ layout_config = {
     'border_width': 2,
     'margin': layout_margin,
     'border_focus': tunx404_color_red,
-    'border_normal': tunx404_color_background_2,
+    'border_normal': tunx404_color_background_1,
 }
 
 layouts = [
@@ -473,40 +473,59 @@ layouts = [
 ##################################################
 # Screens
 
-def init_widget_list():
-    def separator(direction, color):
-        if direction == 'right':
-            text = '  '
-        else:
-            text = ' '
 
-        if color == 1:
-            background = tunx404_color_background_2
-            foreground = tunx404_color_background
-        else:
-            background = tunx404_color_background
-            foreground = tunx404_color_background_2
+def separator(direction, color):
+    if direction == 'right':
+        text = ' '
+    else:
+        text = ''
 
-        return widget.TextBox(
-            text=text,
-            # font='meslolgs',
-            fontsize=18,
-            background=background,
-            foreground=foreground,
-            padding=0,
-        )
+    if color == 0:
+        background = tunx404_color_background_1
+        foreground = tunx404_color_background
+    else:
+        background = tunx404_color_background
+        foreground = tunx404_color_background_1
 
+    return widget.TextBox(
+        text=text,
+        # font='meslolgs',
+        fontsize=20,
+        background=background,
+        foreground=foreground,
+        padding=0,
+    )
+def separator_text(color):
+    text = ' '
+
+    if color == 0:
+        background = tunx404_color_background
+        foreground = tunx404_color_background_1
+    else:
+        background = tunx404_color_background_1
+        foreground = tunx404_color_background
+
+    return widget.TextBox(
+        text=text,
+        # font='meslolgs',
+        fontsize=18,
+        background=background,
+        foreground=foreground,
+        padding=0,
+    )
+
+def init_widget_list_left():
     widget_list = [
         widget.Image(
             filename='~/.config/qtile/icons/arch.png',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cli_fun)},
             margin=4,
-            background=tunx404_color_background_2,
+            background=tunx404_color_background_1,
         ),
         widget.Prompt(
             prompt=prompt,
         ),
-        separator(direction='left', color=2),
+        separator(direction='left', color=1),
 
         widget.GroupBox(
             fontsize=12,
@@ -515,20 +534,20 @@ def init_widget_list():
             highlight_color=tunx404_color_red,
             highlight_method='line',
             this_current_screen_border=tunx404_color_foreground,
-            this_screen_border=tunx404_color_foreground_2,
+            this_screen_border=tunx404_color_foreground_1,
             other_current_screen_border=tunx404_color_foreground,
-            other_screen_border=tunx404_color_foreground_2,
+            other_screen_border=tunx404_color_foreground_1,
             hide_unused=True,
             background=tunx404_color_background,
         ),
-        separator(direction='left', color=1),
+        separator(direction='left', color=0),
 
         widget.CurrentLayoutIcon(
             custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
             scale=0.7,
-            background=tunx404_color_background_2,
+            background=tunx404_color_background_1,
         ),
-        separator(direction='left', color=2),
+        separator(direction='left', color=1),
         
         widget.TaskList(
             border=tunx404_color_foreground,
@@ -538,88 +557,146 @@ def init_widget_list():
             margin=0,
             background=tunx404_color_background,
         ),
+    ]
+    return widget_list
 
-        ####################
+def init_widget_list_right_1():
+    widget_list = [
+        # widget.WidgetBox(
+        #     start_opened=True,
+        #     close_button_location='right',
+        #     widgets=[
+        #     ]
+        # ),
 
-        separator(direction='right', color=2),
-        widget.TextBox(text=' ', fontsize=20, background=tunx404_color_background_2),
-        widget.OpenWeather(
-            # https://openweathermap.org/city/1581130 # Hanoi
-            # https://openweathermap.org/city/1580578 # HCMC
-            cityid='1580578',
-            format='{temp}°{units_temperature} {humidity}% {weather_details}',
-            background=tunx404_color_background_2
-        ),
-
-        separator(direction='right', color=1),
-        widget.TextBox(text=' ', fontsize=20, background=tunx404_color_background),
-        widget.CPU(
-            format='{load_percent}%',
-            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cpu_freq_monitor)},
+        # separator(direction='right', color=0),
+        separator_text(color=0),
+        widget.Clipboard(
             background=tunx404_color_background
         ),
 
-        separator(direction='right', color=2),
-        widget.TextBox(text=' ', fontsize=20, background=tunx404_color_background_2),
-        widget.Memory(
-            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor_cli)},
-            background=tunx404_color_background_2
+        separator(direction='right', color=1),
+        separator_text(color=1),
+        widget.CPU(
+            format='{freq_current}G {load_percent}%',
+            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cpu_freq_monitor)},
+            background=tunx404_color_background_1
+        ),
+
+        separator(direction='right', color=0),
+        separator_text(color=0),
+        widget.Load(
+            format='{time}: {load:.1f}',
+            background=tunx404_color_background
         ),
 
         separator(direction='right', color=1),
-        widget.TextBox(text=' ', fontsize=20, background=tunx404_color_background),
+        separator_text(color=1),
+        widget.Memory(
+            format='{MemUsed: .1f}{mm}/{MemTotal: .1f}{mm}',
+            measure_mem='G',
+            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor_cli)},
+            background=tunx404_color_background_1
+        ),
+
+        separator(direction='right', color=0),
+        separator_text(color=0),
+        widget.DF(
+            partition='/',
+            format='/ {uf}',
+            visible_on_warn=False,
+            background=tunx404_color_background
+        ),
+        widget.DF(
+            partition='/home/anhlh33/SSD1',
+            format='_ S {uf}',
+            visible_on_warn=False,
+            background=tunx404_color_background
+        ),
+        widget.DF(
+            partition='/home/anhlh33/SSD2',
+            format='{uf}',
+            visible_on_warn=False,
+            background=tunx404_color_background
+        ),
+        widget.DF(
+            partition='/home/anhlh33/VinAI',
+            format='_ V {uf}',
+            visible_on_warn=False,
+            background=tunx404_color_background
+        ),
+
+        separator(direction='right', color=1),
+        separator_text(color=1),
         widget.Net(
             interface='wlp61s0',
-            format='{down} ↓↑ {up}',
+            format='{down} ⇵ {up}',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor)},
-            background=tunx404_color_background
+            background=tunx404_color_background_1
         ),
+        
+        separator(direction='right', color=0),
+    ]
+    return widget_list
 
-        separator(direction='right', color=2),
-        widget.TextBox(text=' ', fontsize=14, background=tunx404_color_background_2),
+def init_widget_list_right_2():
+    widget_list = [
+        separator_text(color=0),
         widget.ThermalSensor(
             foreground=tunx404_color_foreground,
             foreground_alert=tunx404_color_red,
+            format='{temp:.0f}{unit}',
             tag_sensor='Package id 0',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(sensor_monitor)},
-            background=tunx404_color_background_2
-        ),
-
-        separator(direction='right', color=1),
-        widget.TextBox(text=' ', fontsize=14, background=tunx404_color_background),
-        widget.NvidiaSensors(
-            foreground=tunx404_color_foreground,
-            foreground_alert=tunx404_color_red,
-            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(gpu_monitor)},
             background=tunx404_color_background
         ),
 
-        separator(direction='right', color=2),
-        widget.TextBox(text=' ', fontsize=20, background=tunx404_color_background_2),
+        separator(direction='right', color=1),
+        separator_text(color=1),
+        widget.NvidiaSensors(
+            foreground=tunx404_color_foreground,
+            foreground_alert=tunx404_color_red,
+            format='{temp}°C {perf}',
+            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(gpu_monitor)},
+            background=tunx404_color_background_1
+        ),
+
+        separator(direction='right', color=0),
+        separator_text(color=0),
         widget.PulseVolume(
             limit_max_volume=True,
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(volume_controller)},
-            background=tunx404_color_background_2
+            background=tunx404_color_background
         ),
 
         separator(direction='right', color=1),
-        widget.TextBox(text=' ', fontsize=14, background=tunx404_color_background),
+        separator_text(color=1),
         widget.Battery(
             format='{char} {percent:2.0%} {watt:.2f} W',
             # format='{char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(battery_monitor)},
             update_interval=10,
+            background=tunx404_color_background_1
+        ),
+
+        separator(direction='right', color=0),
+        separator_text(color=0),
+        widget.OpenWeather(
+            # https://openweathermap.org/city/1581130 # Hanoi
+            # https://openweathermap.org/city/1580578 # HCMC
+            cityid='1580578',
+            format='{temp}°{units_temperature} {humidity}% {weather_details}',
             background=tunx404_color_background
         ),
 
-        separator(direction='right', color=2),
-        widget.TextBox(text=' ', fontsize=20, background=tunx404_color_background_2),
+        separator(direction='right', color=1),
+        separator_text(color=1),
         widget.Clock(
             format="%a %d/%m %H:%M:%S",
-            background=tunx404_color_background_2
+            background=tunx404_color_background_1
         ),
 
-        separator(direction='right', color=1),
+        separator(direction='right', color=0),
         widget.Systray(
             icon_size=16,
             background=tunx404_color_background
@@ -627,9 +704,9 @@ def init_widget_list():
     ]
     return widget_list
     
-widget_list1 = init_widget_list()
-widget_list2 = init_widget_list()[:-2]
-widget_list3 = init_widget_list()[:-2]
+widget_list1 = init_widget_list_left() + init_widget_list_right_1() + init_widget_list_right_2()
+widget_list3 = init_widget_list_left() + init_widget_list_right_1() + init_widget_list_right_2()[:-2]
+widget_list2 = init_widget_list_left() + init_widget_list_right_2()[:-2]
 
 widget_defaults = dict(
     font=tunx404_font,
@@ -701,5 +778,3 @@ wl_input_rules = None
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = 'LG3D'
-
-dpi_scale = 2.0

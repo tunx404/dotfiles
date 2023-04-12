@@ -55,6 +55,8 @@ alias limittemp='sudo undervolt -v --temp 95 --core -0 --cache -0 --gpu -0'
 
 alias cpufreq='watch -n1 "grep \"MHz\" /proc/cpuinfo"'
 
+alias testqtile='python3.9 -m py_compile ~/.config/qtile/config.py'
+
 ##################################################
 # Reset
 
