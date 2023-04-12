@@ -10,13 +10,24 @@ alias pushdot='~/.scripts/push_dotfiles.sh'
 ##################################################
 # Monitor
 
-alias resetmonitor='xrandr --output eDP-1-1 --mode 1920x1080 --pos 0x0 --rotate normal'
+alias resetmonitor='xrandr --output eDP-1-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-1 --auto --right-of eDP-1-1 --output HDMI-0 --auto --right-of DP-1-1 --rotate left'
 
-alias exmonitor='xrandr --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate normal'
-alias exmonitorhub='xrandr --output DP-1-1 --mode 1920x1080 --pos 1920x0 --rotate normal'
+alias exmonitorcf='xrandr --output DP-1-1 --mode 1920x1080 --pos 1920x0 --rotate normal'
+alias exmonitorcfr='xrandr --output DP-1-1 --mode 1920x1080 --pos 1920x0 --rotate right'
+alias exmonitorcfl='xrandr --output DP-1-1 --mode 1920x1080 --pos 1920x0 --rotate left'
 
-alias exmonitor2k='xrandr --output HDMI-0 --mode 2560x1440 --pos 1920x0 --rotate normal'
-alias exmonitorhub2k='xrandr --output DP-1-1 --mode 2560x1440 --pos 1920x0 --rotate normal'
+# xrandr --output DP-1-1 --scale 1.5x1.5
+# xrandr --output DP-1-1 --scale 1x1
+alias exmonitorc2='xrandr --output DP-1-1 --mode 2560x1440 --pos 1920x0 --rotate normal'
+alias exmonitorc4='xrandr --output DP-1-1 --mode 3840x2160 --pos 1920x0 --rotate normal'
+
+# xrandr --output DP-1-1 --mode 3840x2160 --pos 1920x0 --rotate normal --scale 1.5x1.5
+# xrandr --output DP-1-1 --scale 2x2 --mode 1920x1080 --fb 3840x2160 --pos 1920x0
+
+# alias exmonitorh2='xrandr --output HDMI-0 --mode 2560x1440 --pos 4480x0 --rotate normal'
+# alias exmonitorh2l='xrandr --output HDMI-0 --mode 2560x1440 --pos 4480x0 --rotate left'
+alias exmonitorh2='xrandr --output HDMI-0 --mode 2560x1440 --pos 5760x0 --rotate normal'
+alias exmonitorh2l='xrandr --output HDMI-0 --mode 2560x1440 --pos 5760x0 --rotate left'
 
 ##################################################
 # System

@@ -20,5 +20,6 @@
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .gitconfig
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .gitignore
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .xinitrc
+/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .Xresources
 
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME status
