@@ -15,14 +15,8 @@ alias resetmonitor='xrandr --output eDP-1-1 --mode 1920x1080 --pos 0x0 --rotate 
 alias exmonitorcf='xrandr --output DP-1-1 --mode 1920x1080 --pos 1920x0 --rotate normal'
 alias exmonitorcfr='xrandr --output DP-1-1 --mode 1920x1080 --pos 1920x0 --rotate right'
 alias exmonitorcfl='xrandr --output DP-1-1 --mode 1920x1080 --pos 1920x0 --rotate left'
-
-# xrandr --output DP-1-1 --scale 1.5x1.5
-# xrandr --output DP-1-1 --scale 1x1
 alias exmonitorc2='xrandr --output DP-1-1 --mode 2560x1440 --pos 1920x0 --rotate normal'
 alias exmonitorc4='xrandr --output DP-1-1 --mode 3840x2160 --pos 1920x0 --rotate normal'
-
-# xrandr --output DP-1-1 --mode 3840x2160 --pos 1920x0 --rotate normal --scale 1.5x1.5
-# xrandr --output DP-1-1 --scale 2x2 --mode 1920x1080 --fb 3840x2160 --pos 1920x0
 
 # alias exmonitorh2='xrandr --output HDMI-0 --mode 2560x1440 --pos 4480x0 --rotate normal'
 # alias exmonitorh2l='xrandr --output HDMI-0 --mode 2560x1440 --pos 4480x0 --rotate left'
@@ -35,7 +29,7 @@ alias exmonitorh2l='xrandr --output HDMI-0 --mode 2560x1440 --pos 5760x0 --rotat
 alias removeorphans=''
 alias cleanpkg='sudo apt --purge autoremove && sudo apt clean'
 alias cleandt=''
-alias cleanconda='conda clean -a'
+alias cleanconda='ls' # 'conda clean -a'
 alias cleandocker='docker image prune'
 alias cleanall='cleanconda && cleanpkg && cleandocker'
 
@@ -58,6 +52,8 @@ alias hbn='sudo systemctl hibernate'
 alias setpem='sudo chown -R anhlh33 ./'
 
 alias limittemp='sudo undervolt -v --temp 95 --core -0 --cache -0 --gpu -0'
+
+alias cpufreq='watch -n1 "grep \"MHz\" /proc/cpuinfo"'
 
 ##################################################
 # Reset

@@ -569,7 +569,7 @@ def init_widget_list():
         separator(direction='right', color=1),
         widget.TextBox(text=' ', fontsize=20, background=tunx404_color_background),
         widget.Net(
-            interface='wlan0',
+            interface='wlp61s0',
             format='{down} ↓↑ {up}',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor)},
             background=tunx404_color_background

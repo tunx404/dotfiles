@@ -142,7 +142,7 @@ cd() { builtin cd "$@" && ls; }
 ##################################################
 # Fetch
 
-# paleofetch
+paleofetch
 
 ##################################################
 # Applications
@@ -159,30 +159,7 @@ export PATH=$PATH:/usr/local/go/bin
 
 export PATH=$PATH:$HOME/.minio-binaries/
 
-
-
-
-
 ##################################################
 # Paddle
-
-# Python
-export PYTHON_INCLUDE_DIR=/usr/include/python3.8
-export PYTHON_LIBRARIES=/usr/lib/x86_64-linux-gnu
-export PYTHON_EXECUTABLE=/usr/bin/python3.8
-
-# Go
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
-# GPU
-export CUDA_PATH=/usr/local/cuda
-export CUDNN_LIBRARY=/usr/local/cuda/lib64
-export CUDA_CUDART_LIBRARY=/usr/local/cuda/lib64
-export TENSORRT_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
-
-# BIN
-# export SERVING_BIN=/home/anhlh33/VinAI/SmartStream/PaddleServing/Serving/build_server/core/general-server/serving
-
 
 export LD_LIBRARY_PATH=/home/anhlh33/.local/lib/python3.9/site-packages/paddle_serving_server/serving-gpu-112-0.9.0:$LD_LIBRARY_PATH
