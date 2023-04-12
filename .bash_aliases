@@ -29,7 +29,7 @@ alias exmonitorh2l='xrandr --output HDMI-0 --mode 2560x1440 --pos 5760x0 --rotat
 alias removeorphans=''
 alias cleanpkg='sudo apt --purge autoremove && sudo apt clean'
 alias cleandt=''
-alias cleanconda='ls' # 'conda clean -a'
+alias cleanconda='rm -rf ~/.cache/pip' # 'conda clean -a'
 alias cleandocker='docker image prune'
 alias cleanall='cleanconda && cleanpkg && cleandocker'
 
