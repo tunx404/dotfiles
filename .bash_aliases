@@ -10,11 +10,16 @@ alias pushdot='~/.scripts/push_dotfiles.sh'
 ##################################################
 # Monitor
 
-alias exmonitor='xrandr --output DP-3 --mode 1920x1080 --pos 1920x0 --rotate normal'
-alias exmonitortop='xrandr --output DP1 --mode 1920x1080 --pos 0x-1080 --rotate normal'
+alias resetmonitor='xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --auto --right-of eDP-1 --output HDMI-1-0 --auto --right-of DP-1 --rotate left'
 
-alias exmonitorhub='xrandr --output DP-1 --mode 1920x1080 --pos 1920x0 --rotate normal'
-alias exmonitorhubtop='xrandr --output DP-1 --mode 1920x1080 --pos 0x-1080 --rotate normal'
+alias exmonitorcf='xrandr --output DP-1 --mode 1920x1080 --pos 1920x0 --rotate normal'
+alias exmonitorcfr='xrandr --output DP-1 --mode 1920x1080 --pos 1920x0 --rotate right'
+alias exmonitorcfl='xrandr --output DP-1 --mode 1920x1080 --pos 1920x0 --rotate left'
+alias exmonitorc2='xrandr --output DP-1 --mode 2560x1440 --pos 1920x0 --rotate normal'
+alias exmonitorc4='xrandr --output DP-1 --mode 3840x2160 --pos 1920x0 --rotate normal'
+
+alias exmonitorh2='xrandr --output HDMI-1-0 --mode 2560x1440 --pos 5760x0 --rotate normal'
+alias exmonitorh2l='xrandr --output HDMI-1-0 --mode 2560x1440 --pos 5760x0 --rotate left'
 
 ##################################################
 # System
