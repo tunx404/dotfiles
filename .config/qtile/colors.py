@@ -42,8 +42,8 @@ color_nord = {
 ##################################################
 # Color settings
 
-tunx404_color_background   = color_dracula['Background'] # + '00'
-tunx404_color_background_1 = color_dracula['Current Line'] # + '00'
+tunx404_color_background   = color_dracula['Background'] + '00'
+tunx404_color_background_1 = color_dracula['Current Line'] + '00'
 tunx404_color_foreground   = color_dracula['Foreground']
 tunx404_color_foreground_1 = color_dracula['Comment']
 

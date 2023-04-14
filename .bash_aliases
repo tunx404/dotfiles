@@ -57,6 +57,8 @@ alias cpufreq='watch -n1 "grep \"MHz\" /proc/cpuinfo"'
 
 alias testqtile='python3.9 -m py_compile ~/.config/qtile/config.py'
 
+alias resetsound='pulseaudio -k'
+
 ##################################################
 # Reset
 
@@ -102,3 +104,11 @@ alias testgpu='docker exec -it test_gpu bash'
 alias anhlh33_deepstream='docker exec -it anhlh33_deepstream bash'
 
 alias rtspserver='RTSP_RTSPADDRESS="127.0.0.1:8556" ~/Portable/Linux/RTSP/rtsp-simple-server'
+
+alias gl='git log'
+alias gf='git fetch && git status'
+alias gs='git status'
+
+function gcp () {
+    git commit -m "$1"
+}

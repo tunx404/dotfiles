@@ -634,7 +634,7 @@ def init_widget_list_right_1():
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor)},
             background=tunx404_color_background_1
         ),
-        
+
         separator(direction='right', color=0),
     ]
     return widget_list
