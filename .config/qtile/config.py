@@ -316,7 +316,7 @@ keys = [
     Key([mod], 'Down', lazy.window.toggle_floating(),   desc='Floating'),
     #
     Key([mod, 'control'],   'q', lazy.window.toggle_fullscreen(), desc='Fullscreen'),
-    Key([mod, 'shift'], 'q', lazy.window.toggle_floating(),   desc='Floating'),
+    Key([mod, 'shift'],     'q', lazy.window.toggle_floating(),   desc='Floating'),
     #
     Key([mod, 'shift'], 'c', lazy.window.kill(), desc='Kill focused window'),
     #
@@ -342,6 +342,14 @@ keys = [
     Key([mod, 'shift', 'control'], 's', lazy.function(window_to_previous_screen), desc='Move window to the prev screen'),
     #
     Key([mod], 'p', lazy.spawn(change_multiple_monitor_setup), desc='Change multiple screen setup'),
+
+    # Monitor
+    Key([mod, 'shift', 'control'], 'Left',  lazy.spawn('xrandr --output HDMI-0 --auto --right-of eDP-1-1 --rotate left'),    desc='Rotate HDMI monitor left'),
+    Key([mod, 'shift', 'control'], 'Right', lazy.spawn('xrandr --output HDMI-0 --auto --right-of eDP-1-1 --rotate right'),   desc='Rotate HDMI monitor right'),
+    Key([mod, 'shift', 'control'], 'Up',    lazy.spawn('xrandr --output HDMI-0 --auto --right-of eDP-1-1 --rotate normal'),  desc='Rotate HDMI monitor normal'),
+    Key([mod, 'shift', 'control'], 'Down',  lazy.spawn('xrandr --output HDMI-0 --auto --right-of eDP-1-1 --rotate inverse'), desc='Rotate HDMI monitor inverse'),
+
+
 
     ####################
 
@@ -705,8 +713,8 @@ def init_widget_list_right_2():
     return widget_list
     
 widget_list1 = init_widget_list_left() + init_widget_list_right_1() + init_widget_list_right_2()
-widget_list3 = init_widget_list_left() + init_widget_list_right_1() + init_widget_list_right_2()[:-2]
-widget_list2 = init_widget_list_left() + init_widget_list_right_2()[:-2]
+widget_list2 = init_widget_list_left() + init_widget_list_right_1() + init_widget_list_right_2()[:-2]
+widget_list3 = init_widget_list_left() + init_widget_list_right_2()[:-2]
 
 widget_defaults = dict(
     font=tunx404_font,

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-xrandr --output DP-1-1 --auto --right-of eDP-1-1 --output HDMI-0 --auto --right-of DP-1-1 --rotate left
+xrandr --output HDMI-0 --auto --right-of eDP-1-1 --rotate normal
 
 picom &
 nitrogen --restore &

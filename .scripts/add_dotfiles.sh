@@ -19,6 +19,7 @@
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .bash_aliases
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .gitconfig
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .gitignore
+/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .tmux.conf
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .xinitrc
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .Xresources
 

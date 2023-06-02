@@ -163,3 +163,5 @@ export PATH=$PATH:$HOME/.minio-binaries/
 # Paddle
 
 export LD_LIBRARY_PATH=/home/anhlh33/.local/lib/python3.9/site-packages/paddle_serving_server/serving-gpu-112-0.9.0:$LD_LIBRARY_PATH
+
+export LD_LIBRARY_PATH=/home/anhlh33/VinAI/Libraries/cuda-10.2:$LD_LIBRARY_PATH
