@@ -110,11 +110,11 @@ alias umountz43='sudo umount ~/SSHFS/z43'
 alias umountrs720='sudo umount ~/SSHFS/rs720'
 alias umountall='for dir_path in ~/SSHFS/*; do sudo umount $dir_path; done'
 
-alias rungpu='/home/anhlh33/Serving_master/docker/run_docker.sh'
+alias rungpu='/home/anhlh33/Serving/docker/run_docker.sh'
 alias testgpu='docker start test_gpu && docker exec -it test_gpu bash'
 alias delgpu='docker stop test_gpu && docker rm test_gpu'
 
-alias runsdk='/home/anhlh33/Serving_master/docker/SDK/run_docker_sdk.sh'
+alias runsdk='/home/anhlh33/Serving/docker/SDK/run_docker_sdk.sh'
 alias testsdk='docker start test_gpu_sdk && docker exec -it test_gpu_sdk bash'
 alias delsdk='docker stop test_gpu_sdk && docker rm test_gpu_sdk'
 
