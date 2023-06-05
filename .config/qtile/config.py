@@ -692,7 +692,7 @@ def init_widget_list_right_2():
         widget.OpenWeather(
             # https://openweathermap.org/city/1581130 # Hanoi
             # https://openweathermap.org/city/1580578 # HCMC
-            cityid='1580578',
+            cityid='1581130',
             format='{temp}°{units_temperature} {humidity}% {weather_details}',
             background=tunx404_color_background
         ),

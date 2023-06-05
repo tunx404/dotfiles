@@ -105,9 +105,11 @@ alias mountnouvo='sshfs nouvo:/home/ubuntu /home/anhlh33/SSHFS/nouvo'
 alias mountrs720='sshfs rs720:/home/rs720 /home/anhlh33/SSHFS/rs720'
 alias mountfaceid-dev='sshfs faceid-dev:/home/ubuntu /home/anhlh33/SSHFS/faceid-dev'
 alias mountisilon='sshfs faceid-dev:/guardpro/gp-long-range/data-zoo /home/anhlh33/SSHFS/data-zoo'
+alias mountcloud='sshfs cloud-ac20:/home/dev /home/anhlh33/SSHFS/cloud-ac20'
 
 alias umountz43='sudo umount ~/SSHFS/z43'
 alias umountrs720='sudo umount ~/SSHFS/rs720'
+alias umountcloud='sudo umount ~/SSHFS/cloud-ac20'
 alias umountall='for dir_path in ~/SSHFS/*; do sudo umount $dir_path; done'
 
 alias rungpu='/home/anhlh33/Serving/docker/run_docker.sh'
