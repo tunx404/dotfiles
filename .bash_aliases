@@ -20,6 +20,7 @@ alias exmonitorc4='xrandr --output DP-1 --mode 3840x2160 --pos 1920x0 --rotate n
 
 alias exmonitorh2='xrandr --output HDMI-1-0 --mode 2560x1440 --pos 5760x0 --rotate normal'
 alias exmonitorh2l='xrandr --output HDMI-1-0 --mode 2560x1440 --pos 5760x0 --rotate left'
+alias exmonitorh4='xrandr --output HDMI-1-0 --mode 3840x2160 --pos 1920x0 --rotate normal'
 
 ##################################################
 # System

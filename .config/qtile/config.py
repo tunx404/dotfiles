@@ -528,7 +528,7 @@ def init_widget_list():
         separator(direction='left', color=2),
 
         widget.GroupBox(
-            fontsize=28,
+            fontsize=16,
             active=tunx404_color_foreground,
             block_highlight_text_color=tunx404_color_foreground,
             highlight_color=tunx404_color_red,
@@ -561,7 +561,7 @@ def init_widget_list():
         ####################
 
         separator(direction='right', color=2),
-        widget.TextBox(text='', fontsize=20, background=tunx404_color_background_2),
+        widget.TextBox(text='', fontsize=16, background=tunx404_color_background_2),
         widget.OpenWeather(
             # https://openweathermap.org/city/1581130 # Hanoi
             # https://openweathermap.org/city/1580578 # HCMC
@@ -571,7 +571,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=1),
-        widget.TextBox(text='', fontsize=20, background=tunx404_color_background),
+        widget.TextBox(text='', fontsize=16, background=tunx404_color_background),
         widget.CPU(
             format='{load_percent}%',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cpu_freq_monitor)},
@@ -579,14 +579,14 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=2),
-        widget.TextBox(text='', fontsize=20, background=tunx404_color_background_2),
+        widget.TextBox(text='', fontsize=16, background=tunx404_color_background_2),
         widget.Memory(
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor_cli)},
             background=tunx404_color_background_2
         ),
 
         separator(direction='right', color=1),
-        widget.TextBox(text='', fontsize=20, background=tunx404_color_background),
+        widget.TextBox(text='', fontsize=16, background=tunx404_color_background),
         widget.Net(
             interface='wlan0',
             format='{down} ↓↑ {up}',
@@ -605,7 +605,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=1),
-        widget.TextBox(text='', fontsize=14, background=tunx404_color_background),
+        widget.TextBox(text='', fontsize=16, background=tunx404_color_background),
         widget.NvidiaSensors(
             foreground=tunx404_color_foreground,
             foreground_alert=tunx404_color_red,
@@ -614,7 +614,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=2),
-        widget.TextBox(text='', fontsize=20, background=tunx404_color_background_2),
+        widget.TextBox(text='', fontsize=16, background=tunx404_color_background_2),
         widget.PulseVolume(
             limit_max_volume=True,
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(volume_controller)},
@@ -622,7 +622,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=1),
-        widget.TextBox(text='', fontsize=14, background=tunx404_color_background),
+        widget.TextBox(text='', fontsize=16, background=tunx404_color_background),
         widget.Battery(
             format='{char} {percent:2.0%} {watt:.2f} W',
             # format='{char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W',
@@ -632,7 +632,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=2),
-        widget.TextBox(text='', fontsize=20, background=tunx404_color_background_2),
+        widget.TextBox(text='', fontsize=16, background=tunx404_color_background_2),
         widget.Clock(
             format="%a %d/%m %H:%M:%S",
             background=tunx404_color_background_2
