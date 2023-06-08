@@ -29,10 +29,11 @@ alias exmonitorh4='xrandr --output HDMI-0 --mode 3840x2160 --pos 1920x0 --scale 
 
 alias removeorphans=''
 alias cleanpkg='sudo apt --purge autoremove && sudo apt clean'
-alias cleandt=''
-alias cleanconda='rm -rf ~/.cache/pip' # 'conda clean -a'
+alias cleanfp='flatpak uninstall --unused'
+alias cleanconda='rm -rf ~/.cache/pip && conda clean -a'
 alias cleandocker='docker image prune'
-alias cleanall='cleanconda && cleanpkg && cleandocker'
+alias cleanvscode='rm -rf /home/anhlh33/.cache/vscode-cpptools'
+alias cleanall='cleanconda && cleanpkg && cleandocker && cleanfp && cleanvscode'
 
 alias updatepkg='sudo apt update && sudo apt upgrade'
 alias updateall='updatepkg'
@@ -105,7 +106,7 @@ alias mountnouvo='sshfs nouvo:/home/ubuntu /home/anhlh33/SSHFS/nouvo'
 alias mountrs720='sshfs rs720:/home/rs720 /home/anhlh33/SSHFS/rs720'
 alias mountfaceid-dev='sshfs faceid-dev:/home/ubuntu /home/anhlh33/SSHFS/faceid-dev'
 alias mountisilon='sshfs faceid-dev:/guardpro/gp-long-range/data-zoo /home/anhlh33/SSHFS/data-zoo'
-alias mountcloud='sshfs cloud-ac20:/home/dev /home/anhlh33/SSHFS/cloud-ac20'
+alias mountcloud='sshfs cloud-ac20:/srv /home/anhlh33/SSHFS/cloud-ac20'
 
 alias umountz43='sudo umount ~/SSHFS/z43'
 alias umountrs720='sudo umount ~/SSHFS/rs720'
@@ -123,6 +124,12 @@ alias delsdk='docker stop test_gpu_sdk && docker rm test_gpu_sdk'
 alias runfaceid='/home/anhlh33/cctv-faceid-demo/docker/run_docker.sh'
 alias testfaceid='docker start faceid_demo && docker exec -it faceid_demo bash'
 alias delfaceid='docker stop faceid_demo && docker rm faceid_demo'
+
+alias runandroid='cd /home/anhlh33/Git/guardpro-android-sdk && ./run_docker.sh'
+alias testandroid='docker start guardpro-android-sdk && docker exec -it guardpro-android-sdk bash'
+alias delandroid='docker stop guardpro-android-sdk && docker rm guardpro-android-sdk'
+
+alias startandroid='/home/anhlh33/SSD1/Portable/Linux/android-studio/bin/studio.sh'
 
 alias startmongo='sudo mongod --dbpath /var/lib/mongo'
 
