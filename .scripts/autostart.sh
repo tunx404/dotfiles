@@ -17,7 +17,7 @@ fusuma &
 powerkit &
 xss-lock -- /usr/bin/slock &
 i8kmon &
-ulauncher &
+# ulauncher &
 # /usr/bin/ulauncher --hide-window --hide-window --hide-window --hide-window --hide-window --hide-window
 
 sh /home/tunx404/.scripts/power_saving.sh off

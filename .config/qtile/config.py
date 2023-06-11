@@ -589,7 +589,8 @@ def init_widget_list():
         widget.TextBox(text='', fontsize=16, background=tunx404_color_background),
         widget.Net(
             interface='wlan0',
-            format='{down} ↓↑ {up}',
+            format='{down:.2f}{down_suffix} ↓↑ {up:.2f}{up_suffix}',
+            prefix='M',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor)},
             background=tunx404_color_background
         ),
@@ -622,7 +623,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=1),
-        widget.TextBox(text='', fontsize=16, background=tunx404_color_background),
+        widget.TextBox(text='🔋', fontsize=16, background=tunx404_color_background),
         widget.Battery(
             format='{char} {percent:2.0%} {watt:.2f} W',
             # format='{char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W',
