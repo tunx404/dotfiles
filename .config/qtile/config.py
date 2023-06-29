@@ -528,7 +528,7 @@ def init_widget_list():
         separator(direction='left', color=2),
 
         widget.GroupBox(
-            fontsize=16,
+            fontsize=14,
             active=tunx404_color_foreground,
             block_highlight_text_color=tunx404_color_foreground,
             highlight_color=tunx404_color_red,
@@ -571,7 +571,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=1),
-        widget.TextBox(text='', fontsize=16, background=tunx404_color_background),
+        widget.TextBox(text='', fontsize=14, background=tunx404_color_background),
         widget.CPU(
             format='{load_percent}%',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(cpu_freq_monitor)},
@@ -633,7 +633,7 @@ def init_widget_list():
         ),
 
         separator(direction='right', color=2),
-        widget.TextBox(text='', fontsize=16, background=tunx404_color_background_2),
+        widget.TextBox(text='', fontsize=14, background=tunx404_color_background_2),
         widget.Clock(
             format="%a %d/%m %H:%M:%S",
             background=tunx404_color_background_2
