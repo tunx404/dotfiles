@@ -59,20 +59,8 @@ bar_background = tunx404_color_background
 bar_opacity = 1
 
 # 
-group_names = [
-    'DIR', # DIR
-    'WEB', # WEB
-    'DEV', # DEV
-    'DOC', # DOC
-    'CLI', # CLI
-    'OFF', # OFF
-    'MM_', # MM_
-    'MON', # MON
-    'SYS', # SYS
-    'VM_', # VM_
-]
-
 # xprop to find window name
+# xev | grep 'keycode'
 
 group_list = [
     {
@@ -96,7 +84,7 @@ group_list = [
     {
         'name': 'DEV',
         'translated_name': 'DEV',
-        'matches': [Match(wm_class=['jetbrains-studio', 'code-oss', 'sun-awt-X11-XFramePeer', 'STM32CubeIDE'])],
+        'matches': [Match(wm_class=['jetbrains-studio', 'code', 'code-oss', 'sun-awt-X11-XFramePeer', 'STM32CubeIDE'])],
         'layout': 'columns'
     },
     {
@@ -163,8 +151,9 @@ password_manager = 'keepassxc'
 music_playlist = 'google-chrome-stable https://www.youtube.com/playlist?list=PL14zqHuhShBB2_PRQOaD3imODj0Ejzjcv'
 # music_playlist = 'google-chrome-stable https://music.youtube.com/playlist?list=PL14zqHuhShBB2_PRQOaD3imODj0Ejzjcv'
 study_playlist = 'google-chrome-stable https://www.youtube.com/playlist?list=PLtAPmAYb-kX9AfgUB7s90ez_j8D-2avvC'
-# DEV
+# CLI
 text_editor  = 'subl'
+# DEV
 code_editor = 'code'
 # DOC
 pomodoro_timer = 'pomotroid --no-sandbox'
@@ -173,7 +162,6 @@ pdf_reader_2 = '/usr/bin/wpspdf'
 spreadsheets = '/usr/bin/et'
 writer = '/usr/bin/wps'
 presentation = '/usr/bin/wpp'
-# CLI
 # OFF
 task_manager = '/opt/kuro/Kuro.AppImage'
 # MM_
@@ -273,8 +261,6 @@ def window_to_next_screen(qtile):
 # Key bindings
 
 keys = [
-    # xev | grep 'keycode'
-
     ####################
     # Applications
 
@@ -343,14 +329,14 @@ keys = [
     desc='Open all'),
 
     # Launchers
-    Key([mod], 'q', lazy.spawn(terminal), desc='System: Launch terminal'),
-    Key([mod], 'Return', lazy.spawn(terminal), desc='System: Launch terminal'),
-    Key([mod], 'KP_Enter', lazy.spawn(terminal), desc='System: Launch terminal'),
-    Key([mod, 'control'], 'r', lazy.spawncmd(), desc='System: Prompt'),
-    Key([mod, 'shift'], 'r', lazy.spawn(cli_launcher), desc='System: CLI launcher'),
+    Key([mod], 'q',            lazy.spawn(terminal),     desc='System: Launch terminal'),
+    Key([mod], 'Return',       lazy.spawn(terminal),     desc='System: Launch terminal'),
+    Key([mod], 'KP_Enter',     lazy.spawn(terminal),     desc='System: Launch terminal'),
+    Key([mod, 'control'], 'r', lazy.spawncmd(),          desc='System: Prompt'),
+    Key([mod, 'shift'], 'r',   lazy.spawn(cli_launcher), desc='System: CLI launcher'),
     #
-    Key([mod], 'r', lazy.spawn(app_launcher), desc='System: Application launcher'),
-    Key(['control'], 'space', lazy.spawn(gui_launcher), desc='System: GUI launcher'),
+    Key([mod], 'r',           lazy.spawn(app_launcher), desc='System: Application launcher'),
+    # Key(['control'], 'space', lazy.spawn(gui_launcher), desc='System: GUI launcher'),
 
     ####################
     # Windows
@@ -372,8 +358,8 @@ keys = [
     Key([mod], 'Up',   lazy.window.toggle_fullscreen(), desc='Fullscreen'),
     Key([mod], 'Down', lazy.window.toggle_floating(),   desc='Floating'),
     #
-    Key([mod, 'control'],   'q', lazy.window.toggle_fullscreen(), desc='Fullscreen'),
-    Key([mod, 'shift'],     'q', lazy.window.toggle_floating(),   desc='Floating'),
+    Key([mod, 'control'], 'q', lazy.window.toggle_fullscreen(), desc='Fullscreen'),
+    Key([mod, 'shift'],   'q', lazy.window.toggle_floating(),   desc='Floating'),
     #
     Key([mod, 'shift'], 'c', lazy.window.kill(), desc='Kill focused window'),
     #
