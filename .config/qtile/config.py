@@ -58,8 +58,6 @@ bar_margin = [0, 0, layout_margin, 0]
 bar_background = tunx404_color_background
 bar_opacity = 1
 
-num_groups = 10
-
 # 
 group_names = [
     'DIR', # DIR
@@ -74,47 +72,9 @@ group_names = [
     'VM_', # VM_
 ]
 
-group_translated_names = {
-    'DIR': 'DIR',
-    'WEB': 'WEB',
-    'DEV': 'DEV',
-    'DOC': 'DOC',
-    'CLI': 'CLI',
-    'OFF': 'OFF',
-    'MM_': 'MM_',
-    'MON': 'MON',
-    'SYS': 'SYS',
-    'VM_': 'VM_',
-}
+# xprop to find window name
 
-# xprop
-group_matches = [
-    [Match(wm_class=['Nemo', 'Insync', 'krename', "FreeFileSync"])],
-    [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'whatsapp-nativefier-d40211', 'Thunderbird'])],
-    [Match(wm_class=['jetbrains-studio', 'code-oss', 'sun-awt-X11-XFramePeer', 'STM32CubeIDE'])],
-    [Match(wm_class=['qpdfview', 'pdf', 'pomotroid'])],
-    [Match(wm_class=['Subl'])],
-    [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'kuro', 'zoom', 'teams-for-linux', 'slack'])],
-    [Match(wm_class=['Darktable', 'Gimp-2.10', 'Spotify', 'Steam', 'resolve', 'csgo_linux64', 'hl2_linux'])],
-    [Match(wm_class=['Gnome-system-monitor', 'Cpupower-gui', 'Gnome-power-statistics'])],
-    [Match(wm_class=['Blueman-manager', 'Pavucontrol', 'Pamac-manager'])],
-    [Match(wm_class=['VirtualBox Manager', 'Vmware', 'TeamViewer', 'anydesk'])],
-]
-
-group_layouts = [
-    'columns',
-    'max',
-    'columns',
-    'columns',
-    'columns',
-    'columns',
-    'columns',
-    'columns',
-    'columns',
-    'max',
-]
-
-groups_list = [
+group_list = [
     {
         'name': 'DIR',
         'translated_name': 'DIR',
@@ -176,6 +136,10 @@ groups_list = [
         'layout': 'max'
     },
 ]
+
+group_names = [group['name'] for group in group_list]
+
+num_groups = len(group_list)
 
 ##################################################
 # Applications
@@ -499,7 +463,7 @@ keys = [
 ##################################################
 # Groups
 
-groups = [Group(group_names[i], matches=group_matches[i], layout=group_layouts[i]) for i in range(num_groups)]
+groups = [Group(group_list[i]['name'], matches=group_list[i]['matches'], layout=group_list[i]['layout']) for i in range(num_groups)]
 
 dgroups_app_rules = [
     Rule(Match(wm_class=['et', 'wps', 'wpp']), float=False, intrusive=True),
@@ -508,9 +472,9 @@ dgroups_app_rules = [
 for k, group in zip(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], groups):
 # for k, group in zip(['1', '2', '3', '4', '5', '6', '7', '8', '9', 'grave'], groups):
     keys.extend([
-        Key([mod], k, lazy.group[group.name].toscreen(), desc='Switch to group {}'.format(group_translated_names[group.name])),
-        # Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=True), desc='Switch to & move focused window to group {}'.format(group_translated_names[group.name]))
-        Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=False), desc='Move focused window to group {}'.format(group_translated_names[group.name]))
+        Key([mod], k, lazy.group[group.name].toscreen(), desc='Switch to group {}'.format(group.name)),
+        # Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=True), desc='Switch to & move focused window to group {}'.format(group.name))
+        Key([mod, 'shift'], k, lazy.window.togroup(group.name, switch_group=False), desc='Move focused window to group {}'.format(group.name))
     ])
 
 ##################################################
