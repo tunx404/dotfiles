@@ -20,7 +20,7 @@ alias exmonitorc4='xrandr --output DP-1-1 --mode 3840x2160 --pos 1920x0 --rotate
 
 # alias exmonitorh2='xrandr --output HDMI-0 --mode 2560x1440 --pos 4480x0 --rotate normal'
 # alias exmonitorh2l='xrandr --output HDMI-0 --mode 2560x1440 --pos 4480x0 --rotate left'
-alias exmonitorh2='xrandr --output HDMI-0 --mode 2560x1440 --pos 1920x0 --scale 1x1 --rotate normal'
+alias exmonitorh2='xrandr --output HDMI-1-2 --mode 1440x900 --pos 1920x0 --scale 1x1 --rotate normal'
 alias exmonitorh2l='xrandr --output HDMI-0 --mode 2560x1440 --pos 1920x0 --scale 1x1 --rotate left'
 alias exmonitorh4='xrandr --output HDMI-0 --mode 3840x2160 --pos 1920x0 --scale 1x1 --rotate normal'
 
@@ -107,6 +107,7 @@ alias mountrs720='sshfs rs720:/home/rs720 /home/anhlh33/SSHFS/rs720'
 alias mountfaceid-dev='sshfs faceid-dev:/home/ubuntu /home/anhlh33/SSHFS/faceid-dev'
 alias mountisilon='sshfs faceid-dev:/guardpro/gp-long-range/data-zoo /home/anhlh33/SSHFS/data-zoo'
 alias mountcloud='sshfs cloud-ac20:/srv /home/anhlh33/SSHFS/cloud-ac20'
+alias mountmac='sshfs mac:/Users/vinai_guest /home/anhlh33/SSHFS/mac'
 
 alias umountz43='sudo umount ~/SSHFS/z43'
 alias umountrs720='sudo umount ~/SSHFS/rs720'

@@ -58,6 +58,8 @@ bar_margin = [0, 0, layout_margin, 0]
 bar_background = tunx404_color_background
 bar_opacity = 1
 
+num_groups = 10
+
 # 
 group_names = [
     'DIR', # DIR
@@ -84,6 +86,33 @@ group_translated_names = {
     'SYS': 'SYS',
     'VM_': 'VM_',
 }
+
+# xprop
+group_matches = [
+    [Match(wm_class=['Nemo', 'Insync', 'krename', "FreeFileSync"])],
+    [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'whatsapp-nativefier-d40211', 'Thunderbird'])],
+    [Match(wm_class=['jetbrains-studio', 'code-oss', 'sun-awt-X11-XFramePeer', 'STM32CubeIDE'])],
+    [Match(wm_class=['qpdfview', 'pdf', 'pomotroid'])],
+    [Match(wm_class=['Subl'])],
+    [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'kuro', 'zoom', 'teams-for-linux', 'slack'])],
+    [Match(wm_class=['Darktable', 'Gimp-2.10', 'Spotify', 'Steam', 'resolve', 'csgo_linux64', 'hl2_linux'])],
+    [Match(wm_class=['Gnome-system-monitor', 'Cpupower-gui', 'Gnome-power-statistics'])],
+    [Match(wm_class=['Blueman-manager', 'Pavucontrol', 'Pamac-manager'])],
+    [Match(wm_class=['VirtualBox Manager', 'Vmware', 'TeamViewer', 'anydesk'])],
+]
+
+group_layouts = [
+    'columns',
+    'max',
+    'columns',
+    'columns',
+    'columns',
+    'columns',
+    'columns',
+    'columns',
+    'columns',
+    'max',
+]
 
 ##################################################
 # Applications
@@ -223,44 +252,45 @@ keys = [
     # Applications
 
     # DIR
-    Key([mod], 'e', lazy.function(app_to_group(group_names[0], file_manager)), desc='File manager'),
-    Key([mod], 'n', lazy.function(app_to_group(group_names[0], renamer)), desc='Renamer'),
-    Key([mod], 'h', lazy.function(app_to_group(group_names[0], video_encoder)), desc='Video encoder'),
-    Key([mod], 'b', lazy.function(app_to_group(group_names[0], file_backup)), desc='File backup'),
+    Key([mod], 'e', lazy.function(app_to_group('DIR', file_manager)), desc='File manager'),
+    Key([mod], 'n', lazy.function(app_to_group('DIR', renamer)), desc='Renamer'),
+    Key([mod], 'h', lazy.function(app_to_group('DIR', video_encoder)), desc='Video encoder'),
+    Key([mod], 'b', lazy.function(app_to_group('DIR', file_backup)), desc='File backup'),
     # WEB
-    Key([mod], 'c', lazy.function(app_to_group(group_names[1], browser)), desc='Browser'),
-    Key([mod], 'k', lazy.function(app_to_group(group_names[1], password_manager)), desc='Password manager'),
-    Key([mod], 'u', lazy.function(app_to_group(group_names[1], music_playlist)), desc='Music playlist'),
-    Key([mod], 'y', lazy.function(app_to_group(group_names[1], study_playlist)), desc='Study with me playlist'),
+    Key([mod], 'c', lazy.function(app_to_group('WEB', browser)), desc='Browser'),
+    Key([mod], 'k', lazy.function(app_to_group('WEB', password_manager)), desc='Password manager'),
+    Key([mod], 'u', lazy.function(app_to_group('WEB', music_playlist)), desc='Music playlist'),
+    Key([mod], 'y', lazy.function(app_to_group('WEB', study_playlist)), desc='Study with me playlist'),
+    # CLI
+    Key([mod], 't', lazy.function(app_to_group('CLI', text_editor)), desc='Text editor'),
     # DEV
-    Key([mod], 't', lazy.function(app_to_group(group_names[2], text_editor)), desc='Text editor'),
-    Key([mod, 'shift'], 't', lazy.function(app_to_group(group_names[3], code_editor)), desc='Code editor'),
+    Key([mod, 'shift'], 't', lazy.function(app_to_group('DEV', code_editor)), desc='Code editor'),
     # DOC
-    Key([mod], 'f', lazy.function(app_to_group(group_names[3], pdf_reader)), desc='PDF reader'),
-    Key([mod], 'o', lazy.function(app_to_group(group_names[3], pomodoro_timer)), desc='Pomodoro timer'),
-    Key([mod], 'comma',      lazy.function(app_to_group(group_names[3], spreadsheets)), desc='Spreadsheets'),
-    Key([mod], 'period',     lazy.function(app_to_group(group_names[3], writer)), desc='Writer'),
-    Key([mod], 'slash',      lazy.function(app_to_group(group_names[3], presentation)), desc='Presentation'),
-    Key([mod], 'semicolon',  lazy.function(app_to_group(group_names[3], pdf_reader_2)), desc='PDF reader 2'),
+    Key([mod], 'f',          lazy.function(app_to_group('DOC', pdf_reader)), desc='PDF reader'),
+    Key([mod], 'o',          lazy.function(app_to_group('DOC', pomodoro_timer)), desc='Pomodoro timer'),
+    Key([mod], 'comma',      lazy.function(app_to_group('DOC', spreadsheets)), desc='Spreadsheets'),
+    Key([mod], 'period',     lazy.function(app_to_group('DOC', writer)), desc='Writer'),
+    Key([mod], 'slash',      lazy.function(app_to_group('DOC', presentation)), desc='Presentation'),
+    Key([mod], 'semicolon',  lazy.function(app_to_group('DOC', pdf_reader_2)), desc='PDF reader 2'),
     # OFF
-    Key([mod], 'g', lazy.function(app_to_group(group_names[5], task_manager)), desc='Task manager'),
-    Key([mod], 'm', lazy.function(app_to_group(group_names[5], 'slack')),
+    Key([mod], 'g', lazy.function(app_to_group('OFF', task_manager)), desc='Task manager'),
+    Key([mod], 'm', lazy.function(app_to_group('OFF', 'slack')),
                     lazy.spawn('teams-for-linux'),
                     desc='Messenger'),
     # MM_
-    Key([mod], 'i', lazy.function(app_to_group(group_names[6], photo_library)), desc='Photo library'),
+    Key([mod], 'i', lazy.function(app_to_group('MM_', photo_library)), desc='Photo library'),
     # MON
-    Key([mod, 'shift'], 'm', lazy.function(app_to_group(group_names[7], system_monitor)), desc='System: System monitor'),
-    Key([mod, 'shift'], 'y', lazy.function(app_to_group(group_names[7], system_monitor_cli)), desc='System: System monitor CLI'),
-    Key([mod, 'shift'], 'f', lazy.function(app_to_group(group_names[7], cpu_freq_monitor)), desc='System: CPU frequency monitor'),
-    Key([mod, 'shift'], 'o', lazy.function(app_to_group(group_names[7], sensor_monitor)), desc='System: Sensor monitor'),
-    Key([mod, 'shift'], 'g', lazy.function(app_to_group(group_names[7], gpu_monitor)), desc='System: GPU monitor'),
-    Key([mod, 'shift'], 'b', lazy.function(app_to_group(group_names[7], battery_monitor)), desc='System: Battery monitor'),
+    Key([mod, 'shift'], 'm', lazy.function(app_to_group('MON', system_monitor)), desc='System: System monitor'),
+    Key([mod, 'shift'], 'y', lazy.function(app_to_group('MON', system_monitor_cli)), desc='System: System monitor CLI'),
+    Key([mod, 'shift'], 'f', lazy.function(app_to_group('MON', cpu_freq_monitor)), desc='System: CPU frequency monitor'),
+    Key([mod, 'shift'], 'o', lazy.function(app_to_group('MON', sensor_monitor)), desc='System: Sensor monitor'),
+    Key([mod, 'shift'], 'g', lazy.function(app_to_group('MON', gpu_monitor)), desc='System: GPU monitor'),
+    Key([mod, 'shift'], 'b', lazy.function(app_to_group('MON', battery_monitor)), desc='System: Battery monitor'),
     # SYS
-    Key([mod], 'v', lazy.function(app_to_group(group_names[8], volume_controller)),
-                    lazy.function(app_to_group(group_names[8], bluetooth_manager)), desc='Volume controller & Bluetooth manager'),
+    Key([mod], 'v', lazy.function(app_to_group('SYS', volume_controller)),
+                    lazy.function(app_to_group('SYS', bluetooth_manager)), desc='Volume controller & Bluetooth manager'),
     # VM_
-    Key([mod], 'j', lazy.function(app_to_group(group_names[9], virtual_machines)), desc='Virtual machines'),
+    Key([mod], 'j', lazy.function(app_to_group('VM_', virtual_machines)), desc='Virtual machines'),
     
     # OTHERS
     Key([mod], 'F1', lazy.spawn(key_bindings), desc='Key bindings'),
@@ -405,35 +435,6 @@ keys = [
 
 ##################################################
 # Groups
-
-num_groups = 10
-
-# xprop
-group_matches = [
-    [Match(wm_class=['Nemo', 'Insync', 'krename', "FreeFileSync"])],
-    [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'whatsapp-nativefier-d40211', 'Thunderbird'])],
-    [Match(wm_class=['Subl', 'jetbrains-studio', 'code-oss', 'sun-awt-X11-XFramePeer', 'STM32CubeIDE'])],
-    [Match(wm_class=['qpdfview', 'pdf', 'pomotroid'])],
-    [Match(wm_class=[])],
-    [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'kuro', 'zoom', 'teams-for-linux', 'slack'])],
-    [Match(wm_class=['Darktable', 'Gimp-2.10', 'Spotify', 'Steam', 'resolve', 'csgo_linux64', 'hl2_linux'])],
-    [Match(wm_class=['Gnome-system-monitor', 'Cpupower-gui', 'Gnome-power-statistics'])],
-    [Match(wm_class=['Blueman-manager', 'Pavucontrol', 'Pamac-manager'])],
-    [Match(wm_class=['VirtualBox Manager', 'Vmware', 'TeamViewer'])],
-]
-
-group_layouts = [
-    'columns',
-    'max',
-    'columns',
-    'columns',
-    'columns',
-    'columns',
-    'columns',
-    'columns',
-    'columns',
-    'max',
-]
 
 groups = [Group(group_names[i], matches=group_matches[i], layout=group_layouts[i]) for i in range(num_groups)]
 
