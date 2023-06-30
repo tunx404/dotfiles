@@ -114,6 +114,69 @@ group_layouts = [
     'max',
 ]
 
+groups_list = [
+    {
+        'name': 'DIR',
+        'translated_name': 'DIR',
+        'matches': [Match(wm_class=['Nemo', 'Insync', 'krename', "FreeFileSync"])],
+        'layout': 'columns'
+    },
+    {
+        'name': 'WEB',
+        'translated_name': 'WEB',
+        'matches': [Match(wm_class=['Google-chrome', 'Opera', 'KeePassXC', 'qBittorrent', 'Caprine', 'whatsapp-nativefier-d40211', 'Thunderbird'])],
+        'layout': 'max'
+    },
+    {
+        'name': 'CLI',
+        'translated_name': 'CLI',
+        'matches': [Match(wm_class=['Subl'])],
+        'layout': 'columns'
+    },
+    {
+        'name': 'DEV',
+        'translated_name': 'DEV',
+        'matches': [Match(wm_class=['jetbrains-studio', 'code-oss', 'sun-awt-X11-XFramePeer', 'STM32CubeIDE'])],
+        'layout': 'columns'
+    },
+    {
+        'name': 'DOC',
+        'translated_name': 'DOC',
+        'matches': [Match(wm_class=['qpdfview', 'pdf', 'pomotroid'])],
+        'layout': 'columns'
+    },
+    {
+        'name': 'OFF',
+        'translated_name': 'OFF',
+        'matches': [Match(wm_class=['et', 'wps', 'wpp', 'Lifeograph', 'kuro', 'zoom', 'teams-for-linux', 'slack'])],
+        'layout': 'columns'
+    },
+    {
+        'name': 'MM_',
+        'translated_name': 'MM_',
+        'matches': [Match(wm_class=['Darktable', 'Gimp-2.10', 'Spotify', 'Steam', 'resolve', 'csgo_linux64', 'hl2_linux'])],
+        'layout': 'columns'
+    },
+    {
+        'name': 'MON',
+        'translated_name': 'MON',
+        'matches': [Match(wm_class=['Gnome-system-monitor', 'Cpupower-gui', 'Gnome-power-statistics'])],
+        'layout': 'columns'
+    },
+    {
+        'name': 'SYS',
+        'translated_name': 'SYS',
+        'matches': [Match(wm_class=['Blueman-manager', 'Pavucontrol'])],
+        'layout': 'columns'
+    },
+    {
+        'name': 'VM_',
+        'translated_name': 'VM_',
+        'matches': [Match(wm_class=['VirtualBox Manager', 'Vmware', 'TeamViewer', 'anydesk'])],
+        'layout': 'max'
+    },
+]
+
 ##################################################
 # Applications
 
