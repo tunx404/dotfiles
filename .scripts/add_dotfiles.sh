@@ -8,7 +8,7 @@
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .config/sublime-text/Packages/User
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .config/qBittorrent
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .config/rofi
-/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .config/ulauncher
+# /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .config/ulauncher
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .config/cpupower_gui
 
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add .config/mimeapps.list
@@ -25,19 +25,20 @@
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .scripts
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .wallpapers
 
-/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .themes/*.tar.gz
-/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .themes/*.zip
-/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .icons/*.tar.gz
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .icons/*.zip
+/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .icons/*.tar.gz
+/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .themes/*.zip
+/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .themes/*.tar.gz
 
 # /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .Xresources
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .bashrc
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .bash_aliases
+/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .i8kmon
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .gitconfig
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .gitignore
+/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .tmux.conf
 # /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .xprofile
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .xinitrc
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .wallpapers
-/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .i8kmon
 
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME status
