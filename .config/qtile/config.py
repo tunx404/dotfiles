@@ -263,8 +263,6 @@ def window_to_next_screen(qtile):
 # Key bindings
 
 keys = [
-    # xev | grep 'keycode'
-
     ####################
     # Applications
 
@@ -279,12 +277,13 @@ keys = [
     Key([mod], 'u', lazy.function(app_to_group('WEB', music_playlist)), desc='Music playlist'),
     Key([mod], 'y', lazy.function(app_to_group('WEB', study_playlist)), desc='Study with me playlist'),
     Key([mod], 'm', lazy.function(app_to_group('WEB', messenger2)), desc='Messenger'),
-    # DEV
+    # CLI
     Key([mod], 't', lazy.function(app_to_group('CLI', text_editor)), desc='Text editor'),
+    # DEV
     Key([mod, 'shift'], 't', lazy.function(app_to_group('DEV', code_editor)), desc='Code editor'),
     # DOC
-    Key([mod], 'f', lazy.function(app_to_group('DOC', pdf_reader)), desc='PDF reader'),
-    Key([mod], 'o', lazy.function(app_to_group('DOC', pomodoro_timer)), desc='Pomodoro timer'),
+    Key([mod], 'f',          lazy.function(app_to_group('DOC', pdf_reader)), desc='PDF reader'),
+    Key([mod], 'o',          lazy.function(app_to_group('DOC', pomodoro_timer)), desc='Pomodoro timer'),
     Key([mod], 'comma',      lazy.function(app_to_group('DOC', spreadsheets)), desc='Spreadsheets'),
     Key([mod], 'period',     lazy.function(app_to_group('DOC', writer)), desc='Writer'),
     Key([mod], 'slash',      lazy.function(app_to_group('DOC', presentation)), desc='Presentation'),
@@ -446,7 +445,6 @@ keys = [
 ##################################################
 # Groups
 
-# groups = [Group(group_names[i], matches=group_matches[i], layout=group_layouts[i]) for i in range(num_groups)]
 groups = [Group(group_list[i]['name'], matches=group_list[i]['matches'], layout=group_list[i]['layout']) for i in range(num_groups)]
 
 dgroups_app_rules = [
