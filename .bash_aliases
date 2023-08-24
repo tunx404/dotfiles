@@ -40,6 +40,7 @@ alias updateall='updatepkg'
 
 alias checkppa='cd /etc/apt/sources.list'
 alias checksource='cat /etc/apt/sources.list'
+alias editsource='sudo nano /etc/apt/sources.list'
 
 alias dd='sudo dd status=progress'
 alias ssh='TERM=xterm-256color ssh'
@@ -105,14 +106,14 @@ alias mountnouvohcm='sshfs nouvo-hcm:/home/ubuntu /home/anhlh33/SSHFS/nouvo-hcm'
 alias mountnouvo='sshfs nouvo:/home/ubuntu /home/anhlh33/SSHFS/nouvo'
 alias mountrs720='sshfs rs720:/home/rs720 /home/anhlh33/SSHFS/rs720'
 alias mountfaceid-dev='sshfs faceid-dev:/home/ubuntu /home/anhlh33/SSHFS/faceid-dev'
-alias mountisilon='sshfs faceid-dev:/guardpro/gp-long-range/data-zoo /home/anhlh33/SSHFS/data-zoo'
+alias mountisilon='sshfs dgx-truongsa:/guardpro/gp-short-range/VinhomesAttendanceApp /home/anhlh33/SSHFS/VinhomesAttendanceApp'
 alias mountcloud='sshfs cloud-ac20:/srv /home/anhlh33/SSHFS/cloud-ac20'
-alias mountmac='sshfs mac:/Users/vinai_guest /home/anhlh33/SSHFS/mac'
+alias mountmac='sshfs mac:/Users/lehoanganh /home/anhlh33/SSHFS/mac'
 
 alias umountz43='sudo umount ~/SSHFS/z43'
 alias umountrs720='sudo umount ~/SSHFS/rs720'
 alias umountcloud='sudo umount ~/SSHFS/cloud-ac20'
-alias umountall='for dir_path in ~/SSHFS/*; do sudo umount $dir_path; done'
+alias umountall='for dir_path in ~/SSHFS/*; do sudo umount -f $dir_path; done'
 
 alias rungpu='/home/anhlh33/Serving/docker/run_docker.sh'
 alias testgpu='docker start test_gpu && docker exec -it test_gpu bash'
@@ -126,9 +127,12 @@ alias runfaceid='/home/anhlh33/cctv-faceid-demo/docker/run_docker.sh'
 alias testfaceid='docker start faceid_demo && docker exec -it faceid_demo bash'
 alias delfaceid='docker stop faceid_demo && docker rm faceid_demo'
 
-alias runandroid='cd /home/anhlh33/Git/guardpro-android-sdk && ./run_docker.sh'
+alias runandroid='cd /home/anhlh33/Git/guardpro-android-sdk && ./docker/run_docker.sh'
 alias testandroid='docker start guardpro-android-sdk && docker exec -it guardpro-android-sdk bash'
 alias delandroid='docker stop guardpro-android-sdk && docker rm guardpro-android-sdk'
+alias testruntime='/home/anhlh33/Git/guardpro-android-sdk/docker/run_docker_runtime.sh'
+
+alias startvm='/home/anhlh33/SSD2/Backups/VMs/macOS-Simple-KVM/basic.sh'
 
 alias startandroid='/home/anhlh33/SSD1/Portable/Linux/android-studio/bin/studio.sh'
 

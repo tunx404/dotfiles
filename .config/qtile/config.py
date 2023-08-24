@@ -84,13 +84,13 @@ group_list = [
     {
         'name': 'DEV',
         'translated_name': 'DEV',
-        'matches': [Match(wm_class=['jetbrains-studio', 'code', 'code-oss', 'sun-awt-X11-XFramePeer', 'STM32CubeIDE'])],
+        'matches': [Match(wm_class=['code', 'code-oss', 'sun-awt-X11-XFramePeer', 'STM32CubeIDE'])],
         'layout': 'columns'
     },
     {
         'name': 'DOC',
         'translated_name': 'DOC',
-        'matches': [Match(wm_class=['qpdfview', 'pdf', 'pomotroid'])],
+        'matches': [Match(wm_class=['jetbrains-studio', 'qpdfview', 'pdf', 'pomotroid'])],
         'layout': 'columns'
     },
     {
@@ -120,7 +120,7 @@ group_list = [
     {
         'name': 'VM_',
         'translated_name': 'VM_',
-        'matches': [Match(wm_class=['VirtualBox Manager', 'Vmware', 'TeamViewer', 'anydesk'])],
+        'matches': [Match(wm_class=['VirtualBox Manager', 'Vmware', 'TeamViewer', 'anydesk', 'qemu-system-x86_64'])],
         'layout': 'max'
     },
 ]
