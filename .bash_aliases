@@ -18,10 +18,8 @@ alias exmonitorcfl='xrandr --output DP-1-1 --mode 1920x1080 --pos 1920x0 --rotat
 alias exmonitorc2='xrandr --output DP-1-1 --mode 2560x1440 --pos 1920x0 --rotate normal'
 alias exmonitorc4='xrandr --output DP-1-1 --mode 3840x2160 --pos 1920x0 --rotate normal'
 
-# alias exmonitorh2='xrandr --output HDMI-0 --mode 2560x1440 --pos 4480x0 --rotate normal'
-# alias exmonitorh2l='xrandr --output HDMI-0 --mode 2560x1440 --pos 4480x0 --rotate left'
-alias exmonitorh2='xrandr --output HDMI-1-2 --mode 1440x900 --pos 1920x0 --scale 1x1 --rotate normal'
-alias exmonitorh2l='xrandr --output HDMI-0 --mode 2560x1440 --pos 1920x0 --scale 1x1 --rotate left'
+alias exmonitorhf='xrandr --output HDMI-0 --mode 1920x1080 --pos 1920x0 --scale 1x1 --rotate normal'
+alias exmonitorh2='xrandr --output HDMI-0 --mode 2560x1440 --pos 1920x0 --scale 1x1 --rotate left'
 alias exmonitorh4='xrandr --output HDMI-0 --mode 3840x2160 --pos 1920x0 --scale 1x1 --rotate normal'
 
 ##################################################
@@ -145,7 +143,7 @@ alias rtspserver='RTSP_RTSPADDRESS="127.0.0.1:8556" ~/Portable/Linux/RTSP/rtsp-s
 alias makej='make -j$(nproc)'
 
 alias gl='git log'
-alias gf='git fetch -p && git status'
+alias gf='git fetch --prune --prune-tags && git status'
 alias gs='git status'
 
 function gcp () {

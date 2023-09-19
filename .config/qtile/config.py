@@ -625,25 +625,25 @@ def init_widget_list_right_1():
         separator_text(color=0),
         widget.DF(
             partition='/',
-            format='/ {uf}',
+            format='R {uf} ',
             visible_on_warn=False,
             background=tunx404_color_background
         ),
         widget.DF(
             partition='/home/anhlh33/SSD1',
-            format='_ S {uf}',
+            format='S {uf}',
             visible_on_warn=False,
             background=tunx404_color_background
         ),
         widget.DF(
             partition='/home/anhlh33/SSD2',
-            format='{uf}',
+            format='{uf} ',
             visible_on_warn=False,
             background=tunx404_color_background
         ),
         widget.DF(
             partition='/home/anhlh33/VinAI',
-            format='_ V {uf}',
+            format='V {uf}',
             visible_on_warn=False,
             background=tunx404_color_background
         ),
