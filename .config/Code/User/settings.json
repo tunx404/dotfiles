@@ -1,0 +1,19 @@
+{
+    "python.defaultInterpreterPath": "python3",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
+    },
+    "git.autofetch": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+        "editor.formatOnSave": true
+    },
+    "clang-format.style": "file",
+    "workbench.colorTheme": "Dracula",
+    "workbench.startupEditor": "none",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "gitlens.views.branches.branches.layout": "list",
+    "window.zoomLevel": 1,
+}

@@ -1,4 +1,5 @@
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .config/alacritty
+/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .config/Code/User/settings.json
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .config/fusuma
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .config/logid
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .config/nitrogen
