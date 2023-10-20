@@ -1,0 +1,4 @@
+import = ["/home/anhlh33/.config/alacritty/dracula.toml"]
+
+[font]
+size = 7.0

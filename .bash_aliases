@@ -78,6 +78,8 @@ alias stopdlna='killall minidlnad'
 alias sshot='scrot -s IMG_%Y%m%d_%H%M%S.png -e '\''mv $f ~/Miscellaneous'\'
 alias genqtile='mkdir -p ~/Cloud/Google\ Drive\ 1/Miscellaneous/Qtile && python3.9 ~/.config/qtile/gen-keybinding-img -c ~/.config/qtile/config.py -o ~/Cloud/Google\ Drive\ 1/Miscellaneous/Qtile'
 
+alias duall='du -hcs .[^.]*'
+
 ##################################################
 # Miscellaneous
 
@@ -85,11 +87,15 @@ alias mountmtp='aft-mtp-mount ~/MTP'
 alias mountftp='curlftpfs 10.10.10.10/Gargoyle ~/Gargoyle -o'
 
 ##################################################
-# Projects
+# Git
 
-alias fintec='cd ~/Cloud/Google\ Drive\ 1/Projects/Fintecism/financialadvisor && conda activate fin && jupyter-lab'
+alias gl='git log'
+alias gf='git fetch --prune --prune-tags && git status'
+alias gs='git status'
 
-alias makevideo='ffmpeg -framerate 24 -pattern_type glob -i "*.png" -c:v libx264 -pix_fmt yuv420p -vf "crop=trunc(iw/2)*2:trunc(ih/2)*2" 0.mp4'
+function gcp () {
+    git commit -m "$1"
+}
 
 ##################################################
 # VinAI
@@ -99,18 +105,16 @@ alias sshfs='sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3'
 alias z43='ssh z43'
 alias rs720='ssh rs720'
 
-alias mountz43='sshfs z43:/home/ubuntuz43 /home/anhlh33/SSHFS/z43'
-alias mountnouvohcm='sshfs nouvo-hcm:/home/ubuntu /home/anhlh33/SSHFS/nouvo-hcm'
-alias mountnouvo='sshfs nouvo:/home/ubuntu /home/anhlh33/SSHFS/nouvo'
-alias mountrs720='sshfs rs720:/home/rs720 /home/anhlh33/SSHFS/rs720'
-alias mountfaceid-dev='sshfs faceid-dev:/home/ubuntu /home/anhlh33/SSHFS/faceid-dev'
-alias mountisilon='sshfs dgx-truongsa:/guardpro/gp-short-range/VinhomesAttendanceApp /home/anhlh33/SSHFS/VinhomesAttendanceApp'
-alias mountcloud='sshfs cloud-ac20:/srv /home/anhlh33/SSHFS/cloud-ac20'
-alias mountmac='sshfs mac:/Users/lehoanganh /home/anhlh33/SSHFS/mac'
+alias mountz43='sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 z43:/home/ubuntuz43 /home/anhlh33/SSHFS/z43'
+alias mountnouvohcm='sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 nouvo-hcm:/home/ubuntu /home/anhlh33/SSHFS/nouvo-hcm'
+alias mountnouvo='sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 nouvo:/home/ubuntu /home/anhlh33/SSHFS/nouvo'
+alias mountrs720='sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 rs720:/home/rs720 /home/anhlh33/SSHFS/rs720'
+alias mountfaceid-dev='sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 faceid-dev:/home/ubuntu /home/anhlh33/SSHFS/faceid-dev'
+alias mountisilon='sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 dgx-truongsa:/guardpro /home/anhlh33/SSHFS/isilon'
+alias mountmac='sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 mac:/Users/lehoanganh /home/anhlh33/SSHFS/mac'
 
 alias umountz43='sudo umount ~/SSHFS/z43'
 alias umountrs720='sudo umount ~/SSHFS/rs720'
-alias umountcloud='sudo umount ~/SSHFS/cloud-ac20'
 alias umountall='for dir_path in ~/SSHFS/*; do sudo umount -f $dir_path; done'
 
 alias rungpu='/home/anhlh33/Serving/docker/run_docker.sh'
@@ -142,10 +146,4 @@ alias rtspserver='RTSP_RTSPADDRESS="127.0.0.1:8556" ~/Portable/Linux/RTSP/rtsp-s
 
 alias makej='make -j$(nproc)'
 
-alias gl='git log'
-alias gf='git fetch --prune --prune-tags && git status'
-alias gs='git status'
-
-function gcp () {
-    git commit -m "$1"
-}
+alias makevideo='ffmpeg -framerate 24 -pattern_type glob -i "*.png" -c:v libx264 -pix_fmt yuv420p -vf "crop=trunc(iw/2)*2:trunc(ih/2)*2" 0.mp4'

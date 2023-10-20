@@ -165,3 +165,13 @@ export PATH=$PATH:$HOME/.minio-binaries/
 export LD_LIBRARY_PATH=/home/anhlh33/.local/lib/python3.9/site-packages/paddle_serving_server/serving-gpu-112-0.9.0:$LD_LIBRARY_PATH
 
 export LD_LIBRARY_PATH=/home/anhlh33/VinAI/Libraries/cuda-10.2:$LD_LIBRARY_PATH
+
+
+##################################################
+# SNPE
+
+export SNPE_ROOT=~/VinAI/BIN/SNPE/snpe-1.66.0.3729
+# export SNPE_ROOT=/opt/qcom/aistack/snpe/2.15.0.230926
+export LD_LIBRARY_PATH=${SNPE_ROOT}/lib/x86_64-linux-clang:$LD_LIBRARY_PATH
+export ANDROID_NDK_ROOT=~/Android/Sdk/ndk/23.1.7779620
+export PYTHONPATH=${PYTHONPATH}:${SNPE_ROOT}/lib/python
