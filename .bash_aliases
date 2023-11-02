@@ -136,7 +136,7 @@ alias testruntime='/home/anhlh33/Git/guardpro-android-sdk/docker/run_docker_runt
 
 alias startvm='/home/anhlh33/SSD2/Backups/VMs/macOS-Simple-KVM/basic.sh'
 
-alias startandroid='/home/anhlh33/SSD1/Portable/Linux/android-studio/bin/studio.sh'
+alias startandroid='/home/anhlh33/VinAI/Portable/android-studio/bin/studio.sh'
 
 alias startmongo='sudo mongod --dbpath /var/lib/mongo'
 
