@@ -60,6 +60,8 @@ alias testqtile='python3.9 -m py_compile ~/.config/qtile/config.py'
 
 alias resetsound='pulseaudio -k'
 
+alias checkssdtemp='sudo smartctl -a /dev/sda | grep -e "Device Model" -e "Temperature" && echo "" && sudo smartctl -a /dev/nvme0n1 | grep -e "Model Number" -e "Temperature:"'
+
 ##################################################
 # Reset
 
@@ -147,3 +149,6 @@ alias rtspserver='RTSP_RTSPADDRESS="127.0.0.1:8556" ~/Portable/Linux/RTSP/rtsp-s
 alias makej='make -j$(nproc)'
 
 alias makevideo='ffmpeg -framerate 24 -pattern_type glob -i "*.png" -c:v libx264 -pix_fmt yuv420p -vf "crop=trunc(iw/2)*2:trunc(ih/2)*2" 0.mp4'
+
+alias startcompose='docker compose up'
+alias stopcompose='docker compose down --rmi local'
