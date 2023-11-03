@@ -171,8 +171,9 @@ photo_library = 'darktable'
 # MON
 system_monitor = 'gnome-system-monitor'
 system_monitor_cli = terminal + ' -e htop'
-cpu_freq_monitor = terminal + ' -e watch -n1 "grep \"MHz\" /proc/cpuinfo"'
-sensor_monitor = terminal + ' -e watch i8kctl' # ' -e watch sensors'
+# cpu_freq_monitor = terminal + ' -e watch -n1 "grep \"MHz\" /proc/cpuinfo"'
+cpu_freq_monitor = 'zenmonitor'
+sensor_monitor = terminal + ' -e watch sensors'
 gpu_monitor = terminal + ' -e nvtop'
 battery_monitor = terminal + ' -e battop'
 # SYS
@@ -599,21 +600,43 @@ def init_widget_list():
         widget.ThermalSensor(
             foreground=tunx404_color_foreground,
             foreground_alert=tunx404_color_red,
-            tag_sensor='Package id 0',
+            format='CPU {temp:.1f}{unit}',
+            tag_sensor='Tctl',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(sensor_monitor)},
             background=tunx404_color_background_2
         ),
 
         separator(direction='right', color=1),
-        widget.TextBox(text='', fontsize=16, background=tunx404_color_background),
-        widget.NvidiaSensors(
+        widget.TextBox(text='', fontsize=14, background=tunx404_color_background),
+        widget.ThermalSensor(
             foreground=tunx404_color_foreground,
             foreground_alert=tunx404_color_red,
-            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(gpu_monitor)},
+            format='NVME {temp:.1f}{unit}',
+            tag_sensor='Composite',
+            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(sensor_monitor)},
             background=tunx404_color_background
         ),
 
         separator(direction='right', color=2),
+        widget.TextBox(text='', fontsize=14, background=tunx404_color_background_2),
+        widget.ThermalSensor(
+            foreground=tunx404_color_foreground,
+            foreground_alert=tunx404_color_red,
+            tag_sensor='nvme-pci-0400',
+            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(sensor_monitor)},
+            background=tunx404_color_background_2
+        ),
+
+        # separator(direction='right', color=1),
+        # widget.TextBox(text='', fontsize=16, background=tunx404_color_background),
+        # widget.NvidiaSensors(
+        #     foreground=tunx404_color_foreground,
+        #     foreground_alert=tunx404_color_red,
+        #     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(gpu_monitor)},
+        #     background=tunx404_color_background
+        # ),
+
+        separator(direction='right', color=1),
         widget.TextBox(text='', fontsize=16, background=tunx404_color_background_2),
         widget.PulseVolume(
             limit_max_volume=True,
@@ -621,15 +644,15 @@ def init_widget_list():
             background=tunx404_color_background_2
         ),
 
-        separator(direction='right', color=1),
-        widget.TextBox(text='🔋', fontsize=16, background=tunx404_color_background),
-        widget.Battery(
-            format='{char} {percent:2.0%} {watt:.2f} W',
-            # format='{char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W',
-            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(battery_monitor)},
-            update_interval=10,
-            background=tunx404_color_background
-        ),
+        # separator(direction='right', color=1),
+        # widget.TextBox(text='🔋', fontsize=16, background=tunx404_color_background),
+        # widget.Battery(
+        #     format='{char} {percent:2.0%} {watt:.2f} W',
+        #     # format='{char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W',
+        #     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(battery_monitor)},
+        #     update_interval=10,
+        #     background=tunx404_color_background
+        # ),
 
         separator(direction='right', color=2),
         widget.TextBox(text='', fontsize=14, background=tunx404_color_background_2),
