@@ -173,6 +173,7 @@ application/x-trash=sublime_text.desktop
 x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc=_opt_stm32cubeide_.desktop
 application/x-zerosize=sublime_text.desktop
 application/vnd.oasis.opendocument.spreadsheet=wps-office-et.desktop
+audio/x-pn-audibleaudio=org.gnome.FileRoller.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=userapp-Thunderbird-QW16B1.desktop;
@@ -222,3 +223,4 @@ image/gif=org.gnome.eog.desktop;
 application/x-zerosize=sublime_text.desktop;
 video/mp2t=smplayer.desktop;vlc.desktop;
 application/vnd.oasis.opendocument.spreadsheet=wps-office-et.desktop;
+audio/x-pn-audibleaudio=org.gnome.FileRoller.desktop;

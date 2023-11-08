@@ -55,3 +55,4 @@ fi
 # exec xterm -geometry 80x66+0+0 -name login
 
 qtile start
+

@@ -588,7 +588,7 @@ def init_widget_list():
         separator(direction='right', color=1),
         widget.TextBox(text='', fontsize=16, background=tunx404_color_background),
         widget.Net(
-            interface='wlan0',
+            interface='enp6s0',
             format='{down:.2f}{down_suffix} ↓↑ {up:.2f}{up_suffix}',
             prefix='M',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor)},
