@@ -15,5 +15,4 @@
     "workbench.startupEditor": "none",
     "terminal.integrated.enableMultiLinePasteWarning": false,
     "gitlens.views.branches.branches.layout": "list",
-    "window.zoomLevel": 1,
 }
