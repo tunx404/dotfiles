@@ -630,18 +630,6 @@ def init_widget_list_right_1():
             background=tunx404_color_background
         ),
         widget.DF(
-            partition='/home/anhlh33/SSD1',
-            format='S {uf}',
-            visible_on_warn=False,
-            background=tunx404_color_background
-        ),
-        widget.DF(
-            partition='/home/anhlh33/SSD2',
-            format='{uf} ',
-            visible_on_warn=False,
-            background=tunx404_color_background
-        ),
-        widget.DF(
             partition='/home/anhlh33/VinAI',
             format='V {uf}',
             visible_on_warn=False,
@@ -651,7 +639,7 @@ def init_widget_list_right_1():
         separator(direction='right', color=1),
         separator_text(color=1),
         widget.Net(
-            interface='wlp61s0',
+            interface='wlp60s0',
             format='{down} ⇵ {up}',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(system_monitor)},
             background=tunx404_color_background_1
